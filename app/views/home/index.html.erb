@@ -1,0 +1,7 @@
+<h1>A&M Bread Express</h1>
+
+<p> Write someting here
+</p>
+<% unless current_user %>
+	<p>If you are a vet, <%= link_to "click here to login.", login_path %></p>
+<% end %>
