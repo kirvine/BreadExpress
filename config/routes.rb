@@ -12,5 +12,5 @@ BreadExpress::Application.routes.draw do
   resources :orders
 
   # You can have the root of your site routed with 'root'
-  # root 'home#index'
+  root 'home#index'
 end
