@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
 
 	def index
 		# find all customers in alphabetical order
-		@customer = Customer.active.alphabetical.paginate(page: params[:page]).per_page(10)
+		@customers = Customer.active.alphabetical.paginate(page: params[:page]).per_page(10)
 	end
 
 	def new
