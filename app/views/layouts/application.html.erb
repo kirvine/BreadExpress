@@ -13,18 +13,31 @@
   </head>
 
   <body>
+    <!-- NAVIGATION BEGIN -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+        <div class="col s12">
+          <a href="#" class="brand-logo">Logo</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><%= link_to 'Home', home_path %></li>
+            <li><%= link_to 'About Us', about_path %></li>
+            <li><%= link_to 'Contact Us', contact_path %></li>
+            <li><%= link_to 'Privacy Policy', privacy_path %></li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+    </div>
+    
+    <!-- BACKGROUND CONTAINER BEGIN -->
     <div class="container">
       <div class="row">
-        <div class="col s8">
+        <div class="col s12">
           <!-- MAIN CONTENT GOES HERE -->
           <%= yield %>
           <%= javascript_include_tag "application" %>
-        </div>
-
-        <br><br><br>
-
-        <div class="col s3 offset-s1 card">
-          <!-- SIDEBAR CONTENT GOES HERE -->
         </div>
       </div>
     </div>
