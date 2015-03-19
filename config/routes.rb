@@ -8,7 +8,7 @@ BreadExpress::Application.routes.draw do
 
   # Resource routes (maps HTTP verbs to controller actions automatically):
   resources :addresses
-  resources :cusomers
+  resources :customers
   resources :orders
 
   # You can have the root of your site routed with 'root'
