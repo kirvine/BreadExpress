@@ -7,8 +7,9 @@ class CustomersController < ApplicationController
 	end
 
   def show
+    @order_history = @customer.orders.paid.to_a
   end
-  
+
 	def new
     @customer = Customer.new
   end
@@ -32,7 +33,7 @@ class CustomersController < ApplicationController
 
   def destroy
     @customer.destroy
-    redirect_to customers_url
+    redirect_to customers_url, notice: "#{@customer.name} was successfully removed from the system."
   end
 
 	private
