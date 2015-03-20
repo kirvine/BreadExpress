@@ -1,9 +1,8 @@
 <h2>Customer Information:</h2>
+<b>A Bread Express customer since <%= @customer.created_at.strftime("%Y") %></b><br /><br />
+
 <b>Name:&nbsp;&nbsp;</b><br>
   <%= @customer.first_name %> <%= @customer.last_name %><br /><br />
-
-<b>A Bread Express customer since&nbsp;&nbsp;</b><br>
-  <%= @customer.created_at.strftime("%m/%d/%y") %><br>
 
 <b>Phone:&nbsp;&nbsp;</b><br>
   <%= number_to_phone(@customer.phone) %><br /><br />

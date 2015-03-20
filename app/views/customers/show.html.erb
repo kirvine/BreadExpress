@@ -1,26 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>First name:</b>
-  <%= @customer.first_name %>
+<table>
+	<tr valign="top">	
+		<td width="300">
+			<%= render partial: "customer_data" %>
+		</td>
+		<td width="10">&nbsp;</td>
+		<td width="250">
+			<% unless @order_history.empty? %>
+		  	<%= render partial: "order_history" %>
+			<% end %>
+		</td>
+	</tr>
+</table>
+<p class="smtext">&nbsp;</p>
+<p>&nbsp;
+  <%= link_to "Edit", edit_customer_path(@customer) %> |
+  <%= link_to "Destroy", @customer, method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' } %> |
+  <%= link_to "View All", customers_path %>
 </p>
-
-<p>
-  <b>Last name:</b>
-  <%= @customer.last_name %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @customer.phone %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @customer.email %>
-</p>
-
-<%= render :partial => "customer_data" %>
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>

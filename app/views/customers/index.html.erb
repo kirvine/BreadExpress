@@ -14,8 +14,9 @@
 <% @customers.each do |customer| %>
   <tr>
     <td><%= link_to customer.name, customer_path(customer) %></td>
-    <td><%= customer.phone %></td>
-    <td><%= customer.email %></td>
+    <td><%= number_to_phone customer.phone %></td>
+    <td><%= mail_to customer.email, customer.email, encode: "javascript" %></td>
+      <td align="center">
     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
     <td><%= link_to 'Destroy', customer, data: { confirm: 'Are you sure?' }, method: :delete %></td>
   </tr>
