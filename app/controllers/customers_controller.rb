@@ -6,6 +6,9 @@ class CustomersController < ApplicationController
 		@customers = Customer.active.alphabetical.paginate(page: params[:page]).per_page(10)
 	end
 
+  def show
+  end
+  
 	def new
     @customer = Customer.new
   end

@@ -11,27 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="input-field col s6">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :phone %><br />
+      <%= f.text_field :phone %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  <div class="row">
+    <form action="#">
+      <p>
+        <input type="checkbox" id="active" checked="checked" />
+        <label for="active">Active</label>
+      </p>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, class: 'btn' %>
+    <%= link_to 'Cancel', customers_path, :class => 'btn deep-orange lighten-3' %>
   </div>
 <% end %>
