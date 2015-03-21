@@ -1,5 +1,4 @@
 <h2>Customer Information:</h2>
-<b>A Bread Express customer since <%= @customer.created_at.strftime("%Y") %></b><br /><br />
 
 <b>Name:&nbsp;&nbsp;</b><br>
   <%= @customer.first_name %> <%= @customer.last_name %><br /><br />
@@ -9,3 +8,6 @@
 
 <b>Email:&nbsp;&nbsp;</b><br>
   <%= mail_to @customer.email, @customer.email, encode: "javascript" %>
+<br /><br />
+
+<b>A Bread Express customer since <%= @customer.created_at.strftime("%Y") %></b>

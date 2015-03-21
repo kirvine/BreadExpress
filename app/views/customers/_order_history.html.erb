@@ -1,16 +1,16 @@
-<h2>Order History</h2>
+<h2>Order History:</h2>
 <table class="striped">
-  <thead>
+  <thead valign="top">
     <tr>
       <th data-field="id">Date</th>
       <th data-field="name">Amount</th>
     </tr>
   </thead>
 
-<% @order_history.each do |order| %>
+<% for order in @order_history %>
   <tr>
-    <td><%= order.date.strftime("%m-%d-%Y") %></td>
-    <td><%= order.grand_total %></td>
+    <td align="left"><%= link_to order.date.strftime("%m/%d/%Y"), order_path(order) %></td>
+    <td align="left">$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
   </tr>
 <% end %>
 </table>

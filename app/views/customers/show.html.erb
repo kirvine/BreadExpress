@@ -1,12 +1,12 @@
+<p id="notice"><%= notice %></p>
+
 <table>
 	<tr valign="top">	
-		<td width="300">
-			<%= render partial: "customer_data" %>
-		</td>
+		<td width="300"><%= render partial: "customer_data" %></td>
 		<td width="10">&nbsp;</td>
 		<td width="250">
 			<% unless @order_history.empty? %>
-		  	<%= render partial: "order_history" %>
+			  <%= render partial: "order_history" %>
 			<% end %>
 		</td>
 	</tr>

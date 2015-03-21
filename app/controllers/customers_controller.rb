@@ -3,11 +3,22 @@ class CustomersController < ApplicationController
 
 	def index
 		# find all customers in alphabetical order
-		@customers = Customer.active.alphabetical.paginate(page: params[:page]).per_page(10)
+		@customers = Customer.alphabetical.paginate(page: params[:page]).per_page(10)
 	end
 
+  # this is special action that gives a list of active customers
+  def active
+    @customers = Customer.active.alphabetical.paginate(page: params[:page]).per_page(10)
+  end
+  
+  # this is special action that gives a list of inactive customers
+  def inactive
+    @customers = Customer.inactive.alphabetical.paginate(page: params[:page]).per_page(10)
+  end
+
   def show
-    @order_history = @customer.orders.paid.to_a
+    # show all the orders place by this custoemr
+    @order_history = @customer.orders.chronological.to_a
   end
 
 	def new
@@ -42,6 +53,6 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(:first_name, :last_name)
+    params.require(:customer).permit(:first_name, :last_name, :phone, :email, :active)
   end
 end
