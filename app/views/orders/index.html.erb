@@ -1,0 +1,37 @@
+<h2>All Orders</h2>
+
+<% unless @active_customers.empty? %>
+  <br /><br />
+  <table class="striped">
+    <thead>
+      <tr>
+        <th data-field="id">Date</th>
+        <th data-field="name">Customer</th>
+        <th data-field="price">Recipient</th>
+        <th data-field="price">Cost</th>
+        <th data-field="edit">Edit</th>
+        <th data-field="destroy">Destroy</th>
+      </tr>
+    </thead>
+
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= link_to order.date.strftime("%m/%d/%Y"), order_path(order) %></td>
+      <td><%= order.customer.proper_name %></td>
+      <td><%= order.address.recipient %></td>
+      <td>$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
+      <td><%= link_to 'Edit', edit_order_path(order) %></td>
+      <td><%= link_to 'Destroy', order, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+  <br />
+  <!-- Add the pagination using will_paginate gem -->
+  <span class="paginate">
+  <%= will_paginate @orders, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+  </span>
+  <br /><br /><br />
+  <% else %>
+  <p>No orders at this time</p>
+<% end %>
+

@@ -2,9 +2,14 @@ class OrdersController < ApplicationController
 	before_action :set_order, only: [:show, :edit, :update, :destroy]
 
 	def index
-		# find all orders
-		@order = Order.paid.for_customer.chronological.paginate(page: params[:page]).per_page(10)
+		# list all orders that have been paid for
+		@orders = Order.chronological.paginate(page: params[:page]).per_page(10)
 	end
+
+  def show
+    # list all the orders place by a specific customer
+    @order_history = @orders.for_customer(@customer).chronological.to_a
+  end
 
 	def new
     @order = Order.new
