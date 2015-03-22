@@ -63,9 +63,7 @@ Feature: Manage orders
   
   Scenario: The customer name is a link to customer details
     When I go to the orders page
-    Then show me the page
     And I click on the link "Flood, Ryan"
-    Then show me the page
     And I should see "Ryan Flood"
     And I should see "Phone"
     And I should see "Order History"
