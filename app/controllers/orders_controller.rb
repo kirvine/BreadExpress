@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 	end
 
   def show
-    @order_history = Order.for_customer(@order.customer).chronological.to_a
+    @order_history = @order.customer.orders.chronological.to_a
   end
 
 	def new

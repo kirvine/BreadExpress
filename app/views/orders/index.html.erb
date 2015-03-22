@@ -17,7 +17,7 @@
   <% @orders.each do |order| %>
     <tr>
       <td><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
-      <td><%= order.customer.proper_name %></td>
+      <td><%= link_to order.customer.name, customer_path(order.customer) %></td>
       <td><%= order.address.recipient %></td>
       <td align="right">$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
       <td><%= link_to 'Edit', edit_order_path(order) %></td>
@@ -35,3 +35,4 @@
   <p>There are no orders at this time</p>
 <% end %>
 
+<%= link_to 'New Order', new_order_path %>

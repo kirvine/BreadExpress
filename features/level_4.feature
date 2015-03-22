@@ -30,7 +30,6 @@ Feature: Manage orders
     And I should see "Cost"
     And I should see "Anthony Corletti"
     And I should see "Jeff Egan"
-    Then show me the page
     And I should see "02/14/15"
     And I should see "$22.50"
     And I should see "$16.50"
@@ -64,7 +63,9 @@ Feature: Manage orders
   
   Scenario: The customer name is a link to customer details
     When I go to the orders page
+    Then show me the page
     And I click on the link "Flood, Ryan"
+    Then show me the page
     And I should see "Ryan Flood"
     And I should see "Phone"
     And I should see "Order History"
@@ -80,7 +81,6 @@ Feature: Manage orders
     And I should see "Order History"
     And I should see "Date"
     And I should see "Amount"
-    Then show me the page
     And I should see "$22.50"
     And I should see "$5.25"
     And I should see "02/14/15"

@@ -9,8 +9,8 @@
 
 <% for order in @order_history %>
   <tr>
-    <td align="left"><%= @order.date.strftime("%m/%d/%y") %></td>
-    <td align="right">$<%= number_with_precision(@order.grand_total, :precision => 2) %></td>
+    <td align="left"><%= order.date.strftime("%m/%d/%y") %></td>
+    <td align="right">$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
   </tr>
 <% end %>
 </table>
