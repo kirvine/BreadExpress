@@ -24,13 +24,13 @@ class OrdersController < ApplicationController
     end
   end
 
-  # def update
-  #   if @order.update(order_params)
-  #     redirect_to order_path(@order), notice: "#{@order.name} was revised in the system."
-  #   else
-  #     render action: 'edit'
-  #   end
-  # end
+  def update
+    if @order.update(order_params)
+      redirect_to order_path(@order), notice: "#{@order.name} was revised in the system."
+    else
+      render action: 'edit'
+    end
+  end
 
   def destroy
     @order.destroy

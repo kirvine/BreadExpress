@@ -34,14 +34,10 @@
     </div>
   </div>
   <div class="row">
-    <form action="#">
-      <p>
-        <input type="checkbox" id="active" checked="checked" />
-        <label for="<%= customer.active %>">Active</label>
-        <%= f.label :active %><br />
-        <%= f.check_box :active %>
-      </p>
-    </div>
+    <p>
+      <%= f.check_box :active %>
+      <%= f.label :active %><br />
+    </p>
   </div>
   <div class="form-actions">
     <%= f.submit nil, class: 'btn' %>
