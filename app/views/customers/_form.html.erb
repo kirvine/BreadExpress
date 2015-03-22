@@ -37,7 +37,9 @@
     <form action="#">
       <p>
         <input type="checkbox" id="active" checked="checked" />
-        <label for="active">Active</label>
+        <label for="<%= customer.active %>">Active</label>
+        <%= f.label :active %><br />
+        <%= f.check_box :active %>
       </p>
     </div>
   </div>

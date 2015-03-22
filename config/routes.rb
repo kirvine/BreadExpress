@@ -11,10 +11,6 @@ BreadExpress::Application.routes.draw do
   get 'home/privacy', to: 'home#privacy', as: :privacy
   get 'home/search', to: 'home#search', as: :search
 
-  # Additional routes we've created for this project
-  get 'active' => 'customers#active', as: :active_customers
-  get 'inactive' => 'customers#inactive', as: :inactive_customers
-
   # You can have the root of your site routed with 'root'
   root 'home#index'
 end

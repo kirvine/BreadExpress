@@ -9,6 +9,7 @@ Feature: Manage customers
   # READ METHODS
   Scenario: No active customers yet
     Given no setup yet
+    Then show me the page
     When I go to the customers page
     Then I should see "No active customers at this time"
     And I should not see "Name"
