@@ -1,17 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h2>Order Details</h2>
 
 <p>
   <b>Recipient:</b>
-  <%= @order.recipient %>
+  <%= @order.address.recipient %>
 </p>
 
 <p>
-  <b>Last name:</b>
-  <%= @author.last_name %>
+  <b>Thanks for being a Bread Express customer since <%= @order.customer.created_at.strftime("%Y") %></b>
 </p>
 
-<%= render :partial => "list_of_books" %>
+<%= render partial: "order_history" %>
 
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<p id="notice"><%= notice %></p>

@@ -16,10 +16,10 @@
 
   <% @orders.each do |order| %>
     <tr>
-      <td><%= link_to order.date.strftime("%m/%d/%Y"), order_path(order) %></td>
+      <td><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
       <td><%= order.customer.proper_name %></td>
       <td><%= order.address.recipient %></td>
-      <td>$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
+      <td align="right">$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
       <td><%= link_to 'Edit', edit_order_path(order) %></td>
       <td><%= link_to 'Destroy', order, data: { confirm: 'Are you sure?' }, method: :delete %></td>
     </tr>
@@ -32,6 +32,6 @@
   </span>
   <br /><br /><br />
   <% else %>
-  <p>No orders at this time</p>
+  <p>There are no orders at this time</p>
 <% end %>
 
