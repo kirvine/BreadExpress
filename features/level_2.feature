@@ -79,6 +79,7 @@ Feature: Manage customers
   Scenario: The order date in #show is a link to order details
     When I go to Alex Egan details page
     And I click on the link "02/14/15"
+    Then show me the page
     And I should see "Recipient"
     And I should see "Jeff Egan"
     And I should see "Thanks for being a Bread Express customer since 2015."
