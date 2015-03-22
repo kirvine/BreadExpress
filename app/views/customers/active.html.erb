@@ -1,0 +1,37 @@
+<h2>Listing Active Customers</h2>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th data-field="id">Name</th>
+      <th data-field="name">Phone</th>
+      <th data-field="price">Email</th>
+      <th data-field="edit">Edit</th>
+      <th data-field="destroy">Destroy</th>
+    </tr>
+  </thead>
+
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= link_to customer.name, customer_path(customer) %></td>
+    <td><%= number_to_phone customer.phone %></td>
+    <td><%= mail_to customer.email, customer.email, encode: "javascript" %></td>
+      <td align="center">
+    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    <td><%= link_to 'Destroy', customer, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @customers, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<br />
+
+<ul class="options">Switch to:
+  <li><%= link_to 'All Customers', customers_path %></li>
+  <li><%= link_to 'Inactive Customers', inactive_customers_path %></li>
+  <li><%= link_to 'New Customer', new_customer_path %></li>
+</ul>

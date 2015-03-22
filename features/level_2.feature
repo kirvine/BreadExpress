@@ -9,7 +9,6 @@ Feature: Manage customers
   # READ METHODS
   Scenario: No active customers yet
     Given no setup yet
-    Then show me the page
     When I go to the customers page
     Then I should see "No active customers at this time"
     And I should not see "Name"
@@ -99,7 +98,6 @@ Feature: Manage customers
     And I fill in "customer_email" with "gruberman@example.com"
     And I press "Create Customer"
     Then I should see "Ed Gruberman was added to the system"
-    Then show me the page
     And I should see "Phone"
     And I should see "412-268-3228"
     And I should not see "Order History"
