@@ -31,7 +31,7 @@
           <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
           <td><%= address.recipient %></td>
           <td><%= address.street_1 %><br>
-              <% if address.street_2.nil? %>
+              <% if address.street_2.blank? %>
                 <%= address.city %>, <%= address.state %> <%= address.zip %>
               <% else %>
                 <%= address.street_2 %><br>
@@ -84,7 +84,7 @@
           <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
           <td><%= address.recipient %></td>
           <td><%= address.street_1 %><br>
-              <% if address.street_2.nil? %>
+              <% if address.street_2.blank? %>
                 <%= address.city %>, <%= address.state %> <%= address.zip %>
               <% else %>
                 <%= address.street_2 %><br>

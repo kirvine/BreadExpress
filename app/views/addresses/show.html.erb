@@ -1,13 +1,18 @@
-<%= address.street_1 %><br>
-<% if address.street_2.nil? %>
-  <%= address.city %>, <%= address.state %> <%= address.zip %>
+<p>
+<%= @address.recipient %><br>
+<%= @address.street_1 %><br>
+<% if @address.street_2.blank? %>
+  <%= @address.city %>, <%= @address.state %> <%= @address.zip %>
 <% else %>
-  <%= address.street_2 %><br>
-  <%= address.city %>, <%= address.state %> <%= address.zip %>
+  <%= @address.street_2 %><br>
+  <%= @address.city %>, <%= @address.state %> <%= @address.zip %>
 <% end %>
+
+<br><br>
 
 <%= link_to 'Edit', edit_address_path(@address) %> |
 <%= link_to "Destroy", @address, method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' } %> |
-<%= link_to 'Back', addresses_path %>
+<%= link_to 'All Addresses', addresses_path %>
+</p>
 
 <p id="notice"><%= notice %></p>
