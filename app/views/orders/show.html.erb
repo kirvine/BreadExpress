@@ -12,6 +12,7 @@
 <%= render partial: "order_history" %>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to "Destroy", @order, method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' } %> |
 <%= link_to 'Back', orders_path %>
 
 <p id="notice"><%= notice %></p>

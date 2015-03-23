@@ -10,3 +10,39 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= f.label :customer_id %><br />
+    <%= f.collection_select :customer_id, Customer.all, :id, :name, prompt: "Select ..." %>
+  </div>
+  <div class="field">
+    <%= f.label :recipient %><br />
+    <%= f.text_field :recipient %>
+  </div>
+  <div class="field">
+    <%= f.label :street_1 %><br />
+    <%= f.text_field :street_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :street_2 %><br />
+    <%= f.text_field :street_2 %>
+  </div>
+  <div class="row">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+    <%= f.label :state %><br />
+    <%= f.select(:state, Address::STATES_LIST) %>
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </div>
+  <div class="row">
+    <p>
+      <%= f.check_box :is_billing %>
+      <%= f.label :is_billing %><br />
+    </p>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, class: 'btn' %>
+    <%= link_to 'Cancel', addresses_path, :class => 'btn deep-orange lighten-3' %>
+  </div>
+<% end %>

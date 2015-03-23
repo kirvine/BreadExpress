@@ -78,6 +78,7 @@ Feature: Manage addresses
     And I fill in "address_city" with "Pittsburgh"
     And I select "Pennsylvania" from "address_state"
     And I fill in "address_zip" with "5237"
+    Then show me the page
     And I press "Create Address"
     Then I should see "should be five digits long"
     And I should not see "Pittsburgh, PA"
