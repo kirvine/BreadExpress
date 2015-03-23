@@ -40,4 +40,8 @@ class OrdersController < ApplicationController
 	def set_order
     @order = Order.find(params[:id])
   end
+
+  def order_params
+    params.require(:customer).permit(:date, :grand_total, :payment_reciept, :customer_id, :address_id)
+  end
 end

@@ -1,0 +1,111 @@
+<h2>Addresses</h2>
+
+<div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a class="active" href="#active">Active Addresses</a></li>
+        <li class="tab col s3"><a href="#inactive">Inactive Addresses</a></li>
+      </ul>
+    </div>
+
+
+    <div id="active" class="col s12">
+      <% unless @active_addresses.empty? %>
+      <br /><br />
+      <table class="striped">
+        <thead>
+          <tr>
+            <th data-field="customer">Customer</th>
+            <th data-field="recipient">Recipient</th>
+            <th data-field="address">Address</th>
+            <th data-field="is_billing">Billing?</th>
+            <th data-field="edit">Edit</th>
+            <th data-field="destroy">Destroy</th>
+          </tr>
+        </thead>
+
+      <% @active_addresses.each do |address| %>
+        <tr>
+          <td><%= link_to address.customer.name, customer_path(address.customer) %></td>
+          <td><%= address.recipient %></td>
+          <td><%= address.street_1 %><br>
+              <% if address.street_2.nil? %>
+                <%= address.city %>, <%= address.state %> <%= address.zip %>
+              <% else %>
+                <%= address.street_2 %><br>
+                <%= address.city %>, <%= address.state %> <%= address.zip %>
+              <% end %>
+          </td>
+          <td><%= address.is_billing %></td>
+          <td><%= link_to 'Edit', edit_address_path(address) %></td>
+          <td><%= link_to 'Destroy', address, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+        </tr>
+      <% end %>
+      </table>
+      <br />
+      <!-- Add the pagination using will_paginate gem -->
+      <span class="paginate">
+      <%= will_paginate @active_addresses, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+      </span>
+      <br /><br /><br />
+      <% else %>
+      <p>There are no active addresses at this time.</p>
+      <% end %>
+
+    </div>
+
+
+
+
+    <div id="inactive" class="col s12">
+      <% unless @inactive_addresses.empty? %>
+      <br /><br />
+      <table class="striped">
+        <thead>
+          <tr>
+            <th data-field="customer">Customer</th>
+            <th data-field="recipient">Recipient</th>
+            <th data-field="address">Address</th>
+            <th data-field="is_billing">Billing?</th>
+            <th data-field="edit">Edit</th>
+            <th data-field="destroy">Destroy</th>
+          </tr>
+        </thead>
+
+      <% @inactive_addresses.each do |address| %>
+        <tr>
+          <td><%= link_to address.customer.name, customer_path(address.customer) %></td>
+          <td><%= address.recipient %></td>
+          <td><%= address.street_1 %><br>
+              <% if address.street_2.nil? %>
+                <%= address.city %>, <%= address.state %> <%= address.zip %>
+              <% else %>
+                <%= address.street_2 %><br>
+                <%= address.city %>, <%= address.state %> <%= address.zip %>
+              <% end %>
+          </td>
+          <td><%= address.is_billing %></td>
+          <td><%= link_to 'Edit', edit_address_path(address) %></td>
+          <td><%= link_to 'Destroy', address, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+        </tr>
+      <% end %>
+      </table>
+      <br />
+      <!-- Add the pagination using will_paginate gem -->
+      <span class="paginate">
+      <%= will_paginate @inactive_addressess, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+      </span>
+      <br /><br /><br />
+      <% else %>
+      <p>There are no inactive addresses at this time.</p>
+      <% end %>
+    </div>
+
+
+  </div>
+
+<%= link_to 'New Address', new_address_path %>
+
+
+
+

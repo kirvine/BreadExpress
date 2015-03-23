@@ -2,8 +2,12 @@ class AddressesController < ApplicationController
 	before_action :set_address, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@address = Address.by_address.paginate(page: params[:page]).per_page(10)
-	end
+		@active_addresses = Address.active.by_customer.paginate(page: params[:page]).per_page(10)
+    @inactive_addresses = Address.inactive.by_customer.paginate(page: params[:page]).per_page(10)
+  end
+
+  def show
+  end
 
 	def new
     @address = Address.new
@@ -34,5 +38,9 @@ class AddressesController < ApplicationController
 	private
 	def set_address
     @address = Address.find(params[:id])
+  end
+
+  def address_params
+    params.require(:customer).permit(:customer_id, :is_billing, :recipient, :street_1, :street_2, :city, :state, :zip, :active)
   end
 end
