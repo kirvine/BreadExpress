@@ -28,7 +28,7 @@
 
       <% @active_addresses.each do |address| %>
         <tr>
-          <td><%= link_to address.customer.name, customer_path(address.customer) %></td>
+          <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
           <td><%= address.recipient %></td>
           <td><%= address.street_1 %><br>
               <% if address.street_2.nil? %>
@@ -81,7 +81,7 @@
 
       <% @inactive_addresses.each do |address| %>
         <tr>
-          <td><%= link_to address.customer.name, customer_path(address.customer) %></td>
+          <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
           <td><%= address.recipient %></td>
           <td><%= address.street_1 %><br>
               <% if address.street_2.nil? %>
