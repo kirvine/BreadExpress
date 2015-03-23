@@ -90,7 +90,6 @@ Feature: Manage addresses
     And I fill in "address_street_1" with "5001 Forbes"
     And I fill in "address_zip" with "15001"
     And I uncheck "address_is_billing"
-    Then show me the page
     And I press "Update Address"
     Then I should see "was revised in the system"
     And I should see "5001 Forbes"

@@ -1,0 +1,34 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h3>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address_id %><br />
+    <%= f.select :address_id, get_address_options, prompt: "Select ..." %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_id %><br />
+    <%= f.collection_select :customer_id, Customer.all, :id, :name, prompt: "Select ..." %>
+  </div>
+  <div class="field">
+    <%= f.label :address_id %><br />
+    <%= f.select :address_id, get_address_options, prompt: "Select ..." %>
+  </div>
+  <div class="field">
+    <%= f.label :grand_total %><br />
+    <%= f.text_field :grand_total %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, class: 'btn' %>
+    <%= link_to 'Cancel', addresses_path, :class => 'btn deep-orange lighten-3' %>
+  </div>
+<% end %>
