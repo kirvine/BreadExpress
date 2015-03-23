@@ -16,8 +16,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.date = Date.today
     if @order.save
-      @order.date = Date.today
       @order.pay
       redirect_to order_path(@order), notice: "Thank you for ordering from Bread Express."
     else

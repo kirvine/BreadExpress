@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :address_id %><br />
-    <%= f.select :address_id, get_address_options, prompt: "Select ..." %>
-  </div>
-  <div class="field">
     <%= f.label :customer_id %><br />
     <%= f.collection_select :customer_id, Customer.all, :id, :name, prompt: "Select ..." %>
   </div>

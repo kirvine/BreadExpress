@@ -1,10 +1,13 @@
 <h2>Order Details</h2>
 
 <p>
+  <b>Customer:</b>
+  <%= @order.customer.name %>
+</p>
+<p>
   <b>Recipient:</b>
   <%= @order.address.recipient %>
 </p>
-
 <p>
   <b>Thanks for being a Bread Express customer since <%= @order.customer.created_at.strftime("%Y") %>.</b>
 </p>
