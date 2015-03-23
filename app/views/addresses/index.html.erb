@@ -12,7 +12,9 @@
     <div id="active" class="col s12">
       <% unless @active_addresses.empty? %>
       <br /><br />
-      <table class="striped">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+      <table class="hoverable">
         <thead>
           <tr>
             <th data-field="customer">Customer</th>
@@ -36,12 +38,13 @@
                 <%= address.city %>, <%= address.state %> <%= address.zip %>
               <% end %>
           </td>
-          <td><%= address.is_billing %></td>
+          <td><%= address.is_billing ? "Yes" : "No" %></td>
           <td><%= link_to 'Edit', edit_address_path(address) %></td>
           <td><%= link_to 'Destroy', address, data: { confirm: 'Are you sure?' }, method: :delete %></td>
         </tr>
       <% end %>
       </table>
+    </div></div>
       <br />
       <!-- Add the pagination using will_paginate gem -->
       <span class="paginate">
@@ -49,7 +52,11 @@
       </span>
       <br /><br /><br />
       <% else %>
-      <p>There are no active addresses at this time.</p>
+      <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <p>There are no active addresses at this time.</p>
+          </div>
+      </div>
       <% end %>
 
     </div>
@@ -84,7 +91,7 @@
                 <%= address.city %>, <%= address.state %> <%= address.zip %>
               <% end %>
           </td>
-          <td><%= address.is_billing %></td>
+          <td><%= address.is_billing ? "Yes" : "No" %></td>
           <td><%= link_to 'Edit', edit_address_path(address) %></td>
           <td><%= link_to 'Destroy', address, data: { confirm: 'Are you sure?' }, method: :delete %></td>
         </tr>
@@ -93,11 +100,15 @@
       <br />
       <!-- Add the pagination using will_paginate gem -->
       <span class="paginate">
-      <%= will_paginate @inactive_addressess, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+      <%= will_paginate @inactive_addresses, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
       </span>
-      <br /><br /><br />
+      <br /><br />
       <% else %>
-      <p>There are no inactive addresses at this time.</p>
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>There are no inactive addresses at this time.</p>
+          </div>
+      </div>
       <% end %>
     </div>
 
@@ -105,7 +116,4 @@
   </div>
 
 <%= link_to 'New Address', new_address_path %>
-
-
-
 

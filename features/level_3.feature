@@ -9,7 +9,6 @@ Feature: Manage addresses
   # READ METHODS
   Scenario: No active addresses yet
     Given no setup yet
-    Then show me the page
     When I go to the addresses page
     Then I should see "There are no active addresses at this time."
     And I should not see "Recipient"
