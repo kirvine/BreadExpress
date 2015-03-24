@@ -11,9 +11,9 @@
 
     <div id="active" class="col s12">
       <% unless @active_addresses.empty? %>
-      <br /><br />
+      <br />
       <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
+      <div class="card-content white-text">
       <table class="hoverable">
         <thead>
           <tr>
@@ -21,8 +21,6 @@
             <th data-field="recipient">Recipient</th>
             <th data-field="address">Address</th>
             <th data-field="is_billing">Billing?</th>
-            <th data-field="edit">Edit</th>
-            <th data-field="destroy">Destroy</th>
           </tr>
         </thead>
 
@@ -39,8 +37,6 @@
               <% end %>
           </td>
           <td><%= address.is_billing ? "Yes" : "No" %></td>
-          <td><%= link_to 'Edit', edit_address_path(address) %></td>
-          <td><%= link_to 'Destroy', address, data: { confirm: 'Are you sure?' }, method: :delete %></td>
         </tr>
       <% end %>
       </table>
@@ -66,7 +62,7 @@
 
     <div id="inactive" class="col s12">
       <% unless @inactive_addresses.empty? %>
-      <br /><br />
+      <br />
       <table class="striped">
         <thead>
           <tr>
@@ -74,8 +70,6 @@
             <th data-field="recipient">Recipient</th>
             <th data-field="address">Address</th>
             <th data-field="is_billing">Billing?</th>
-            <th data-field="edit">Edit</th>
-            <th data-field="destroy">Destroy</th>
           </tr>
         </thead>
 
@@ -92,8 +86,6 @@
               <% end %>
           </td>
           <td><%= address.is_billing ? "Yes" : "No" %></td>
-          <td><%= link_to 'Edit', edit_address_path(address) %></td>
-          <td><%= link_to 'Destroy', address, data: { confirm: 'Are you sure?' }, method: :delete %></td>
         </tr>
       <% end %>
       </table>
@@ -104,6 +96,7 @@
       </span>
       <br /><br />
       <% else %>
+      <br />
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <p>There are no inactive addresses at this time.</p>
