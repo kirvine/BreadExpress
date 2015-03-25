@@ -1,7 +1,7 @@
 <h2>All Orders</h2>
 
 <% unless @orders.empty? %>
-  <br /><br />
+  <br />
   <table class="striped">
     <thead>
       <tr>
@@ -26,7 +26,7 @@
   <span class="paginate">
   <%= will_paginate @orders, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
   </span>
-  <br /><br /><br />
+  <br />
   <% else %>
   <p>There are no orders at this time</p>
 <% end %>
