@@ -13,22 +13,26 @@
 
   <body>
     <!-- NAVIGATION BEGIN -->
-    <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-        <div class="col s12">
           <a href="#" class="brand-logo">Bread Express</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <a href="#" data-activates="collapse" class="button-collapse">
+            <i class="mdi-navigation-menu"></i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to 'Home', home_path %></li>
+            <li><%= link_to 'Customers', customers_path %></li>
+            <li><%= link_to 'Orders', orders_path %></li>
+            <li><%= link_to 'Addresses', addresses_path %></li>
+          </ul>
+          <ul class="side-nav" id="collapse">
             <li><%= link_to 'Home', home_path %></li>
             <li><%= link_to 'Customers', customers_path %></li>
             <li><%= link_to 'Orders', orders_path %></li>
             <li><%= link_to 'Addresses', addresses_path %></li>
           </ul>
         </div>
-        </div>
       </nav>
-    </div>
     
     <!-- BACKGROUND CONTAINER BEGIN -->
     <div class="container">

@@ -34,12 +34,11 @@
       <span class="paginate">
       <%= will_paginate @active_customers, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
       </span>
-      <br /><br /><br />
+      <br />
       <% else %>
       <br />
       <p>No active customers at this time</p>
       <% end %>
-
     </div>
 
 
@@ -70,13 +69,12 @@
       <span class="paginate">
       <%= will_paginate @inactive_customers, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
       </span>
-      <br /><br /><br />
+      <br />
       <% else %>
       <br />
       <p>No inactive customers at this time</p>
       <% end %>
     </div>
-
 
   </div>
 

@@ -27,22 +27,29 @@
     <%= f.label :street_2 %><br />
     <%= f.text_field :street_2 %>
   </div>
-  <div class="row">
+  <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city %>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
     <%= f.label :state %><br />
     <%= f.select(:state, Address::STATES_LIST) %>
+    </div>
+    <div class="input-field col s6">
     <%= f.label :zip %><br />
     <%= f.text_field :zip %>
   </div>
-  <div class="row">
+  </div>
+  <div class="field">
     <p>
       <%= f.check_box :is_billing %>
-      <%= f.label :is_billing %><br />
+      <%= f.label :is_billing %>
     </p>
+    <br />
   </div>
   <div class="form-actions">
-    <%= f.submit nil, class: 'btn' %>
+    <%= f.submit nil, class: 'btn' %>&nbsp;&nbsp;
     <%= link_to 'Cancel', addresses_path, :class => 'btn deep-orange lighten-3' %>
   </div>
 <% end %>

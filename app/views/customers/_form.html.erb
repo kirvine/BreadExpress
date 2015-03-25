@@ -33,14 +33,15 @@
       <%= f.text_field :email %>
     </div>
   </div>
-  <div class="row">
+  <div class="field">
     <p>
       <%= f.check_box :active %>
-      <%= f.label :active %><br />
+      <%= f.label :active %>
     </p>
+    <br />
   </div>
   <div class="form-actions">
-    <%= f.submit nil, class: 'btn' %>
+    <%= f.submit nil, class: 'btn' %>&nbsp;&nbsp;
     <%= link_to 'Cancel', customers_path, :class => 'btn deep-orange lighten-3' %>
   </div>
 <% end %>
