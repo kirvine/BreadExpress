@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 # Gems rails wants automatically
 gem 'rails', '4.0.13'
 gem 'sqlite3'
-gem 'sass-rails', '4.0.2'
+gem 'sass-rails', '~> 5.0.0'
+#gem 'sass', '~> 3.4'
 gem 'uglifier', '2.5.0'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.1.0'
@@ -19,13 +20,9 @@ gem 'bcrypt-ruby', '3.1.5'
 
 # Other gems used by the project
 gem 'will_paginate', '3.0.7'
-gem 'jquery-ui-rails', '5.0.3'
+# gem 'jquery-ui-rails', '5.0.3'
 gem 'validates_timeliness', '3.0.14'
 
-gem 'bundler', '>= 1.7.0' # needed for rails-assets-materialize
-source 'https://rails-assets.org' do
-  gem 'rails-assets-materialize'
-end
 
 # Additional gems that are very useful in Rails development
 group :development do
