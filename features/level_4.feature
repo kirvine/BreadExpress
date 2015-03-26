@@ -113,7 +113,6 @@ Feature: Manage orders
     When I go to the new order page
     And I select "Corletti, Anthony" from "order_customer_id"
     And I select "Ryan Flood : 5000 Forbes Avenue" from "order_address_id"
-    Then show me the page
     And I press "Create Order"
     Then I should see "is not a number"
     Then I should not see "Thank you for ordering from Bread Express"
