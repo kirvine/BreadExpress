@@ -857,6 +857,7 @@ $(document).ready(function(){
       var window_width = $(window).width();
       // Parallax Scripts
       return this.each(function(i) {
+      	console.log('hi')
         var $this = $(this);
         $this.addClass('parallax');
 

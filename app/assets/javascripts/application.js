@@ -14,8 +14,9 @@
 //= require_tree .
 
 $(document).ready(function() {
+	console.log('hij')
     $(".button-collapse").sideNav();
-    $('select').material_select();
+    // $('select').material_select();
     $('.parallax').parallax();
   });
 
