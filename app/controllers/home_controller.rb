@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
+
   def index
+  	render layout: 'karen'
   end
 
   def about

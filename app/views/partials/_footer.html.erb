@@ -1,15 +1,17 @@
-<p class="supertiny">&nbsp;</p>
-
-<div id="footer">
-	
-	<%= link_to 'Home', home_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
-  <%= link_to 'About Us', about_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
-	<%= link_to 'Contact Us', contact_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
-	<%= link_to 'Privacy Policy', privacy_path %>
-	<br /><br />
-	<div id="copy">
-		Webmaster: <%= mail_to("kirvine@andrew.cmu.edu", "Karen Irvine", encode: "javascript") %> 
-		&nbsp;&copy 2015
-	</div>
-
-</div>
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col s12" align="center">
+        <%= link_to 'Home', home_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
+			  <%= link_to 'About Us', about_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
+				<%= link_to 'Contact Us', contact_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
+				<%= link_to 'Privacy Policy', privacy_path %>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright" align="center">
+    <div class="container">
+		Webmaster kli &copy 2015
+    </div>
+  </div>
+</footer>
