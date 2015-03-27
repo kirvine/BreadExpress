@@ -17,8 +17,11 @@
     <%= @order.address.city %>, <%= @order.address.state %> <%= @order.address.zip %>
   <% end %>
 </p>
+
+<%= render partial: "order_items" %>
+
 <p>
-  <b>Thanks for being a Bread Express customer since <%= @order.customer.created_at.strftime("%Y") %>.</b>
+  <b>Thanks for being a Bread Express customer since <%= @order.customer.created_at.year %>.</b>
 </p>
 
 <%= render partial: "order_history" %>

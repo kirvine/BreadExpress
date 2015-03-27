@@ -8,110 +8,11 @@
     </ul>
   </div>
 
+  <!-- Show active addresses -->
+  <%= render partial: "active_addresses" %>
 
-  <div id="active" class="col s12">
-    <% unless @active_addresses.empty? %>
-    <br />
-    <div class="card">
-      <div class="card-content grey-text text-darken-3">
-      <table class="hoverable">
-        <thead>
-          <tr>
-            <th data-field="customer">Customer</th>
-            <th data-field="recipient">Recipient</th>
-            <th data-field="address">Address</th>
-            <th data-field="is_billing">Billing?</th>
-          </tr>
-        </thead>
-
-      <% @active_addresses.each do |address| %>
-        <tr>
-          <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
-          <td><%= address.recipient %></td>
-          <td><%= address.street_1 %><br>
-              <% if address.street_2.blank? %>
-                <%= address.city %>, <%= address.state %> <%= address.zip %>
-              <% else %>
-                <%= address.street_2 %><br>
-                <%= address.city %>, <%= address.state %> <%= address.zip %>
-              <% end %>
-          </td>
-          <td><%= address.is_billing ? "Yes" : "No" %></td>
-        </tr>
-      <% end %>
-      </table>
-    </div>
-  </div>
-
-    <!-- Add the pagination using will_paginate gem -->
-    <br />
-    <span class="paginate">
-    <%= will_paginate @active_addresses, :previous_label => '<i class="mdi-navigation-chevron-left">', :next_label => "&nbsp;Next" %>
-    </span>
-    <br /><br /><br />
-    <% else %>
-    <div class="card">
-        <div class="card-content grey-text text-darken-3">
-          <p>There are no active addresses at this time.</p>
-        </div>
-    </div>
-  <% end %>
-</div>
-
-
-
-
-  <div id="inactive" class="col s12">
-    <% unless @inactive_addresses.empty? %>
-    <br />
-    <div class="card">
-      <div class="card-content grey-text text-darken-3">
-        <table class="hoverable">
-          <thead>
-            <tr>
-              <th data-field="customer">Customer</th>
-              <th data-field="recipient">Recipient</th>
-              <th data-field="address">Address</th>
-              <th data-field="is_billing">Billing?</th>
-            </tr>
-          </thead>
-
-      <% @inactive_addresses.each do |address| %>
-        <tr>
-          <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
-          <td><%= address.recipient %></td>
-          <td><%= address.street_1 %><br>
-              <% if address.street_2.blank? %>
-                <%= address.city %>, <%= address.state %> <%= address.zip %>
-              <% else %>
-                <%= address.street_2 %><br>
-                <%= address.city %>, <%= address.state %> <%= address.zip %>
-              <% end %>
-          </td>
-          <td><%= address.is_billing ? "Yes" : "No" %></td>
-        </tr>
-      <% end %>
-      </table>
-    </div>
-  </div>
-
-
-    <br />
-    <!-- Add the pagination using will_paginate gem -->
-    <span class="paginate">
-    <%= will_paginate @inactive_addresses, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
-    </span>
-    <br /><br />
-    <% else %>
-    <br />
-    <div class="card">
-      <div class="card-content grey-text text-darken-3">
-        <p>There are no inactive addresses at this time.</p>
-        </div>
-    </div>
-    <% end %>
-  </div>
-
+  <!-- Show in inactive addresses -->
+  <%= render partial: "inactive_addresses" %>
 
 </div>
 

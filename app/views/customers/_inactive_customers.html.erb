@@ -1,0 +1,45 @@
+<div id="inactive" class="col s12">
+    <% unless @inactive_customers.empty? %><br />
+    <div class="card">
+      <div class="card-content grey-text text-darken-3">
+      <table class="striped">
+        <thead>
+          <tr>
+            <th data-field="id">Name</th>
+            <th data-field="name">Phone</th>
+            <th data-field="price">Email</th>
+          </tr>
+        </thead>
+
+        <% @inactive_customers.each do |customer| %>
+          <tr>
+            <td><%= link_to customer.name, customer_path(customer) %></td>
+            <td><%= number_to_phone customer.phone %></td>
+            <td>
+              <div id="email"><%= mail_to customer.email, customer.email, encode: "javascript" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </table>
+      </div>
+    </div>
+
+    <!-- Add the pagination using will_paginate gem -->
+    <br />
+    <span class="paginate">
+    <%= will_paginate @inactive_customers, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+    </span>
+    <br />
+
+    <% else %>
+    <br />
+
+    <!-- No inactive customers -->
+    <div class="card">
+      <div class="card-content grey-text text-darken-3">
+        <p>No inactive customers at this time</p>
+      </div>
+    </div>
+  <% end %>
+</div>

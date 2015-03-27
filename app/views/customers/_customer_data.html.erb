@@ -10,4 +10,4 @@
   <%= mail_to @customer.email, @customer.email, encode: "javascript" %>
 <br /><br />
 
-<b>A Bread Express customer since <%= @customer.created_at.strftime("%Y") %></b>
+<b>A Bread Express customer since <%= @customer.created_at.year %></b>
