@@ -1,4 +1,4 @@
-## 67-272: Bread Express ##
+NOTE TO GRADER
 
-customer/index.html.rb
-	I used tabs to show different tables for Active and Inactive customers. I broke the test that if there are no active customers in the system, not to show the words "Inactive Customers" since my error mesage is shown under the tab. If the word 'Customers' is removed from the tab header "Inactive Customers", the entire test passes.
+cucumber test level_2.feature Scenario: No active customers yet
+	fails because of a design decision that Prof. H accepted.
