@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :customer_id %><br />
-    <%= f.collection_select :customer_id, Customer.all, :id, :name, prompt: "Select ..." %>
+    <%= f.collection_select :customer_id, Customer.all.alphabetical, :id, :name, prompt: "Select ..." %>
   </div>
   <div class="field">
     <%= f.label :recipient %><br />
@@ -45,6 +45,10 @@
     <p>
       <%= f.check_box :is_billing %>
       <%= f.label :is_billing %>
+    </p>
+    <p>
+      <%= f.check_box :active %>
+      <%= f.label :active %>
     </p>
     <br />
   </div>
