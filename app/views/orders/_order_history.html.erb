@@ -1,16 +1,22 @@
-<table class="hoverable">
-  <thead>
-    <tr>
-      <th data-field="id">Date</th>
-      <th data-field="name">Amount</th>
-    </tr>
-  </thead>
+<div class="card">
+  <div class="card-content grey-text text-darken-3">
+    <p align="center">Customer Order History</p>
+    <table>
+      <thead>
+        <tr>
+          <th data-field="id">Date</th>
+          <th data-field="name">Recipient</th>
+          <th data-field="name">Amount</th>
+        </tr>
+      </thead>
 
-<% for order in @order_history %>
-  <tr>
-    <td align="left"><%= order.date.strftime("%m/%d/%y") %></td>
-    <td align="right">$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
-  </tr>
-<% end %>
-</table>
-<br />
+    <% for order in @order_history %>
+      <tr>
+        <td align="left"><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
+        <td align="left"><%= link_to order.address.recipient, address_path(order.address) %></td>
+        <td align="right">$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

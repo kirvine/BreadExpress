@@ -28,6 +28,10 @@
   <div class="form-actions">
     <br>
     <%= f.submit nil, class: 'btn' %>
-    <%= link_to 'Cancel', addresses_path, :class => 'btn deep-orange lighten-3' %>
+    <% if @order.created_at.blank? %>&nbsp;&nbsp;
+      <%= link_to 'Cancel', orders_path, :class => 'btn deep-orange lighten-3' %>
+    <% else %>
+      <%= link_to 'Cancel', order_path(@order), :class => 'btn deep-orange lighten-3' %>
+    <% end %>
   </div>
 <% end %>

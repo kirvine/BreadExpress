@@ -1,26 +1,21 @@
-<div class="card">
-  <div class="card-content white-text">
-    <span class="card-title">Order History</span>
-    <table>
-      <tr> 
-        <td>
-          <b>Customer Information</b><br>
-          <%= @order.customer.name %><br>
-          <%= @order.customer.phone %><br>
-          <%= @order.customer.email%><br>
-        </td>
-        <td>
-          <b>Recipient Information</b><br>
-          <%= @order.address.recipient %><br>
-          <%= @order.address.street_1 %><br>
-          <% if @order.address.street_2.blank? %>
-            <%= @order.address.city %>, <%= @order.address.state %> <%= @order.address.zip %>
-          <% else %>
-            <%= @order.address.street_2 %><br>
-            <%= @order.address.city %>, <%= @order.address.state %> <%= @order.address.zip %>
-          <% end %>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
+<table>
+  <tr> 
+    <td>
+      <b>Customer Information</b><br>
+      <%= @order.customer.name %><br>
+      <%= @order.customer.phone %><br>
+      <%= @order.customer.email%><br>
+    </td>
+    <td>
+      <b>Recipient Information</b><br>
+      <%= @order.address.recipient %><br>
+      <%= @order.address.street_1 %><br>
+      <% if @order.address.street_2.blank? %>
+        <%= @order.address.city %>, <%= @order.address.state %> <%= @order.address.zip %>
+      <% else %>
+        <%= @order.address.street_2 %><br>
+        <%= @order.address.city %>, <%= @order.address.state %> <%= @order.address.zip %>
+      <% end %>
+    </td>
+  </tr>
+</table>

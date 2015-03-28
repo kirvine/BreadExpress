@@ -20,7 +20,7 @@
 
   .card-title {
     color: #fff;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 300;
     &.activator {
       cursor: pointer;
@@ -31,7 +31,7 @@
     color: #009688;
     margin-right: $card-padding;
     @include transition(color .3s ease);
-    text-transform: uppercase;
+    //text-transform: uppercase;
 
     &:hover { color: lighten(color("orange", "accent-2"), 20%); }
   }

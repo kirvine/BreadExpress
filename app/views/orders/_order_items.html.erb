@@ -16,7 +16,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;1 Dozen Blueberry Muffins<br>
       </td>
       <td>1</td>
-      <td>-----</td>
+      <td>$<%= number_with_precision(@order.grand_total, :precision => 2) %></td>
     </tr>
   </tbody>
 </table>

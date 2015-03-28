@@ -1,15 +1,15 @@
 <h2>Order Details</h2>
 
+
 <table>
   <tr> 
     <td>
       <%= render partial: "order_details" %>
       <%= render partial: "order_items" %>
-      <p>
-        <br><em>Thanks for being a Bread Express customer since <%= @order.customer.created_at.year %>.</em></br>
-      </p>
+      <br>
+      <p><em>Thanks for being a Bread Express customer since <%= @order.customer.created_at.year %>.</em></p>
     </td>
-    <td width="50"></td>
+    <td width="40">&nbsp;</td>
     <td>
       <%= render partial: "order_history" %>
     </td>
