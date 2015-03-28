@@ -9,13 +9,13 @@
     </div>
 
   <!-- Show active customers -->
-  <%= render partial: "active_customers" %>
+  <%= render partial: "customers_active" %>
 
   <!-- Show in active customers -->
-  <%= render partial: "inactive_customers" %>
+  <%= render partial: "customers_inactive" %>
 
 </div>
 
-<%= link_to 'New Customer', new_customer_path %>
-
+<%= link_to 'New Customer', new_customer_path, :class => 'btn deep-orange lighten-1' %>
+<br><br>
 

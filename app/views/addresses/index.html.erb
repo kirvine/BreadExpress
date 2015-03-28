@@ -9,12 +9,13 @@
   </div>
 
   <!-- Show active addresses -->
-  <%= render partial: "active_addresses" %>
+  <%= render partial: "addresses_active" %>
 
   <!-- Show in inactive addresses -->
-  <%= render partial: "inactive_addresses" %>
+  <%= render partial: "addresses_inactive" %>
 
 </div>
 
-<%= link_to 'New Address', new_address_path %>
+<%= link_to 'New Address', new_address_path, :class => 'btn deep-orange lighten-1' %>
+<br><br>
 

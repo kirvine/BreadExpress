@@ -13,19 +13,20 @@
 
   <div class="row">
     <div class="input-field col s6">
-      <%= f.label :customer_id %><br />
+      <%= f.label :customer_id %><br>
       <%= f.collection_select :customer_id, Customer.all.alphabetical, :id, :name, prompt: "Select ..." %>
     </div>
     <div class="input-field col s6">
-      <%= f.label :address_id %><br />
+      <%= f.label :address_id %><br>
       <%= f.select :address_id, get_address_options, prompt: "Select ..." %>
   </div>
   </div>
   <div class="field">
-    <%= f.label :grand_total %><br />
+    <%= f.label :grand_total %><br>
     <%= f.text_field :grand_total %>
   </div>
   <div class="form-actions">
+    <br>
     <%= f.submit nil, class: 'btn' %>
     <%= link_to 'Cancel', addresses_path, :class => 'btn deep-orange lighten-3' %>
   </div>
