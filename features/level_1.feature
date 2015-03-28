@@ -12,6 +12,7 @@ Feature: Standard Business
     And I should not see "Create your database" 
   
   Scenario: View 'About Us'
+    Then show me the page
     When I go to the About Us page
     Then I should see "About" within "#main_content"
     And I should see "About" within "#footer"
