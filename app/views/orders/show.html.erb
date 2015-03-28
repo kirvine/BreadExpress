@@ -2,14 +2,14 @@
 
 <table>
   <tr> 
-    <td>
+    <td width="350">
       <%= render partial: "order_shipping" %>
       <%= render partial: "order_items" %>
       <br>
       <p><em>Thanks for being a Bread Express customer since <%= @order.customer.created_at.year %>.</em></p>
     </td>
-    <td width="40">&nbsp;</td>
-    <td>
+    <td width="30">&nbsp;</td>
+    <td width="220">
       <%= render partial: "order_history" %>
     </td>
   </tr>
@@ -17,6 +17,6 @@
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to "Destroy", @order, method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' } %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'View Orders', orders_path %>
 
 <p id="notice"><%= notice %></p>

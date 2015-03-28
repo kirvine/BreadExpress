@@ -43,9 +43,9 @@
   <div class="form-actions">
     <%= f.submit nil, class: 'btn' %>&nbsp;&nbsp;
     <% if @customer.created_at.blank? %>
-      <%= link_to 'Cancel', customers_path, :class => 'btn deep-orange lighten-3' %>
+      <%= link_to 'Cancel', customers_path, :class => 'btn deep-orange lighten-2' %>
     <% else %>
-      <%= link_to 'Cancel', customer_path(@customer), :class => 'btn deep-orange lighten-3' %>
+      <%= link_to 'Cancel', customer_path(@customer), :class => 'btn deep-orange lighten-2' %>
     <% end %>
   </div>
 <% end %>
