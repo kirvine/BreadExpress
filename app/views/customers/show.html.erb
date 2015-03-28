@@ -1,13 +1,17 @@
+<h2>Customer Details</h2>
+
 <table>
-	<tr valign="top">	
-		<td width="300"><%= render partial: "customer_data" %></td>
-		<td width="10">&nbsp;</td>
-		<td width="250">
-			<% unless @order_history.empty? %>
+  <tr> 
+    <td>
+      <%= render partial: "customer_data" %>
+    </td>
+    <td width="40">&nbsp;</td>
+    <td>
+      <% unless @order_history.empty? %>
 			  <%= render partial: "order_history" %>
 			<% end %>
-		</td>
-	</tr>
+    </td>
+  </tr>
 </table>
 
 <p class="smtext">&nbsp;</p>
