@@ -1,30 +1,21 @@
 <h2>Order Details</h2>
 
-<p>
-  <b>Customer Information</b><br>
-  <%= @order.customer.name %><br>
-  <%= @order.customer.phone %><br>
-  <%= @order.customer.email%><br>
-</p>
-<p>
-  <b>Recipient Information</b><br>
-  <%= @order.address.recipient %><br>
-  <%= @order.address.street_1 %><br>
-  <% if @order.address.street_2.blank? %>
-    <%= @order.address.city %>, <%= @order.address.state %> <%= @order.address.zip %>
-  <% else %>
-    <%= @order.address.street_2 %><br>
-    <%= @order.address.city %>, <%= @order.address.state %> <%= @order.address.zip %>
-  <% end %>
-</p>
+<table>
+  <tr> 
+    <td>
+      <%= render partial: "order_details" %>
+      <%= render partial: "order_items" %>
+      <p>
+        <br><em>Thanks for being a Bread Express customer since <%= @order.customer.created_at.year %>.</em></br>
+      </p>
+    </td>
+    <td width="50"></td>
+    <td>
+      <%= render partial: "order_history" %>
+    </td>
+  </tr>
+</table>
 
-<%= render partial: "order_items" %>
-
-<p>
-  <b>Thanks for being a Bread Express customer since <%= @order.customer.created_at.year %>.</b>
-</p>
-
-<%= render partial: "order_history" %>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to "Destroy", @order, method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' } %> |

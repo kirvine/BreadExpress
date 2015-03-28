@@ -11,13 +11,13 @@ html {
 }
 
 body {
-  // display: flex;
-  // min-height: 100vh;
-  // flex-direction: column;
+   display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main {
-  // flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 ul {
@@ -156,6 +156,15 @@ video.responsive-video {
       line-height: 1.8rem;
     }
   }
+
+  a {
+    color: #009688;
+  }
+
+  em {
+    color: #009688;
+  }
+
 }
 
 
@@ -273,13 +282,13 @@ ul.staggered-list li {
 footer.page-footer {
   padding-top: 20px;
   background-color: $footer-bg-color;
-  color: #3D3D3D;
+  color: #E5AB4B;
 
   .footer-copyright {
     overflow: hidden;
     height: 50px;
     line-height: 50px;
-    color: #FBF9F1;
+    color: #E5AB4B;
     background-color: rgba(51,51,51,.08);;
     @extend .light;
   }
@@ -331,7 +340,7 @@ td, th{
   padding: 15px 5px;
   display: table-cell;
   text-align: left;
-  vertical-align: middle;
+  vertical-align: top;
   @include border-radius(2px);
 }
 

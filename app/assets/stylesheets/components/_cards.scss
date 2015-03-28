@@ -28,7 +28,7 @@
   }
 
   a {
-    color: color("orange", "accent-2");
+    color: #009688;
     margin-right: $card-padding;
     @include transition(color .3s ease);
     text-transform: uppercase;

@@ -28,7 +28,7 @@
     <!-- Add the pagination using will_paginate gem -->
     <br />
     <span class="paginate">
-    <%= will_paginate @active_customers, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+    <%= will_paginate @inactive_customers, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
     </span>
     <br />
     <% else %>
