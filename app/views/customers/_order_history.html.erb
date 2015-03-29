@@ -1,22 +1,43 @@
-<div class="card">
-  <div class="card-content grey-text text-darken-3">
-    <span class="card-title" align="center">Customer Order History</span>
-    <table>
-      <thead>
-        <tr>
-          <th data-field="id">Date</th>
-          <th data-field="name">Recipient</th>
-          <th data-field="name">Amount</th>
-        </tr>
-      </thead>
+<div id="order_history" class="col s12">
+  <% unless @orders.empty? %><br>
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title" align="center">Customer Order History</span>
+        <table>
+          <thead>
+            <tr>
+              <th data-field="id">Date</th>
+              <th data-field="name">Recipient</th>
+              <th data-field="name">Amount</th>
+            </tr>
+          </thead>
 
-    <% for order in @order_history %>
-      <tr>
-        <td align="left"><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
-        <td align="left"><%= order.address.recipient %></td>
-        <td align="right">$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
-      </tr>
-    <% end %>
-    </table>
-  </div>
+        <% for order in @order_history %>
+          <tr>
+            <td align="left"><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
+            <td align="left"><%= order.address.recipient %></td>
+            <td align="right">$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
+          </tr>
+        <% end %>
+        </table>
+      </div>
+    </div>
+
+    <!-- Add the pagination for order history -->
+    <br>
+    <span class="paginate">
+    <%= will_paginate @order_history, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+    </span>
+    <br>
+
+  <!-- No orders -->
+  <% else %>
+    <br>
+    <div class="card">
+      <div class="card-content">
+        <p>This customer has not placed any orders yet.</p>
+      </div>
+    </div>
+    <br>
+  <% end %>
 </div>

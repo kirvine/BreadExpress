@@ -1,26 +1,37 @@
+
+<!-- welcome -->
 <div class="parallax-container">
   <div class="parallax"><%= image_tag 'bread_4.jpg' %></div>
 </div>
-<div class="section amber">
+<div class="section amber lighten-2" id="welcome">
   <div class="row container">
     <h2 class="header white-text">Welcome to our bakery!</h2>
-    <p class="white-text">At Bread Express we make it our mission to deliver fresh, high quality baked goods right to your door. We sell a variety of breads, muffins and pastries that are handmade by our bakers and shipped to you the next day.</p>
+    <p class="white-text">At Bread Express we make it our mission to deliver fresh, high quality baked goods right to your door. We sell a variety of breads, muffins and pastries that are handmade by our bakers and shipped to you the very next day.</p>
+    <p align="center"><%= link_to 'more info >', about_path %></p>
   </div>
 </div>
-<div class="section white">
-	<div class="row container">
-      <div class="col s4">
-        <%= image_tag 'icon_bread.png' %>
-        <p>Order bread, muffins and pastries directly through our site.</p>
-      </div>
-      <div class="col s4">
-        <%= image_tag 'icon_bake.png' %>
-        <p>Our expert bakers come in each evening to make the items you've ordered using 100% organic ingredients.</p>
-      </div>
-      <div class="col s4">
-        <%= image_tag 'icon_fresh_bread.png' %>
-        <p>Shippers arrive the next morning to pack all of your items and have them shipped to your foor by 4:30pm to ensure freshness.</p>
-      </div>
 
+
+<div class="section white" id="how_it_works">
+	<div class="row container">
+    <br><br><br>
+    <h4 align="center">Here's how it works</h4>
+    <hr>
+    <div class="col s4">
+      <p align="center"><%= image_tag 'icon_devices.png' %></p>
+      <h5 align="center">1. Order is placed</h5>
+      <p align="center">Orders for bread, muffins and pastries can be placed directly through our site using your Bread Express account.</p>
+    </div>
+    <div class="col s4">
+      <p align="center"><%= image_tag 'icon_cook.png' %></p>
+      <h5 align="center">2. Items are baked</h5>
+      <p align="center">Our bakers come in during the evening to make the items you've ordered using 100% organic ingredients.</p>
+    </div>
+    <div class="col s4">
+      <p align="center"><%= image_tag 'icon_delivery.png' %></p>
+      <h5 align="center">3. Order is delivered</h5>
+      <p align="center">Shippers arrive the next morning to pack all of your items and deliver them to your door by 4:30pm to ensure freshness.</p>
     </div>
   </div>
+  <br><br>
+</div>
