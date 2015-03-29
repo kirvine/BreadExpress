@@ -1,12 +1,12 @@
 /*** Colors ***/
-$primary-color: #c62828 !default;
+$primary-color: #FA333B !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
 $secondary-color: #009688 !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
-$link-color: #E5AB4B !default;
+$link-color: #fff !default;
 
 /*** Badges ***/
 $badge-bg-color: $secondary-color;
@@ -125,7 +125,7 @@ $h5-fontsize: 1.64rem !default;
 $h6-fontsize: 1rem !default;
 
 // Footer
-$footer-bg-color: $primary-color;
+$footer-bg-color: #8B4E36;
 
 // Flowtext
 $range : $large-screen - $small-screen !default;

@@ -1,5 +1,5 @@
 nav {
-  color: #E5AB4B;
+  color: #FA333B;
   @extend .z-depth-1;
   background-color: $primary-color;
   width: 100%;
@@ -7,7 +7,7 @@ nav {
   line-height: $navbar-height-mobile;
   overflow: hidden;
 
-  a { color: #E5AB4B; }
+  a { color: #fff; }
 
   .nav-wrapper {
     position: relative;
@@ -77,7 +77,7 @@ nav {
       padding: 0px;
 
       &:hover, &.active {
-        background-color: #E5AB4B;
+        background-color: #FF7400;
       }
     }
     a {
