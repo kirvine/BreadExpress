@@ -13,10 +13,11 @@
  *= require addresses
  */
 
-#background {
-	background-color: #F8F5E6;
-}
 
 .parallax-container .parallax {
 	z-index: 0;
+}
+
+.page-footer a {
+	color: #fff;
 }

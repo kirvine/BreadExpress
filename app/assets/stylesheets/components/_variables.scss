@@ -3,10 +3,10 @@ $primary-color: #FA333B !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$secondary-color: #009688 !default;
+$secondary-color: #FFBD00 !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
-$link-color: #fff !default;
+$link-color: #FF7400 !default;
 
 /*** Badges ***/
 $badge-bg-color: $secondary-color;
@@ -25,7 +25,7 @@ $button-line-height: 36px !default;
 
 /*** Cards ***/
 $card-padding: 20px !default;
-$card-bg-color: #9DC1AF !default;
+$card-bg-color: #B19D8B !default;
 
 /*** Collapsible ***/
 $collapsible-height: 3rem !default;
@@ -107,7 +107,7 @@ $tabs-text-color: $primary-color;
 /*** Tables ***/
 $table-border-color: #FBF9F1;
 $table-striped-color: #F5F2E0;
-$table-hover-bg-color: #e0f2f1;
+$table-hover-bg-color: #F8F5E6;
 
 /*** Toasts ***/
 $toast-height: 48px !default;

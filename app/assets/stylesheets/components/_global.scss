@@ -297,7 +297,7 @@ footer.page-footer {
 // Tables
 table, th, td {
    border: none;
-   color: #424242;
+   color: #fff;
 }
 
 table {
@@ -319,7 +319,7 @@ table {
     tbody tr {
       @include transition(background-color .25s ease);
       &:hover {
-        background-color: $table-striped-color;
+        background-color: $table-hover-bg-color;
       }
     }
   }
