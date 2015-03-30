@@ -4,7 +4,7 @@
     <td>
       <b>Customer Information</b><br>
       <%= @order.customer.name %><br>
-      <%= @order.customer.phone %><br>
+      <%= number_to_phone @order.customer.phone %><br>
       <%= @order.customer.email%><br>
     </td>
     <td>

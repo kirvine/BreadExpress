@@ -2,7 +2,7 @@
   <%= @customer.first_name %> <%= @customer.last_name %><br><br>
 
 <b>Phone:&nbsp;&nbsp;</b>
-  <%= number_to_phone(@customer.phone) %><br><br>
+  <%= number_to_phone @customer.phone %><br><br>
 
 <b>Email:&nbsp;&nbsp;</b>
   <%= mail_to @customer.email, @customer.email, encode: "javascript" %>
