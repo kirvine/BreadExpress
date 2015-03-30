@@ -443,12 +443,12 @@ input[type=checkbox]:not(:disabled) ~ .lever:active:after {
 
 .select-wrapper {
   position: relative;
-  margin-top: 15px;
+  //margin-top: 15px;
 
   input.select-dropdown {
     position: relative;
     cursor: pointer;
-    color: #444;
+    color: #84634A;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid $input-border-color;

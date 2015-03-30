@@ -34,7 +34,7 @@ $collapsible-border-color: #ddd !default;
 
 
 /*** Dropdown ***/
-$dropdown-color: $secondary-color;
+$dropdown-color: $primary-color;
 
 /*** Fonts ***/
 $roboto-font-path: "font/roboto/" !default;
@@ -42,7 +42,7 @@ $icons-font-path: "font/material-design-icons/" !default;
 
 /*** Forms ***/
 // Text Inputs + Textarea
-$input-border-color: color("grey", "base") !default;
+$input-border-color: #84634A !default;
 $input-error-color: $error-color !default;
 $input-success-color: $success-color !default;
 $input-focus-color: $secondary-color !default;
@@ -53,7 +53,7 @@ $input-disabled-solid-color: #BDBDBD !default;
 
 // Radio Buttons
 $radio-fill-color: $secondary-color !default;
-$radio-empty-color: #5a5a5a !default;
+$radio-empty-color: #84634A !default;
 
 // Switches
 $switch-bg-color: $secondary-color !default;
