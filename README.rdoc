@@ -2,3 +2,7 @@ NOTE TO GRADER
 
 cucumber test level_2.feature Scenario: No active customers yet
 	fails because of a design decision that Prof. H accepted.
+
+Test coverage down to 98.7% due to methods in helpers
+	"We only care about the test coverage for your models" - Alexander Egan
+	see Piazza post 398
