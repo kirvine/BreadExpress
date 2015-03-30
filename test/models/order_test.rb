@@ -82,7 +82,6 @@ class OrderTest < ActiveSupport::TestCase
     should "have a working scope called for_customer" do
       assert_equal [5.25, 5.25, 22.50], Order.for_customer(@alexe).all.map(&:grand_total).sort
     end   
-
   end
 end
 
