@@ -101,6 +101,7 @@ Feature: Manage orders
     And I fill in "order_grand_total" with "6.50"
     And I press "Create Order"
     Then I should see "Thank you for ordering from Bread Express"
+    Then show me the page
     And I should see "Order Details"
     And I should see "Customer"
     And I should see "Corletti, Anthony"
