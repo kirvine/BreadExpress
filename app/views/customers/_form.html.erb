@@ -13,23 +13,23 @@
 
   <div class="row">
     <div class="input-field col s6">
-      <%= f.label :first_name %><br />
+      <%= f.label :first_name %>
       <%= f.text_field :first_name %>
     </div>
     <div class="input-field col s6">
-      <%= f.label :last_name %><br />
+      <%= f.label :last_name %>
       <%= f.text_field :last_name %>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <%= f.label :phone %><br />
+      <%= f.label :phone %>
       <%= f.text_field :phone %>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <%= f.label :email %><br />
+      <%= f.label :email %>
       <%= f.text_field :email %>
     </div>
   </div>
@@ -38,14 +38,14 @@
       <%= f.check_box :active %>
       <%= f.label :active %>
     </p>
-    <br />
+    <br>
   </div>
   <div class="form-actions">
-    <%= f.submit nil, class: 'btn' %>&nbsp;&nbsp;
+    <%= f.submit nil, class: 'btn' %>
     <% if @customer.created_at.blank? %>
-      <%= link_to 'Cancel', customers_path, :class => 'btn deep-orange lighten-2' %>
+      &nbsp;&nbsp;<%= link_to 'Cancel', customers_path, :class => 'btn deep-orange lighten-2' %>
     <% else %>
-      <%= link_to 'Cancel', customer_path(@customer), :class => 'btn deep-orange lighten-2' %>
+      &nbsp;&nbsp;<%= link_to 'Cancel', customer_path(@customer), :class => 'btn deep-orange lighten-2' %>
     <% end %>
   </div>
 <% end %>
