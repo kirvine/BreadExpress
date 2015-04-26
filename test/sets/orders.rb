@@ -2,7 +2,7 @@ module Contexts
   module Orders
     # Context for orders (assumes customer, user, address context)
     def create_orders
-      @alexe_o1   = FactoryGirl.create(:order, customer: @alexe, address: @alexe_a2, grand_total: 5.25, date: Date.new(2015,2,14))
+      @alexe_o1   = FactoryGirl.create(:order, customer: @alexe, address: @alexe_a2, grand_total: 5.25, date: 5.days.ago.to_date)
       @alexe_o1.pay
       @alexe_o2   = FactoryGirl.create(:order, customer: @alexe, address: @alexe_a2, grand_total: 5.25, date: 3.days.ago.to_date)
       @alexe_o2.pay

@@ -2,8 +2,10 @@ require 'test_helper'
 
 class CustomerTest < ActiveSupport::TestCase
   # test relationships
+  should belong_to(:user)
   should have_many(:orders)
   should have_many(:addresses)
+  should accept_nested_attributes_for(:user).allow_destroy(true)
 
   # test simple validations
   should validate_presence_of(:first_name)
@@ -35,10 +37,12 @@ class CustomerTest < ActiveSupport::TestCase
   # rest with contexts
   context "Within context" do
     setup do 
+      create_customer_users
       create_customers
     end
     
     teardown do
+      destroy_customer_users
       destroy_customers
     end
 
@@ -59,5 +63,18 @@ class CustomerTest < ActiveSupport::TestCase
     should "strip non-digits from the phone number" do
       assert_equal "4122682323", @anthony.phone
     end
+
+    should "correctly assess that a customer is not destroyable" do
+      deny @melanie.destroy
+    end
+
+    should "deactivate the user if the customer is made inactive" do
+      @ryan.active = false
+      @ryan.save!
+      @ryan.reload
+      @u_ryan.reload
+      deny @u_ryan.active
+    end 
+    
   end
 end
