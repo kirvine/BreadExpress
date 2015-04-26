@@ -32,7 +32,7 @@ class AddressesController < ApplicationController
 
   def destroy
     @address.destroy
-    redirect_to addresses_url
+    redirect_to addresses_url, notice: "Address was successfully removed from the system."
   end
 
 	private

@@ -32,7 +32,38 @@ ActiveRecord::Schema.define(version: 20141223145336) do
     t.string   "last_name"
     t.string   "email"
     t.string   "phone"
+    t.integer  "user_id"
     t.boolean  "active",     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_prices", force: true do |t|
+    t.integer  "item_id"
+    t.float    "price"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "picture"
+    t.string   "category"
+    t.integer  "units_per_item"
+    t.float    "weight"
+    t.boolean  "active",         default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_items", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.date     "shipped_on"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +74,15 @@ ActiveRecord::Schema.define(version: 20141223145336) do
     t.integer  "address_id"
     t.float    "grand_total"
     t.string   "payment_receipt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "password_digest"
+    t.string   "role"
+    t.boolean  "active",          default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
