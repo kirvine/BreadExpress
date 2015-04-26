@@ -1,15 +1,21 @@
 class HomeController < ApplicationController
+  include BreadExpressHelpers::Baking
 
-  def index
-  	render layout: 'welcome'
+  def home
   end
 
   def about
   end
 
+  def privacy
+  end
+
   def contact
   end
 
-  def privacy
-  end
+
+
+
+
+
 end

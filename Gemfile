@@ -20,9 +20,16 @@ gem 'bcrypt-ruby', '3.1.5'
 
 # Other gems used by the project
 gem 'will_paginate', '3.0.7'
-# gem 'jquery-ui-rails', '5.0.3'
+gem 'chronic', '0.10.2'
+gem 'simple_form', '3.1.0'
+gem 'nested_form', '0.3.2'
+gem 'font-awesome-sass-rails', '3.0.2.2'
+gem 'jquery-ui-rails', '5.0.3'
+gem 'cancancan', '1.9.2'
 gem 'validates_timeliness', '3.0.14'
-
+gem 'carrierwave', '0.10.0'
+gem 'time_date_helpers', '0.0.2'
+gem 'foundation-rails'
 
 # Additional gems that are very useful in Rails development
 group :development do
@@ -45,9 +52,9 @@ group :test do
   gem 'simplecov', '0.9.1'
   gem 'turn', '0.9.7'
   gem 'single_test', '0.6.0'
-  gem 'cucumber-rails', '1.4.2', require: false
-  gem 'database_cleaner', '1.3.0'
-  gem 'launchy', '2.4.2'
-  gem 'capybara', '2.4.4'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'capybara'
 end
 
