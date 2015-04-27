@@ -59,10 +59,4 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:address_id)
   end
 
-
-
-
-
-
-
 end

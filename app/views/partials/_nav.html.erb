@@ -1,13 +1,13 @@
 <%= render "partials/nav_dropdown" %>
 
-<!-- begin nav -->
+<!-- NAV BAR -->
 <nav>
   <div class="nav-wrapper">
     <a href="/home" class="brand-logo"><%= image_tag 'logo_be.png' %></a>
     <a href="#" data-activates="collapse" class="button-collapse">
       <i class="mdi-navigation-menu"></i>
     </a>
-    <!-- top nav -->
+    <!-- TOP NAV -->
     <ul class="right hide-on-med-and-down">
       <% if !logged_in? %>
       <li><a href="/login">Login<i class="mdi-action-lock-open left"></i></a></li>
@@ -16,17 +16,18 @@
       <% if logged_in? && current_user.role?(:customer) %>
       <li><a href="/items">Menu</a></li>
       <li><a href="/#"><i class="mdi-action-shopping-cart"></i></a></li>
-      <li><a class="dropdown-button" href="/user" data-activates="account"><i class="mdi-action-account-circle"></i><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+      <li><a class="dropdown-button" href="/user" data-activates="account">Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
       <% end %>
 
       <% if logged_in? && current_user.role?(:admin) %>
       <li><a class="dropdown-button" href="/customers" data-activates="customer">Customers<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
       <li><a class="dropdown-button" href="/addresses" data-activates="address">Addresses<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
       <li><a class="dropdown-button" href="/orders" data-activates="order">Orders<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-      <li><a class="dropdown-button" href="/session" data-activates="account">Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+      <li><a href="/items">Items</a></li>
+      <li><a class="dropdown-button" href="/sessions" data-activates="account">Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
       <% end %>
     </ul>
-    <!-- side nav -->
+    <!-- SIDE NAV -->
     <ul class="side-nav" id="collapse">
       <li><%= link_to 'Customers', customers_path %></li>
       <li><%= link_to 'Orders', orders_path %></li>

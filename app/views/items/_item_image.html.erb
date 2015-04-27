@@ -1,0 +1,5 @@
+<% if @item.picture.blank? %>
+	<p>Image Not Available</p>
+<% else %>
+	<%= image_tag @item.picture %>
+<% end %>
