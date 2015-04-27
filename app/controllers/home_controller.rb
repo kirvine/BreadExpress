@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   include BreadExpressHelpers::Baking
 
   def home
+  	render layout: "home"
   end
 
   def about

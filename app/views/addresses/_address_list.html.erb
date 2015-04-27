@@ -1,0 +1,49 @@
+<div id=<%= state %> class="col s12">
+<% if addresses.empty? %>
+  <br>
+    <div class="card">
+      <div class="card-content">
+        <p>There are no <%= state %> addresses at this time.</p>
+      </div>
+    </div>
+  <br>
+  
+<% else %>
+<br>
+<div class="card">
+  <div class="card-content">
+    <table class="hoverable">
+      <thead>
+        <tr>
+          <th data-field="customer">Customer</th>
+          <th data-field="recipient">Recipient</th>
+          <th data-field="address">Address</th>
+          <th data-field="is_billing">Billing?</th>
+          <th data-field="edit">Edit</th>
+        </tr>
+      </thead>
+
+  <% addresses.each do |address| %>
+    <tr>
+      <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
+      <td><%= address.recipient %></td>
+      <td><%= render :partial => "partials/address_info", locals: {address: address} %>
+      </td>
+      <td><%= address.is_billing ? "Yes" : "No" %></td>
+      <td><%= link_to 'Edit', edit_address_path(address) %></td>
+    </tr>
+  <% end %>
+  </table>
+  </div>
+</div>
+
+  <!-- Add the pagination  -->
+  <br>
+  <span class="paginate">
+    <%= will_paginate addresses, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+  </span>
+  <br>
+
+<% end %>
+</div>
+</div>
