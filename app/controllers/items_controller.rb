@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
 
   def show
     @related_items = Item.for_category("#{@item.category}")
+    @current_price = @item.current_price
   end
 
   def new

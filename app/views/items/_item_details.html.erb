@@ -1,5 +1,10 @@
-<h3><%= @item.name %></h3>
+<h4><%= @item.name %></h4>
+
+<p>
+  <h5 class="deep-orange-text"><%= render partial: "price_per_unit" %></h5>
+</p>
 
 <p>
   <%= @item.description %>
 </p>
+
