@@ -6,17 +6,14 @@ class HomeController < ApplicationController
   end
 
   def about
+    render layout: "application"
   end
 
   def privacy
+    render layout: "application"
   end
 
   def contact
+    render layout: "application"
   end
-
-
-
-
-
-
 end

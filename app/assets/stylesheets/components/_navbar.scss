@@ -71,7 +71,7 @@ nav {
 
   // Navbar Links
   ul {
-    margin: 0;
+    margin: 0px 5px;
 
     li {
       @include transition(background-color .3s);
