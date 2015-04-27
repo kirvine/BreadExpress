@@ -1,8 +1,20 @@
 BreadExpress::Application.routes.draw do
-  # Resource routes (maps HTTP verbs to controller actions automatically):
-  resources :addresses
+  # Routes for main resources
+  resources :users
   resources :customers
+  resources :addresses
   resources :orders
+  resources :order_items
+  resources :items
+  resources :item_prices
+  resources :sessions
+
+  
+  # Authentication routes
+  get 'user/edit' => 'users#edit', as: :edit_current_user
+  get 'signup' => 'users#new', as: :signup
+  get 'logout' => 'sessions#destroy', as: :logout
+  get 'login' => 'sessions#new', as: :login
 
   # Semi-static page routes
   get 'home', to: 'home#index', as: :home

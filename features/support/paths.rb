@@ -1,7 +1,7 @@
 module NavigationHelpers
   def path_to(page_name)
     case page_name
- 
+    # basic semi-static pages
     when /the home\s?page/
       '/'
     when /the About Us\s?page/
@@ -10,6 +10,8 @@ module NavigationHelpers
       contact_path
     when /the Privacy\s?page/
       privacy_path
+
+    # customer paths
     when /the customers\s?page/ 
       customers_path
     when /Alex Egan details\s?page/
@@ -19,6 +21,7 @@ module NavigationHelpers
     when /the new customer\s?page/
       new_customer_path
 
+    # address paths
     when /the addresses\s?page/ 
       addresses_path
     when /the new address\s?page/
@@ -26,6 +29,7 @@ module NavigationHelpers
     when /edit Melanie's\s?address/
       edit_address_path(@melanie_a1)
 
+    # order paths
     when /the orders\s?page/ 
       orders_path
     when /Valentine's Day order/
@@ -33,30 +37,19 @@ module NavigationHelpers
     when /the new order\s?page/
       new_order_path
 
-    # when /the principles details\s?page/
-    #   curriculum_path(@principles)
-    # when /edit the nimzo\s?page/
-    #   edit_curriculum_path(@nimzo)    
-    # when /the new curriculum\s?page/
-    #   new_curriculum_path
-    # when /the instructors\s?page/ 
-    #   instructors_path
-    # when /Mike Ferraco details\s?page/
-    #   instructor_path(@mike)
-    # when /edit Patrick's\s?page/
-    #   edit_instructor_path(@patrick)    
-    # when /the new instructor\s?page/
-    #   new_instructor_path
-    # when /the camps\s?page/ 
-    #   camps_path
-    # when /the camp1 details\s?page/
-    #   camp_path(@camp1)
-    # when /edit camp1's\s?page/
-    #   edit_camp_path(@camp1)  
-    # when /edit inactive camp's\s?page/
-    #   edit_camp_path(@camp3)   
-    # when /the new camp\s?page/
-    #   new_camp_path
+    # item paths
+    when /the items\s?page/ 
+      items_path
+    when /Challah Bread details\s?page/
+      item_path(@challah)
+    when /the new item\s?page/
+      new_item_path
+
+    # user paths
+    when /the login page/
+      login_path 
+
+    # else 'catch-all'
     else
       begin
         page_name =~ /the (.*) page/
