@@ -158,11 +158,11 @@ video.responsive-video {
   }
 
   a {
-    color: #84634A;
+    color: #FA333B;
   }
 
   em {
-    color: #B19D8B;
+    color: #fff;
   }
 
 }
@@ -282,13 +282,13 @@ ul.staggered-list li {
 footer.page-footer {
   padding-top: 20px;
   background-color: $footer-bg-color;
-  color: #fff;
+  color: #B19D8B;
 
   .footer-copyright {
     overflow: hidden;
     height: 50px;
     line-height: 50px;
-    color: #fff;
+    color: #B19D8B;
     background-color: rgba(51,51,51,.08);;
     @extend .light;
   }
@@ -337,8 +337,16 @@ thead {
   border-bottom: 1px solid $table-border-color;
 }
 
-td, th{
+th{
   padding: 15px 5px;
+  display: table-cell;
+  //text-align: left;
+  vertical-align: top;
+  @include border-radius(2px);
+}
+
+td{
+  padding: 15px 20px;
   display: table-cell;
   //text-align: left;
   vertical-align: top;

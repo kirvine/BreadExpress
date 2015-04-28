@@ -3,10 +3,12 @@ $primary-color: #FA333B !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$secondary-color: #FFD14C !default;
+$secondary-color: color("deep-orange", "base") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: #FF7400 !default;
+
+$bg-color: #FFD14C !default;
 
 /*** Badges ***/
 $badge-bg-color: $secondary-color;
@@ -25,7 +27,7 @@ $button-line-height: 36px !default;
 
 /*** Cards ***/
 $card-padding: 20px !default;
-$card-bg-color: #FFD14C !default;
+$card-bg-color: #fff !default;
 
 /*** Collapsible ***/
 $collapsible-height: 3rem !default;
@@ -101,7 +103,7 @@ $navbar-height-mobile: 56px !default;
 
 
 /*** Tabs ***/
-$tabs-underline-color: $primary-color-light;
+$tabs-underline-color: $primary-color;
 $tabs-text-color: $primary-color;
 
 /*** Tables ***/

@@ -6,18 +6,17 @@ class ItemsController < ApplicationController
   def index
     if logged_in? && !current_user.role?(:customer)
       @bread = Item.for_category("bread").paginate(:page => params[:page]).per_page(10)
-      @muffins = Item.for_category("muffin").paginate(:page => params[:page]).per_page(10)
-      @pastries = Item.for_category("pastry").paginate(:page => params[:page]).per_page(10)
+      @muffins = Item.for_category("muffins").paginate(:page => params[:page]).per_page(10)
+      @pastries = Item.for_category("pastries").paginate(:page => params[:page]).per_page(10)
     else
       @bread = Item.active.for_category("bread").paginate(:page => params[:page]).per_page(10)
-      @muffins = Item.active.for_category("muffin").paginate(:page => params[:page]).per_page(10)
-      @pastries = Item.active.for_category("pastry").paginate(:page => params[:page]).per_page(10)
+      @muffins = Item.active.for_category("muffins").paginate(:page => params[:page]).per_page(10)
+      @pastries = Item.active.for_category("pastries").paginate(:page => params[:page]).per_page(10)
     end
   end
 
   def show
     @related_items = Item.for_category("#{@item.category}")
-    @current_price = @item.current_price
   end
 
   def new

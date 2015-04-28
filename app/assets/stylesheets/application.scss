@@ -19,7 +19,11 @@
 }
 
 .page-footer a {
-	color: #fff;
+	color: #B19D8B;
+}
+
+#background {
+	background: #FFD14C;
 }
 
 #welcome {
@@ -30,11 +34,15 @@
 	color: #B19D8B;
 }
 
+#testimonials {
+	font-size: 12px;
+	color: #FF7400;
+}
+
 hr {
 	border: 1px solid #B19D8B;
 }
 
-#testimonials {
-	font-size: 12px;
-	color: #FF7400;
+.pagination {
+	color: #FA333B;
 }

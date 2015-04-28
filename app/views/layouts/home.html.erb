@@ -13,16 +13,17 @@
   </head>
 
   <body>
-    <!-- NAVIGATION BEGIN -->
-    <%= render partial: 'partials/nav' %>
-    
-    <div id="main_content">
-    <!-- MAIN CONTENT GOES HERE -->
-    <%= yield %>
-        
-    </div>
+    <main>
+      <!-- NAVIGATION BEGIN -->
+      <%= render partial: 'partials/nav' %>
+      <div id="main_content">
+        <!-- MAIN CONTENT GOES HERE -->
+        <%= yield %>
+      </div>
+    </main>
 
-    <%= render partial: 'partials/footer' %>
-
+    <footer class="page-footer">
+      <%= render partial: 'partials/footer' %>
+    </footer>
   </body>
 </html>
