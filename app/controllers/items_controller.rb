@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    item_price = @item.item_prices.build
   end
 
   def edit
