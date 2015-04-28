@@ -3,7 +3,6 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :name
       t.text :description
-      t.string :picture
       t.string :category
       t.integer :units_per_item
       t.float :weight

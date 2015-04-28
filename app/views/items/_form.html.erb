@@ -1,4 +1,4 @@
-<%= simple_nested_form_for @item, :html => { :class => 'form-horizontal' } do |item_form| %>
+<%= simple_nested_form_for @item, :html => { :class => 'form-horizontal', :multipart => true } do |item_form| %>
   <div class="row">
     <%= render :partial => "fields_item", :locals => { :f => item_form } %>
     <div id="fields_item_price">
