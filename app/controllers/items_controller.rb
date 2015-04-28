@@ -28,6 +28,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.item_prices.each do |item_price|
+      item_price.item = @item
+    end
     
     if @item.save
       redirect_to itemes_path, notice: "The item was added to the system."
@@ -55,7 +58,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :picture, :category, :units_per_item, :weight, :active)
+    params.require(:item).permit(:name, :description, :picture, :category, :units_per_item, :weight, :active, item_prices_attributes: [:id, :price, :start_date, :_destroy])
   end
 
 end

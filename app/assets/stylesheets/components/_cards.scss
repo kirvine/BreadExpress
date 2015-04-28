@@ -19,8 +19,8 @@
 
 
   .card-title {
-    color: #fff;
-    font-size: 17px;
+    color: $secondary-color;
+    font-size: 18px;
     //font-weight: 300;
     &.activator {
       cursor: pointer;
@@ -58,10 +58,10 @@
     height: 300px;
 
     .card-image {
-      height: 150px;
+      height: 200px;
     }
     .card-content {
-      height: 150px;
+      height: 100px;
     }
 
   }

@@ -8,6 +8,9 @@ class Item < ActiveRecord::Base
   has_many :item_prices
   has_many :orders, through: :order_items
 
+  accepts_nested_attributes_for :item_prices, reject_if: lambda { |item_price| item_price[:price].blank? }, allow_destroy: false
+
+
   # Scopes
   scope :alphabetical, -> { order(:name) }
   scope :active,       -> { where(active: true) }

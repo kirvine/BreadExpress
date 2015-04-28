@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="input-field col s12">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+   <div class="input-field col s12">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.label :picture %>
+    <%= f.text_field :picture %>
+  </div>
+	<div class="input-field col s12">
+    <%= f.label :category %>
+		<%= f.select(:category, Item::CATEGORIES, prompt: "Select ...") %>
+	</div>
+	<div class="input-field col s12">
+    <%= f.label :units_per_item %>
+    <%= f.text_field :units_per_item %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.label :weight %>
+    <%= f.text_field :weight %>
+  </div>
+</div>

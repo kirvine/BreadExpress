@@ -1,17 +1,23 @@
 <div class="row">
   <% items.each do |item| %>
-    <div class="col s4">
-      <a href=<%=item_path(item) %>><div class="card amber lighten-2">
-        <div class="card-content white-text">
-          <% if item.picture.blank? %>
-            <p align="center"><%= image_tag("no_image.png", size: "200x200") %></p>
+  <div class="col s4">
+    <div class="card small">
+      <div class="card-image">
+        <% if item.picture.blank? %>
+            <p align="center">
+              <a href=<%=item_path(item) %>>
+                <%= image_tag("no_image.png", size: "100x200") %>
+              </a>
+            </p>
           <% else %>
             <%= image_tag(item.picture) %>
           <% end %>
-          <p class="card-title deep-orange-text"><%= item.name %></p>
-          <p>$<%= number_with_precision(item.current_price, :precision => 2) %></p>
-        </div>
       </div>
-    </div></a>
+      <div class="card-content">
+        <a href=<%=item_path(item) %>><span class="card-title"><%= item.name %></span></a>
+        <p>$<%= number_with_precision(item.current_price, :precision => 2) %></p>
+      </div>
+    </div>
+  </div>
   <% end %>
 </div>

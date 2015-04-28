@@ -44,7 +44,7 @@
   <div class="row">
     <div class="input-field col s6">
     <label for="address.state" class="active">State</label>
-    <%= f.select(:state, Address::STATES_LIST) %>
+    <%= f.select(:state, Address::STATES_LIST, prompt: "Select ...") %>
     </div>
     <div class="input-field col s6">
     <%= f.label :zip %>
