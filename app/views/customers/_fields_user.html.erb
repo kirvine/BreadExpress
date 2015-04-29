@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="input-field col s12">
+    <%= f.label :username, required: false %>
+    <%= f.text_field :username %>
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <%= f.label :password, required: false %>
+    <%= f.text_field :password %>
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <%= f.label :password_confirmation, required: false %>
+    <%= f.text_field :password_confirmation %>
+  </div>
+</div>
+<div class="field">
+  <p>
+    <%= f.check_box :active %>
+    <%= f.label :active, required: false %>
+  </p>
+  <br>
+</div>

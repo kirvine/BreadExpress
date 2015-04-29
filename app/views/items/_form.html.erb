@@ -1,20 +1,20 @@
 <%= simple_nested_form_for @item, :html => { :class => 'form-horizontal', :multipart => true } do |item_form| %>
+  
   <div class="row">
-    <%= render :partial => "fields_item", :locals => { :f => item_form } %>
-    <div id="fields_item_price">
+      <%= render :partial => "fields_item", :locals => { :f => item_form } %>
+
       <%= item_form.simple_fields_for :items do |item_price_form| %>
         <%= render :partial => "fields_item_price", :locals => { :f => item_price_form } %>
       <% end %> 
-    </div>
-    <div class="form-actions">
-      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-      <i class="mdi-content-send right"></i>
-      </button>
+    
+    <div class="col s12">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="mdi-content-send right"></i></button>
       <% if @item.created_at.blank? %>
         &nbsp;&nbsp;<a class="waves-effect waves-light btn" href="/addresses">Cancel</a>
       <% else %>
         &nbsp;&nbsp;<a class="waves-effect waves-light btn" href="/addresses">Cancel</a>
       <% end %>
     </div>
+
   </div>
 <% end %>

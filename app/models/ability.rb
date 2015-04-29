@@ -22,6 +22,7 @@ class Ability
       
     else
      	can :read, :all
+      can :create, Customer
     end
 
   end
