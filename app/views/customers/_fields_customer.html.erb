@@ -1,27 +1,23 @@
 <div class="row">
   <div class="input-field col s6">
-    <%= f.label :first_name, required: false %>
-    <%= f.text_field :first_name %>
+    <%= f.input :first_name, label: "First name", required: false %>
   </div>
   <div class="input-field col s6">
-    <%= f.label :last_name, required: false %>
-    <%= f.text_field :last_name %>
+    <%= f.input :last_name, label: "Last name", required: false %>
   </div>
 </div>
 <div class="row">
   <div class="input-field col s12">
-    <%= f.label :phone, required: false %>
-    <%= f.text_field :phone %>
+    <%= f.input :phone, label: "Phone", required: false %>
   </div>
 </div>
 <div class="row">
   <div class="input-field col s12">
-    <%= f.label :email, required: false %>
-    <%= f.text_field :email %>
+    <%= f.input :email, label: "Email", required: false %>
   </div>
 </div>
 <div class="field">
-  <p>
+  <p><br>
     <%= f.check_box :active %>
     <%= f.label :active %>
   </p>
