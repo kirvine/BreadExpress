@@ -30,6 +30,7 @@ class CustomersController < ApplicationController
     if @customer.save
       redirect_to @customer, notice: "#{@customer.proper_name} was added to the system."
     else
+      flash[:error] = "This customer could not be created."
       render action: 'new'
     end
   end
@@ -38,7 +39,7 @@ class CustomersController < ApplicationController
     # just in case customer trying to hack the http request...
     reset_username_param unless current_user.role? :admin
     if @customer.update(customer_params)
-      redirect_to @customer, notice: "#{@customer.proper_name} was revised in the system."
+      redirect_to @customer, flash[:notice] = "#{customer.proper_name} is updated."
     else
       render action: 'edit'
     end

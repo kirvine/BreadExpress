@@ -20,13 +20,10 @@
     <div class="container" >
       <div id="main_content">
         <!-- MAIN CONTENT GOES HERE -->
-        <div class="row">
-          <div class="small-12 columns" id="main_content">
-            <%= render :partial => "partials/flash" %>
-            <%= yield %>
-          </div>
+        <div id="flash">
+          <%= render :partial => "partials/flash" %>
+          <%= yield %>
         </div>
-        <%= yield %>
       </div>
     </div>
   </main>
