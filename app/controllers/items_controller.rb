@@ -1,7 +1,14 @@
 class ItemsController < ApplicationController
+  include BreadExpressHelpers::Cart
+
   # before_action :check_login
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   authorize_resource
+
+  def add_item
+    add_item_to_cart(params[:id])
+    redirect_to items_path, notice: "Added to cart"
+  end
 
   def index
     if logged_in? && !current_user.role?(:customer)
@@ -34,7 +41,7 @@ class ItemsController < ApplicationController
     end
     
     if @item.save
-      redirect_to itemes_path, notice: "The item was added to the system."
+      redirect_to items_path, notice: "The item was added to the system."
     else
       render action: 'new'
     end
@@ -42,7 +49,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to itemes_path, notice: "The item was revised in the system."
+      redirect_to items_path, notice: "The item was revised in the system."
     else
       render action: 'edit'
     end

@@ -19,7 +19,6 @@
           <th data-field="recipient">Recipient</th>
           <th data-field="address">Address</th>
           <th data-field="is_billing">Billing?</th>
-          <th data-field="edit">Edit</th>
         </tr>
       </thead>
 
@@ -30,7 +29,6 @@
       <td><%= render :partial => "partials/address_info", locals: {address: address} %>
       </td>
       <td><%= address.is_billing ? "Yes" : "No" %></td>
-      <td><%= link_to 'Edit', edit_address_path(address) %></td>
     </tr>
   <% end %>
   </table>

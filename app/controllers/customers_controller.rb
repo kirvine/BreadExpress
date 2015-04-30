@@ -15,7 +15,8 @@ class CustomersController < ApplicationController
 
   def new
     @customer = Customer.new
-
+    user = @customer.build_user
+    user.role = "customer"
   end
 
   def edit
@@ -52,7 +53,7 @@ class CustomersController < ApplicationController
 
   def customer_params
     reset_role_param unless current_user.role? :admin
-    params.require(:customer).permit(:first_name, :last_name, :email, :phone, :active, item_prices_attributes: [:username, :password, :password_confirmation, :active, :_destroy])
+    params.require(:customer).permit(:first_name, :last_name, :email, :phone, :active, user_attributes: [:id, :username, :password, :password_confirmation, :_destroy])
   end
 
   def reset_role_param

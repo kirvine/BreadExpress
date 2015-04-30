@@ -16,7 +16,9 @@
       	<%= render partial: "similar_items" %>
       </div>
     </div>
-
+    <p>Cart exists: <%= session[:cart].nil? %></p>
+    <p>Items in cart: <%= session[:cart].size %></p>
+    <%= button_to "add", add_item_path(@item) %>
   </div>
 </div>
 <br><br>
