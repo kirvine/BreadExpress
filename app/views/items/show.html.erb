@@ -1,25 +1,22 @@
 <div class="card">
   <div class="card-content">
-
-    <div class="row">
-    	<br>
+    <% if logged_in? && (current_user.role?(:admin) || current_user.role?(:customer)) %>
+      <div class="row">
+        <div class="col s7">
+          <%= render partial: "item_details" %>
+        </div>
+        <div class="col s5">
+          <%= render partial: "price_hist" %>
+        </div>
+      </div>
+    <% else %>
       <div class="col s4">
-      	<%= render partial: "item_image" %>
+          <%= render partial: "item_image" %>
+        </div>
+        <div class="col s8">
+          <%= render partial: "item_details" %>
+        </div>
       </div>
-      <div class="col s8">
-        <%= render partial: "item_details" %>
-      </div>
-    </div>
-    <div class="row">
-    	<br>
-      <div class="col s4">
-      	<%= render partial: "similar_items" %>
-      </div>
-    </div>
-    <p>Cart exists: <%= session[:cart].nil? %></p>
-    <p>Items in cart: <%= session[:cart].size %></p>
-    <%= link_to "Add to Cart", add_item_path(@item), method: :post, class: "waves-effect waves-light btn" %>
-
+    <% end %>
   </div>
 </div>
-<br><br>

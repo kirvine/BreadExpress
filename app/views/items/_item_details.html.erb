@@ -1,10 +1,27 @@
 <h4><%= @item.name %></h4>
 
 <p>
-  <h5 class="deep-orange-text"><%= render partial: "price_per_unit" %></h5>
+  <h5><%= render partial: "price_per_unit" %></h5>
 </p>
 
 <p>
+	<% if @item.weight = 1 %>
+  	Total weight: <%= @item.weight %> lb
+  <% else %>
+  	Total weight: <%= @item.weight %> lb
+  <% end %>
+</p>
+
+<p><br>
   <%= @item.description %>
 </p>
 
+<br>
+<%= link_to "Add to Cart", add_item_path(@item), method: :post, class: "waves-effect waves-light btn white-text" %>
+
+<% if logged_in? && current_user.role?(:admin) %>
+	<%= link_to "Edit", edit_item_path(@item), class: "waves-effect waves-light btn white-text" %>
+	<% if @item.is_destroyable? %>
+	<%= link_to "Delete", item_path(@item), class: "waves-effect waves-light btn white-text" if @item.is_destroyable?%>
+	<% end %>
+<% end %>

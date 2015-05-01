@@ -7,6 +7,8 @@ class Customer < ActiveRecord::Base
   has_many :addresses
   belongs_to :user
   
+  accepts_nested_attributes_for :user, reject_if: ->(user) { user[:username].blank? }, allow_destroy: true
+
   # Scopes
   scope :alphabetical,  -> { order(:last_name).order(:first_name) }
   scope :active,        -> { where(active: true) }

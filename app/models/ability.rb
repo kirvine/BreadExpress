@@ -19,10 +19,16 @@ class Ability
       can :update, User do |u|  
         u.id == user.id
       end
+
+      # can see a list of all items
+      can :index, Item
+
+      # can read about an item
+      can :show, Item
       
     else
-     	can :read, :all
       can :create, Customer
+      can :read, :all
     end
 
   end

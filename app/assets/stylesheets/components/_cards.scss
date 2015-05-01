@@ -29,11 +29,10 @@
   }
 
   a {
-    color: #FFF;
+    color: $secondary-color;
     margin-right: $card-padding;
     @include transition(color .3s ease);
     //text-transform: uppercase;
-
     //&:hover { color: lighten(color("deep-orange", "base"), 20%); }
   }
 

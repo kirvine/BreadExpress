@@ -1,0 +1,23 @@
+<h4>Price History</h4>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th data-field="price">Price</th>
+      <th data-field="start_date">Start Date</th>
+      <th data-field="end_date">End Date</th>
+    </tr>
+  </thead>
+
+  <% @item.item_prices.chronological.each do |ip| %>
+    <tr>
+      <td>$<%= number_with_precision(ip.price, :precision => 2) %></td>
+      <td><%= ip.start_date.strftime("%m/%d/%y") %></td>
+      <% if ip.end_date.nil? %>
+        <td>N/A</td>
+      <% else %>
+        <td><%= ip.end_date.strftime("%m/%d/%y") %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
