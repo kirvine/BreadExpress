@@ -1,0 +1,7 @@
+<br>
+<h5>Similar Items</h5>
+<hr width="95%">
+
+<% Item.for_category(@item.category).each do |item| %>
+  <%= link_to item.name, item_path(item) %><br>
+<% end %>

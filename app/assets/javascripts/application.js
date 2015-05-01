@@ -31,7 +31,7 @@ $(document).ready(function() {
 	);
   // for items
   $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
-  $('.scrollspy').scrollSpy();
+  $('.materialboxed').materialbox(); // shadow box for image
 });
 
 

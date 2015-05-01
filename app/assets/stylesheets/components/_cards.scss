@@ -9,6 +9,14 @@
   opacity: 0.7;
 }
 
+.flat-card {
+  padding: $card-padding;
+  margin: $element-top-margin 0 $element-bottom-margin 0;
+  @include border-radius(2px);
+  //@extend .z-depth-1;
+  background-color: $card-bg-color;
+}
+
 .card {
   position: relative;
   overflow: hidden;
@@ -125,6 +133,7 @@
       margin-top: 8px;
       //line-height: 48px;
     }
+
   }
 
   .card-action {
