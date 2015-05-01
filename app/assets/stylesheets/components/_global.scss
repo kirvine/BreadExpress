@@ -102,11 +102,11 @@ i {
 
   &.left {
     float: left;
-    margin-right: 15px;
+    //margin-right: 15px;
   }
   &.right {
     float: right;
-    margin-left: 15px;
+    //margin-left: 15px;
   }
   &.tiny {
     font-size: 1rem;
@@ -139,7 +139,7 @@ video.responsive-video {
     float: left;
     width: 30px;
     height: 30px;
-    margin: 0 10px;
+    margin: 0 5px;
     @include border-radius(2px);
     text-align: center;
 
