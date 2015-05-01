@@ -62,6 +62,18 @@
     }
   }
 
+  &.tiny {
+    height: 220px;
+
+    .card-image {
+      height: 120px;
+    }
+    .card-content {
+      height: 100px;
+    }
+
+  }
+
   &.small {
     height: 300px;
 

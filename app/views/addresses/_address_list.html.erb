@@ -1,46 +1,37 @@
 <div id=<%= state %> class="col s12">
 <% if addresses.empty? %>
-  <br>
-    <div class="card">
-      <div class="card-content">
-        <p>There are no <%= state %> addresses at this time.</p>
-      </div>
-    </div>
-  <br>
+  <br><p class="brown-text">There are no <%= state %> addresses at this time.</p>
+  <br><a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
   
 <% else %>
 <br>
-<div class="card">
-  <div class="card-content">
-    <table class="hoverable">
-      <thead>
-        <tr>
-          <th data-field="customer">Customer</th>
-          <th data-field="recipient">Recipient</th>
-          <th data-field="address">Address</th>
-          <th data-field="is_billing">Billing?</th>
-        </tr>
-      </thead>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th data-field="customer">Customer</th>
+        <th data-field="recipient">Recipient</th>
+        <th data-field="address">Address</th>
+        <th data-field="is_billing">Billing?</th>
+      </tr>
+    </thead>
 
-  <% addresses.each do |address| %>
-    <tr>
-      <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
-      <td><%= address.recipient %></td>
-      <td><%= render :partial => "partials/address_info", locals: {address: address} %>
-      </td>
-      <td><%= address.is_billing ? "Yes" : "No" %></td>
-    </tr>
-  <% end %>
-  </table>
-  </div>
-</div>
+<% addresses.each do |address| %>
+  <tr>
+    <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
+    <td><%= address.recipient %></td>
+    <td><%= render :partial => "partials/address_info", locals: {address: address} %>
+    </td>
+    <td><%= address.is_billing ? "Yes" : "No" %></td>
+  </tr>
+<% end %>
+</table>
 
   <!-- Add the pagination  -->
   <br>
   <span class="paginate">
     <%= will_paginate addresses, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
   </span>
-  <br>
+  <br><a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
 
 <% end %>
 </div>

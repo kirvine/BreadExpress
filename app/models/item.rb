@@ -17,8 +17,7 @@ class Item < ActiveRecord::Base
   scope :alphabetical, -> { order(:name) }
   scope :active,       -> { where(active: true) }
   scope :inactive,     -> { where(active: false) }
-  scope :for_category, ->(category) { where(category: category) }
-  
+  scope :for_category, ->(category) { where(category: category) }  
   # Validations
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates_numericality_of :units_per_item, only_integer: true, greater_than: 0
@@ -32,6 +31,11 @@ class Item < ActiveRecord::Base
   after_rollback :convert_to_inactive
 
   # Other methods
+
+  def self.similar_items(category, id)
+    where("category = ?", "#{category}").where("id <> ?", "#{id}")
+  end
+
   def current_price
     curr = self.item_prices.current.first
     if curr.nil?

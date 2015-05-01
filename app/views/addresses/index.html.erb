@@ -1,22 +1,21 @@
-<h2>Addresses</h2>
+<div class="flat-card" >
+  <div class="card-content">
+    <h2>Addresses</h2>
 
-<div class="row">
-  <div class="col s12">
-    <ul class="tabs">
-      <li class="tab col s3"><a class="active" href="#active">Active Addresses</a></li>
-      <li class="tab col s3"><a href="#inactive">Inactive Addresses</a></li>
-    </ul>
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s3"><a class="active" href="#active">Active Addresses</a></li>
+          <li class="tab col s3"><a href="#inactive">Inactive Addresses</a></li>
+        </ul>
+      </div>
+
+      <!-- Show active addresses -->
+      <%= render partial: "addresses_active" %>
+
+      <!-- Show in inactive addresses -->
+      <%= render partial: "addresses_inactive" %>
+    </div>
   </div>
-
-  <!-- Show active addresses -->
-  <%= render partial: "addresses_active" %>
-
-  <!-- Show in inactive addresses -->
-  <%= render partial: "addresses_inactive" %>
-
-  <a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
-  <br><br>
-
 </div>
-
 

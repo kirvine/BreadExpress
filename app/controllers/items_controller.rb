@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @related_items = Item.for_category("#{@item.category}")
+    @related_items = Item.similar_items(@item.category, @item.id)
   end
 
   def new

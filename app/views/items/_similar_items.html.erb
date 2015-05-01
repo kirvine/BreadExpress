@@ -1,7 +1,23 @@
-<br>
-<h5>Similar Items</h5>
-<hr width="95%">
+<% unless @related_items.empty? %>
+	<br><br><br>
+	<h5>Similar Items</h5>
+	<hr>
 
-<% Item.for_category(@item.category).each do |item| %>
-  <%= link_to item.name, item_path(item) %><br>
+	<% @related_items.each do |item| %>
+		<div class="col s3">
+	  <div class="card tiny">
+	      <div class="card-image">
+	        <% if item.picture_url.nil? %>
+	          <%= image_tag("no_image_small.png") %>
+	        <% else %>
+	        <%= image_tag(item.picture_url, height: "120") %>
+	        <% end %>
+	      </div>
+	      <div class="card-content image">
+	        <a href=<%=item_path(item) %>><span><%= item.name %></span></a>
+	        <p><h6>$<%= number_with_precision(item.current_price, :precision => 2) %></h6></p>
+	      </div>
+	    </div>
+	   </div>
+	<% end %>
 <% end %>
