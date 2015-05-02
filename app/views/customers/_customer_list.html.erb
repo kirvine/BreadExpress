@@ -8,16 +8,16 @@
   <table class="striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Email</th>
+        <th width="300">Name</th>
+        <th width="400">Phone</th>
+        <th width="400">Email</th>
       </tr>
     </thead>
 
   <% customers.each do |customer| %>
     <tr>
       <td><%= link_to customer.name, customer_path(customer) %></td>
-      <td><%= number_to_phone customer.phone %></td>
+      <td align="center"><%= number_to_phone customer.phone %></td>
       <td>
         <div id="email"><%= mail_to customer.email, customer.email, encode: "javascript" %>
         </div>

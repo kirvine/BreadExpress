@@ -1,20 +1,19 @@
-<h2>Order Details</h2>
-
-<table>
-  <tr> 
-    <td width="350">
-      <%= render partial: "order_data" %>
-      <br>
-    </td>
-    <td width="30">&nbsp;</td>
-    <td width="220">
-      <%= render partial: "order_history" %>
-    </td>
-  </tr>
-</table>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to "Destroy", @order.destroy, method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' } %> |
-<%= link_to 'View Orders', orders_path %>
-
-<p id="notice"><%= notice %></p>
+<div class="flat-card" >
+  <div class="card-content">
+      <div class="row">
+        <div class="col s5">
+          <%= render partial: "order_details" %>
+        </div>
+        <div class="col s7">
+          <%= render partial: "order_summary" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <%= render partial: "order_history" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>

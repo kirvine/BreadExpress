@@ -1,38 +1,20 @@
-<div id="order_history" class="col s12">
-  <% unless @order_history.empty? %><br>
-    <div class="card">
-      <div class="card-content">
-        <h5 class="white-text">Customer Order History</h5>
-        <table>
-          <thead>
-            <tr>
-              <th data-field="id">Date</th>
-              <th data-field="name">Recipient</th>
-              <th data-field="name">Amount</th>
-            </tr>
-          </thead>
+<h4>Order History</h4>
+<table class="striped">
+  <thead>
+    <tr>
+      <th width="100">Date</th>
+      <th width="300">Customer</th>
+      <th width="300">Recipient</th>
+      <th width="100">Cost</th>
+    </tr>
+  </thead>
 
-        <% for order in @order_history %>
-          <tr>
-            <td align="left"><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
-            <td align="left"><%= order.address.recipient %></td>
-            <td align="right">$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
-          </tr>
-        <% end %>
-        </table>
-      </div>
-    </div>
-
-  <!-- No pagination necessary for order history -->
-
-  <!-- No orders -->
-  <% else %>
-    <br>
-    <div class="card">
-      <div class="card-content">
-        <p>This customer has not placed any orders yet.</p>
-      </div>
-    </div>
-    <br>
+  <% @previous_orders.each do |order| %>
+  <tr>
+    <td align="center" ><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
+    <td align="center"><%= link_to order.customer.name, customer_path(order.customer) %></td>
+    <td align="center"><%= order.address.recipient %></td>
+    <td align="right"><%= number_to_currency order.grand_total %></td>
+  </tr>
   <% end %>
-</div>
+</table>

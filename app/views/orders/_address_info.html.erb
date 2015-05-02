@@ -1,0 +1,6 @@
+<%= @order.address.recipient %><br>
+<%= @order.address.street_1 %><br />
+<% unless @order.address.street_2.blank? %>
+  <%= @order.address.street_2 %><br />
+<% end %>
+<%= @order.address.city %>, <%= @order.address.state %> <%= @order.address.zip %>
