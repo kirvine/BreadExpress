@@ -1,0 +1,40 @@
+<div id=<%= state %> class="col s12">
+  <% if orders.empty? %>
+    <% if state = 'pending' %>
+      <br><p class="brown-text">There are no <%= state %> orders at this time.</p>
+    <% else %>
+      <br><p class="brown-text">There are no orders at this time.</p>
+    <% end %>
+    <br><a class="waves-effect waves-light btn" href="/orders/new">New Order</a>
+    
+  <% else %>
+  <br>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th data-field="date">Date</th>
+          <th data-field="customer">Customer</th>
+          <th data-field="recipient">Recipient</th>
+          <th data-field="grand_total">Cost</th>
+        </tr>
+      </thead>
+
+      <% orders.each do |order| %>
+      <tr>
+        <td><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
+        <td><%= link_to order.customer.name, customer_path(order.customer) %></td>
+        <td><%= order.address.recipient %></td>
+        <td align="right">$<%= number_with_precision(order.grand_total, :precision => 2) %></td>
+      </tr>
+      <% end %>
+    </table>
+
+    <!-- Add the pagination  -->
+    <br>
+    <span class="paginate">
+      <%= will_paginate orders, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+    </span>
+    <br><a class="waves-effect waves-light btn" href="/addresses/new">New Order</a>
+
+<% end %>
+</div>
