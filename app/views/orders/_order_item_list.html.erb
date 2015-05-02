@@ -1,0 +1,34 @@
+<table class="striped">
+  <thead>
+    <tr>
+      <th width="300">Item</th>
+      <th width="100">Quantity</th>
+      <th width="100">Unit Price</th>
+      <th width="100">Subtotal</th>
+      <% if controller.controller_name == 'home' %>
+        <th>&nbsp;</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% order_items.each do |oi| %>
+      <tr>
+        <td><%= link_to oi.item.name, item_path(oi.item) %></td>
+        <td align="center"><%= oi.quantity %></td>
+        <td align="center"><%= number_to_currency oi.item.price_on_date(date) %></td>
+        <td align="right"><%= number_to_currency oi.subtotal(date) %></td>
+      </tr>
+    <% end %>
+      <tr>
+        <td colspan="3" align="left">
+          Shipping Cost:
+          <br><h7>Total weight: <%= @order.total_weight.round(2) %></h7>
+          <br><h6><b>Total Cost:</b></h6>
+        </td>
+        <td align="right">
+          <%= number_to_currency @order.shipping_costs %>
+          <br><br><b><%= number_to_currency @order.grand_total %></b>
+        </td>
+      </tr>
+  </tbody>
+</table>

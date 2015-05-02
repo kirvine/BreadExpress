@@ -37,14 +37,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def update
-    if @order.update(order_params)
-      redirect_to @order, notice: "Your order was revised in the system."
-    else
-      render action: 'edit'
-    end
-  end
-
   def destroy
     @order.destroy
     redirect_to orders_url, notice: "This order was removed from the system."

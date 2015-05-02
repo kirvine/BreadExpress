@@ -1,28 +1,15 @@
 <!-- shipping details -->
 <h4>Order Details</h4>
 
-<br>
+<p class="brown-text">
+  <b>Order placed</b>: <%= @order.date.strftime('%B %e, %Y') %>
+<p class="brown-text">
+  <b>Ship to</b>: <%= link_to @order.address.recipient, address_path(@order.address) %>
+</p>
+<p>
+  <%= render partial: "order_item_list", locals: {order_items: @order_items, date: @order.date} %>
+</p>
 
-<h6>
-  <b>Ordered</b>: <%= @order.date.strftime('%B %e, %Y') %>
-</h6>
-
-<h6>
-  <b>Recipient</b>: <%= link_to @order.address.recipient, address_path(@order.address) %>
-</h6>
-
-<h6>
-  <b>Total Weight</b>: <%= @order.total_weight.round(2) %>
-</h6>
-
-<h6>
-  <b>Shipping Costs</b>: <%= number_to_currency @order.shipping_costs %>
-</h6>
-
-<h6>
-  <b>Total Cost</b>: <%= number_to_currency @order.grand_total %>
-</h6>
-
-<h6>
+<p class="brown-text">
   <em>Thanks for being a Bread Express customer since <%= @order.customer.created_at.year %>.</em>
-</h6>
+</p>
