@@ -12,13 +12,13 @@ class ItemsController < ApplicationController
 
   def index
     if logged_in? && !current_user.role?(:customer)
-      @bread = Item.for_category("bread").paginate(:page => params[:page]).per_page(10)
-      @muffins = Item.for_category("muffins").paginate(:page => params[:page]).per_page(10)
-      @pastries = Item.for_category("pastries").paginate(:page => params[:page]).per_page(10)
+      @bread = Item.for_category("bread").alphabetical.paginate(:page => params[:page]).per_page(10)
+      @muffins = Item.for_category("muffins").alphabetical.paginate(:page => params[:page]).per_page(10)
+      @pastries = Item.for_category("pastries").alphabetical.paginate(:page => params[:page]).per_page(10)
     else
-      @bread = Item.active.for_category("bread").paginate(:page => params[:page]).per_page(10)
-      @muffins = Item.active.for_category("muffins").paginate(:page => params[:page]).per_page(10)
-      @pastries = Item.active.for_category("pastries").paginate(:page => params[:page]).per_page(10)
+      @bread = Item.active.for_category("bread").alphabetical.paginate(:page => params[:page]).per_page(10)
+      @muffins = Item.active.for_category("muffins").alphabetical.paginate(:page => params[:page]).per_page(10)
+      @pastries = Item.active.for_category("pastries").alphabetical.paginate(:page => params[:page]).per_page(10)
     end
   end
 
@@ -28,10 +28,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    item_price = @item.item_prices.build
+    @item.item_prices.build
   end
 
   def edit
+    item_price = @item.item_prices.build
   end
 
   def create

@@ -1,6 +1,11 @@
+<%= f.error_notification %>
+
 <div class="input-field col s12">
-  <%= f.label :price, required: false %>
-  <%= f.text_field :price %>
+	<%= f.input :price, label: "Price *", required: false %>
+</div>
+
+<div class="input-field col s12">
+	<%= f.date_field :start_date, label: "Start Date", required: false %>
 </div>
 
 

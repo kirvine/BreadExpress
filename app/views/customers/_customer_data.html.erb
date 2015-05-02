@@ -1,11 +1,14 @@
 <b>Name:&nbsp;&nbsp;</b>
   <%= @customer.first_name %> <%= @customer.last_name %><br><br>
 
+<b>Username:&nbsp;&nbsp;</b>
+  <%= @customer.user.username %><br><br>
+
 <b>Phone:&nbsp;&nbsp;</b>
   <%= number_to_phone @customer.phone %><br><br>
 
 <b>Email:&nbsp;&nbsp;</b>
-  <%= mail_to @customer.email, @customer.email, encode: "javascript" %>
-<br><br>
+  <%= mail_to @customer.email, @customer.email, encode: "javascript" %><br><br>
+
 
 <b>A Bread Express customer since <%= @customer.created_at.year %></b>

@@ -18,6 +18,7 @@ class Item < ActiveRecord::Base
   scope :active,       -> { where(active: true) }
   scope :inactive,     -> { where(active: false) }
   scope :for_category, ->(category) { where(category: category) }  
+  
   # Validations
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates_numericality_of :units_per_item, only_integer: true, greater_than: 0
