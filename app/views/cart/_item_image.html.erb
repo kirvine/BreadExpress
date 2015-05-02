@@ -1,0 +1,33 @@
+<% if @item.picture_url.nil? %>
+	<%= image_tag("no_image_large.png", align: "center") %>
+<% else %>
+	<br>
+	<img class="materialboxed responsive-img", width="280" height="202" src=<%= @item.picture_url %>>
+<% end %>
+
+<table class="striped">
+	    <thead>
+	      <tr>
+	        <th data-field="image"></th>
+	        <th data-field="item_name">Item</th>
+	        <th data-field="quantity">Quantity</th>
+	        <th data-field="is_billing">Subtotal</th>
+	      </tr>
+	    </thead>
+
+		  <% @items_in_cart.each do |item_id| %>
+		  	<% item = Item.find(item_id[0]) %>
+			  <tr>
+			  	<td>
+			  		<% if item.picture_url.nil? %>
+								<%= image_tag("no_image_large.png", align: "center") %>
+							<% else %>
+								<br>
+								<img class="responsive-img", src=<%= item.picture_url %>>
+							<% end %>
+			  	</td>
+			    <td><%= link_to item.name, item_path(item) %></td>
+			    <td><%= session{:cart[item][1]} %></td>
+			  </tr>
+			<% end %>
+		</table>

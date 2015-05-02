@@ -10,6 +10,7 @@ BreadExpress::Application.routes.draw do
   resources :sessions
 
   post 'add_item/:id' => 'items#add_item', :as => :add_item
+  get 'cart' => 'cart#index', :as => :cart
   
   # Authentication routes
   get 'user/edit' => 'users#edit', as: :edit_current_user
