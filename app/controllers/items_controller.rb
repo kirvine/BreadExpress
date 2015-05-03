@@ -11,7 +11,9 @@ class ItemsController < ApplicationController
   end
 
   def index
-    if logged_in? && !current_user.role?(:customer)
+    if logged_in? && current_user.role?(:admin)
+      @active_items = Item.active.all
+      @inactive_items = Item.active.all
       @bread = Item.for_category("bread").alphabetical.paginate(:page => params[:page]).per_page(10)
       @muffins = Item.for_category("muffins").alphabetical.paginate(:page => params[:page]).per_page(10)
       @pastries = Item.for_category("pastries").alphabetical.paginate(:page => params[:page]).per_page(10)
@@ -42,7 +44,7 @@ class ItemsController < ApplicationController
     end
     
     if @item.save
-      redirect_to items_path, notice: "The item was added to the system."
+      redirect_to items_path, notice: "#{@item.name} was added to the system."
     else
       render action: 'new'
     end
@@ -50,7 +52,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to items_path, notice: "The item was revised in the system."
+      redirect_to items_path, notice: "#{@item.name} was revised in the system."
     else
       render action: 'edit'
     end
@@ -58,7 +60,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to items_url, notice: "The item was removed from the system."
+    redirect_to items_url, notice: "#{@item.name} was removed from the system."
   end
 
   private
