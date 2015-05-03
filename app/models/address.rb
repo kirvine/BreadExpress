@@ -31,7 +31,7 @@ class Address < ActiveRecord::Base
   # Callbacks
   before_destroy :is_destroyable?
   after_rollback :make_inactive_if_trying_to_destroy
-
+  
   # Other methods
   private
   def is_destroyable?

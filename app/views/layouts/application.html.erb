@@ -18,12 +18,10 @@
     
     <!-- BACKGROUND CONTAINER BEGIN -->
     <div class="container">
-      <div id="main-content">
-        <!-- MAIN CONTENT GOES HERE -->
-        <div id="flash">
-          <%= render :partial => "partials/flash" %>
+      <!-- MAIN CONTENT GOES HERE -->
+      <div id="flash">
+        <%= render :partial => "partials/flash" %>
           <%= yield %>
-        </div>
       </div>
     </div>
   </main>

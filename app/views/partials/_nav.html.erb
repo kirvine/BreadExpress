@@ -10,7 +10,7 @@
     <!-- TOP NAV -->
     <ul class="right hide-on-med-and-down">
       <% if !logged_in? %>
-      <li><a href="/login">Login<i class="mdi-action-lock-open left"></i></a></li>
+      <li><a href="/login">Log In<i class="mdi-action-lock-open left"></i></a></li>
       <% end %>
 
       <% if logged_in? && current_user.role?(:customer) %>

@@ -33,6 +33,31 @@ class Customer < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  # # For map of addresses
+  # def address
+  # [ street, city, state, country].compact.join(', ')
+  # end
+
+  # def create_map_link(zoom=12,width=800,height=800)
+  #   markers = ""; i = 1
+  #   self.addresses.by_recipient.to_a.each do |attr|
+  #   markers += "&markers=color:red%7Ccolor:red%7Clabel:#{i}%7C#{attr.latitude},#{attr.longitude}"
+  #   i += 1
+  #   end
+  #   map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap&sensor=false"+markers
+  # end
+
+  # def find_town_coordinates
+  #   coord = Geocoder.coordinates("#{name}, #{state}")
+  #   if coord
+  #     self.latitude = coord[0]
+  #     self.longitude = coord[1]
+  #   else 
+  #     errors.add(:base, "Error with geocoding")
+  #   end
+  #   coord
+  # end
+
   # Private methods
   private
   def reformat_phone

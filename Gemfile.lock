@@ -93,6 +93,7 @@ GEM
     foundation-rails (5.5.1.2)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
+    geocoder (1.2.8)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     hike (1.2.3)
@@ -226,6 +227,7 @@ DEPENDENCIES
   faker (= 1.4.3)
   font-awesome-sass-rails (= 3.0.2.2)
   foundation-rails
+  geocoder
   hirb (= 0.7.2)
   jbuilder (= 1.5.3)
   jquery-rails (= 3.1.0)

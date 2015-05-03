@@ -13,6 +13,11 @@
     <%= f.input :password_confirmation, label: "Password Confirmation", required: false %>
   </div>
 </div>
+<div class="row">
+  <div class="input-field col s12">
+    <%= f.input :role, label: "Role *", :selected => "customer", required: false  %>
+  </div>
+</div>
 <div class="field">
   <p><br>
     <%= f.check_box :active %>

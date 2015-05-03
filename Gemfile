@@ -19,6 +19,7 @@ end
 gem 'bcrypt-ruby', '3.1.5'
 
 # Other gems used by the project
+gem 'geocoder'
 gem 'will_paginate', '3.0.7'
 gem 'chronic', '0.10.2'
 gem 'simple_form', '3.1.0'
