@@ -1,11 +1,11 @@
-<h7><i class="mdi-navigation-chevron-left"></i><a href="/items">Items</a></h7>
-
 <br>
+
+<h5 class="deep-orange-text"><i class="mdi-navigation-chevron-left"></i><a href="/items">Items</a></h5>
 
 <% if @item.picture_url.nil? %>
 	<%= image_tag("no_image_small.png", align: "center") %>
 <% else %>
 	<br>
 	<img class="materialboxed responsive-img", width="280" height="202" src=<%= @item.picture_url %>>
-	<h7>Click to enlarge image</h7>
+	<h5>Click to enlarge image</h5>
 <% end %>

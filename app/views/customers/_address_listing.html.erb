@@ -1,0 +1,28 @@
+<br>
+
+<% if @related_addresses.empty? %>
+    <br><p class="brown-text">There are no saved addresses for this account.</p>
+    <br><a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
+    
+  <% else %>
+  <h2>Saved Addresses</h2>
+  <br>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th width="200">Recipient</th>
+          <th width="200">Address</th>
+          <th width="100">Billing?</th>
+        </tr>
+      </thead>
+
+  <% @related_addresses.each do |address| %>
+    <tr>
+      <td><%= link_to address.recipient, address_path(address) %></a></td>
+      <td><%= render :partial => "partials/address_info", locals: {address: address} %>
+      </td>
+      <td><%= address.is_billing ? "Yes" : "No" %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>

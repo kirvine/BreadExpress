@@ -1,36 +1,36 @@
 <%= simple_form_for(@address) do |f| %>
   <div class="row">
-    <div class="input-field col s12">
+    <div class="input-field col s8">
     <label for="address_customer_id" class="active">Customer</label>
     <%= f.collection_select :customer_id, Customer.all.alphabetical, :id, :name, prompt: "Select ..." %>
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s12">
+    <div class="input-field col s8">
     <%= f.input :recipient, label: "Recipient", required: false %>
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s12">
+    <div class="input-field col s8">
     <%= f.input :street_1, label: "Street 1", required: false %>
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s12">
+    <div class="input-field col s8">
     <%= f.input :street_2, label: "Street 2", required: false %>
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s12">
+    <div class="input-field col s8">
     <%= f.input :city, label: "City", required: false %>
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s6">
+    <div class="input-field col s4">
     <label for="address.state" class="active">State</label>
     <%= f.select(:state, Address::STATES_LIST, prompt: "Select ...") %>
     </div>
-  <div class="input-field col s6">
+  <div class="input-field col s4">
     <br>
     <%= f.input :zip, label: "Zip", required: false %>
   </div>
@@ -48,8 +48,7 @@
   </div>
   
   <div class="form-actions">
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    <i class="mdi-content-send right"></i>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit></i>
     </button>
     <% if @address.created_at.blank? %>
       &nbsp;&nbsp;<a class="waves-effect waves-light btn white-text" href="/addresses">Cancel</a>

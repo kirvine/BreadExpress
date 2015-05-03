@@ -1,38 +1,41 @@
-<div id=<%= state %> class="col s12">
-<% if addresses.empty? %>
-  <br><p class="brown-text">There are no <%= state %> addresses at this time.</p>
-  <br><a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
-  
-<% else %>
-<br>
-  <table class="striped">
-    <thead>
-      <tr>
-        <th width="200">Customer</th>
-        <th width="200">Recipient</th>
-        <th width="300">Address</th>
-        <th width="100">Billing?</th>
-      </tr>
-    </thead>
+<div class ="row">
+  <div id=<%= state %> class="col s12">
 
-<% addresses.each do |address| %>
-  <tr>
-    <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
-    <td><%= address.recipient %></td>
-    <td><%= render :partial => "partials/address_info", locals: {address: address} %>
-    </td>
-    <td><%= address.is_billing ? "Yes" : "No" %></td>
-  </tr>
-<% end %>
-</table>
-
-  <!-- Add the pagination  -->
+  <% if addresses.empty? %>
+    <br><p class="brown-text">There are no <%= state %> addresses at this time.</p>
+    <br><a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
+    
+  <% else %>
   <br>
-  <span class="paginate">
-    <%= will_paginate addresses, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
-  </span>
-  <br><a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th width="200">Customer</th>
+          <th width="200">Recipient</th>
+          <th width="300">Address</th>
+          <th width="100">Billing?</th>
+        </tr>
+      </thead>
 
-<% end %>
-</div>
+  <% addresses.each do |address| %>
+    <tr>
+      <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
+      <td><%= address.recipient %></td>
+      <td><%= render :partial => "partials/address_info", locals: {address: address} %>
+      </td>
+      <td><%= address.is_billing ? "Yes" : "No" %></td>
+    </tr>
+  <% end %>
+  </table>
+
+    <!-- Add the pagination  -->
+    <br>
+    <span class="paginate">
+      <%= will_paginate addresses, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+    </span>
+    <br><a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
+
+  <% end %>
+  
+  </div>
 </div>

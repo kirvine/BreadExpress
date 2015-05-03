@@ -1,20 +1,32 @@
-<h4>Order History</h4>
-<table class="striped">
-  <thead>
-    <tr>
-      <th width="100">Date</th>
-      <th width="300">Customer</th>
-      <th width="300">Recipient</th>
-      <th width="100">Cost</th>
-    </tr>
-  </thead>
+<% unless @previous_orders.empty? %>
+  
+  <hr>
+  <br>
+  <h2>Order History</h2>
 
-  <% @previous_orders.each do |order| %>
-  <tr>
-    <td align="center" ><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
-    <td align="center"><%= link_to order.customer.name, customer_path(order.customer) %></td>
-    <td align="center"><%= order.address.recipient %></td>
-    <td align="right"><%= number_to_currency order.grand_total %></td>
-  </tr>
-  <% end %>
-</table>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th width="100">Date</th>
+        <th width="300">Customer</th>
+        <th width="300">Recipient</th>
+        <th width="100">Cost</th>
+      </tr>
+    </thead>
+
+    <% @previous_orders.each do |order| %>
+    <tr>
+      <td align="center" ><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
+      <td align="center"><%= link_to order.customer.name, customer_path(order.customer) %></td>
+      <td align="center"><%= order.address.recipient %></td>
+      <td align="right"><%= number_to_currency order.grand_total %></td>
+    </tr>
+    <% end %>
+  </table>
+
+<% else %>
+
+  <!-- No orders -->
+  <p>This customer has not placed any orders yet.</p>
+
+<% end %>

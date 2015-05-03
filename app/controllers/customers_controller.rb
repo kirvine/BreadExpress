@@ -11,6 +11,7 @@ class CustomersController < ApplicationController
 
   def show
     @previous_orders = @customer.orders.chronological
+    @related_addresses = @customer.addresses.by_recipient
   end
 
   def new
@@ -40,7 +41,7 @@ class CustomersController < ApplicationController
     # just in case customer trying to hack the http request...
     reset_username_param unless current_user.role? :admin
     if @customer.update(customer_params)
-      redirect_to @customer, flash[:notice] = "#{customer.proper_name} is updated."
+      redirect_to @customer, notice: "#{@customer.proper_name} was revised in the system."
     else
       render action: 'edit'
     end
