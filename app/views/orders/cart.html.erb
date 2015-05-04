@@ -1,4 +1,7 @@
-<table class="striped">
+<div class="flat-card">
+	<div class="card-content">
+		<h1>Your Cart</h1>
+		<table class="striped">
   <thead>
     <tr>
       <th width="300">Item</th>
@@ -11,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <% order_items.each do |oi| %>
+    <% @items_in_cart.each do |oi| %>
       <tr>
         <td><%= link_to oi.item.name, item_path(oi.item) %></td>
         <td align="center"><%= oi.quantity %></td>
@@ -19,16 +22,8 @@
         <td align="right"><%= number_to_currency oi.subtotal(Date.today) %></td>
       </tr>
     <% end %>
-      <tr>
-        <td colspan="3" align="left">
-          Shipping Cost:
-          <br><h5>Total weight: <%= @order.total_weight.round(2) %></h5>
-          <h4><b>Total Cost:</b></h4>
-        </td>
-        <td align="right">
-          <%= number_to_currency @order.shipping_costs %>
-          <br><br><b><%= number_to_currency @order.grand_total %></b>
-        </td>
-      </tr>
   </tbody>
 </table>
+	</dv>
+</div>
+

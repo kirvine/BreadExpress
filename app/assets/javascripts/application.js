@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery_nested_form
+//= require foundation
 //= require_tree .
 
 $(document).ready(function() {
@@ -35,4 +36,10 @@ $(document).ready(function() {
   $('.materialboxed').materialbox(); // shadow box for image
 });
 
+// Flash fade
+$(function() {
+   $('.alert-box').fadeIn('normal', function() {
+      $(this).delay(3700).fadeOut();
+   });
+});
 

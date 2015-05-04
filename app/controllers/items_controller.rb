@@ -71,7 +71,12 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :picture, :category, :units_per_item, :weight, :active, item_price_attributes: [:id, :price, :start_date, :end_date])
+    reset_date_params
+    params.require(:item).permit(:name, :description, :picture, :category, :units_per_item, :weight, :active, item_prices_attributes: [:id, :price, :start_date, :end_date])
   end
 
+  def reset_date_params
+    params[:item][:item_prices_attributes][:start_date] = Date.today
+    params[:item][:item_prices_attributes][:end_date] = nil
+  end
 end
