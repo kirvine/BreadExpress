@@ -70,6 +70,8 @@ class OrdersController < ApplicationController
   def order_params
     params[:order][:customer_id] = current_user.customer.id
     params[:order][:date] = Date.today
+    params[:order][:expiration_month] = params[:order][:expiration_month].to_i
+    params[:order][:expiration_year] = params[:order][:expiration_year].to_i
     params.require(:order).permit(:address_id, :customer_id, :date, :credit_card_number, :expiration_year, :expiration_month)
   end
 

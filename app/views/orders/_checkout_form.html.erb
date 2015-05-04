@@ -24,12 +24,11 @@
     </div>
     <div class="input-field col s2">
       <label for="expiration_month" class="active">Month</label>
-      <%= f.text_field :expiration_month %>
+      <%= f.select :expiration_month, (1..12) %>
     </div>
     <div class="input-field col s2">
       <label for="expiration_year" class="active">Year</label>
-      <%= f.select(:state, Address::STATES_LIST, prompt: "Select ...") %>
-      <%= f.text_field :expiration_year %>
+      <%= f.select :expiration_year, (Date.today.year..Date.today.year+5) %>
     </div>
   </div>
   <div class="form-actions">
