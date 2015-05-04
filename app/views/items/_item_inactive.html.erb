@@ -21,7 +21,25 @@
     <tr>
       <td><%= link_to item.name, item_path(item) %></td>
       <td><%= item.category %></td>
-      <td align="right"><%= item.units_per_item %></td>
+      <td align="left">
+        <% if item.units_per_item == 1 %>
+          <% if item.category == "bread" %>
+            <%= "1 loaf" %>
+          <% elsif item.category == "muffins" %>
+            <%= "1 muffin" %>
+          <% else %>
+            <%= "1 pastry" %>
+          <% end %>
+        <% else %>
+          <% if item.category == "bread" %>
+            <%= item.units_per_item %> loaves
+          <% elsif item.category == "muffins" %>
+            <%= item.units_per_item %> muffins
+          <% else %>
+            <%= item.units_per_item %> pastries
+          <% end %>
+        <% end %>
+      </td>
       <td align="center"><%= item.weight %></td>
       <td align="center"><%= number_to_currency item.current_price %></td>
     </tr>

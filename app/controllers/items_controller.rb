@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
     end
     
     if @item.save
-      redirect_to items_path, notice: "#{@item.name} was added to the system."
+      redirect_to item_path(@item), notice: "#{@item.name} was added to the system."
     else
       render action: 'new'
     end
