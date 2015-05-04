@@ -1,11 +1,13 @@
-<br>
-
-<h5 class="deep-orange-text"><i class="mdi-navigation-chevron-left"></i><a href="/items">Items</a></h5>
-
 <% if @item.picture_url.nil? %>
 	<%= image_tag("no_image_small.png", align: "center") %>
 <% else %>
-	<br>
-	<img class="materialboxed responsive-img", width="280" height="202" src=<%= @item.picture_url %>>
+	<% if current_user.role?(:admin) %>
+		<h5 class="deep-orange-text"><i class="mdi-navigation-chevron-left"></i><a href="/items">Items</a></h5>
+		<br><img class="materialboxed responsive-img", width="280" height="202" src=<%= @item.picture_url %>>
+	<% else %>
+		<h5 class="deep-orange-text"><i class="mdi-navigation-chevron-left"></i><a href="/items">Items</a></h5>
+		<br>
+		<img class="materialboxed responsive-img", width="430" height="300" src=<%= @item.picture_url %>>
+	<% end %>
 	<h5>Click to enlarge image</h5>
 <% end %>
