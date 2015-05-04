@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   def index
     if logged_in? && current_user.role?(:admin)
       @active_items = Item.active.all
-      @inactive_items = Item.active.all
+      @inactive_items = Item.inactive.all
       @bread = Item.for_category("bread").alphabetical.paginate(:page => params[:page]).per_page(10)
       @muffins = Item.for_category("muffins").alphabetical.paginate(:page => params[:page]).per_page(10)
       @pastries = Item.for_category("pastries").alphabetical.paginate(:page => params[:page]).per_page(10)

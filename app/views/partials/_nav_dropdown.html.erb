@@ -14,6 +14,11 @@
   <li><%= link_to "New Order", new_order_path %></li>
 </ul>
 
+<ul id="item" class="dropdown-content">
+  <li><a href="/items">Item List</a></li>
+  <li><%= link_to "New Item", new_item_path %></li>
+</ul>
+
 <ul id="account" class="dropdown-content">
 	<% if logged_in? && current_user.role?(:customer) %>
 		<li><%= link_to "My Info", customers_path(current_user.customer) %></li>

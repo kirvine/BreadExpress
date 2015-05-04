@@ -1,0 +1,54 @@
+<div class ="row">
+  <div id="active" class="col s12">
+  <% if @active_items.empty? %>
+    <br><p class="brown-text">No active items at this time.</p>
+    <br><a class="waves-effect waves-light btn" href="/items/new">New Item</a>
+    
+  <% else %>
+  <br>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th width="200">Name</th>
+          <th width="100">Catgory</th>
+          <th width="50">Units</th>
+          <th width="50">Weight</th>
+          <th width="50">Price</th>
+        </tr>
+      </thead>
+
+  <% @active_items.each do |item| %>
+    <tr>
+      <td><%= link_to item.name, item_path(item) %></td>
+      <td><%= item.category %></td>
+      <td align="left">
+        <% if item.units_per_item == 1 %>
+          <% if item.category == "bread" %>
+            <%= "1 loaf" %>
+          <% elsif item.category == "muffins" %>
+            <%= "1 muffin" %>
+          <% else %>
+            <%= "1 pastry" %>
+          <% end %>
+        <% else %>
+          <% if item.category == "bread" %>
+            <%= item.units_per_item %> loaves
+          <% elsif item.category == "muffins" %>
+            <%= item.units_per_item %> muffins
+          <% else %>
+            <%= item.units_per_item %> pastries
+          <% end %>
+        <% end %>
+      </td>
+      <td align="center"><%= item.weight %></td>
+      <td align="center"><%= number_to_currency item.current_price %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br><%= link_to "New Item", new_item_path, class: "waves-effect waves-light btn white-text" %>
+
+  <% end %>
+  
+  </div>
+</div>

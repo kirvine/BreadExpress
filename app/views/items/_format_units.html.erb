@@ -1,0 +1,17 @@
+<% if item.units_per_item == 1 %>
+	<% if item.category == "bread" %>
+		<%= "1 loaf" %>
+	<% elsif item.category == "muffins" %>
+		<%= "1 muffin" %>
+	<% else %>
+		<%= "1 pastry" %>
+	<% end %>
+<% else %>
+	<% if item.category == "bread" %>
+		<%= item.units_per_item loaves %>
+	<% elsif item.category == "muffins" %>
+		<%= item.units_per_item muffins %>
+	<% else %>
+		<%= item.units_per_item pastries %>
+	<% end %>
+<% end %>

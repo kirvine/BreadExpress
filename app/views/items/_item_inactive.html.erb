@@ -1,0 +1,36 @@
+<div class ="row">
+  <div id="inactive" class="col s12">
+  <% if @inactive_items.empty? %>
+    <br><p class="brown-text">No inactive items at this time.</p>
+    <br><a class="waves-effect waves-light btn" href="/items/new">New Item</a>
+    
+  <% else %>
+  <br>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th width="200">Name</th>
+          <th width="100">Catgory</th>
+          <th width="50">Units</th>
+          <th width="50">Weight</th>
+          <th width="50">Price</th>
+        </tr>
+      </thead>
+
+  <% @inactive_items.each do |item| %>
+    <tr>
+      <td><%= link_to item.name, item_path(item) %></td>
+      <td><%= item.category %></td>
+      <td align="right"><%= item.units_per_item %></td>
+      <td align="center"><%= item.weight %></td>
+      <td align="center"><%= number_to_currency item.current_price %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br><%= link_to "New Item", new_item_path, class: "waves-effect waves-light btn white-text" %>
+
+  <% end %>
+  
+  </div>
+</div>
