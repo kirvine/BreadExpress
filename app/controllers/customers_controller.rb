@@ -11,7 +11,7 @@ class CustomersController < ApplicationController
 
   def show
     @previous_orders = @customer.orders.chronological
-    @related_addresses = @customer.addresses.by_recipient
+    @related_addresses = @customer.addresses.active.by_recipient
   end
 
   def new

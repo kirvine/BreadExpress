@@ -13,13 +13,12 @@
 
     <div class="form-actions">
       <div class="col s8">
-      <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-      <% if @customer.created_at.blank? %>
-        &nbsp;&nbsp;<button class="waves-effect waves-light btn" href="/addresses">Cancel</button>
-      <% else %>
-        &nbsp;&nbsp;<button class="waves-effect waves-light btn" href="/addresses">Cancel</button>
-      <% end %>
-      </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+        <% if @customer.created_at.blank? %>
+          &nbsp;&nbsp;<%= link_to "Cancel", customers_path, class: "waves-effect waves-light btn white-text" %>
+        <% else %>
+          &nbsp;&nbsp;<%= link_to "Cancel", customer_path(@customer), class: "waves-effect waves-light btn white-text" %>
+        <% end %>
     </div>
 
   </div>

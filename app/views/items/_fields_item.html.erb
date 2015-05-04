@@ -1,4 +1,6 @@
-<%= f.error_notification %>
+<div class="col s12">
+	<%= f.error_notification %>
+</div>
 
 <div class="input-field col s12">
   <%= f.input :name, label: "Name *", required: false %>
@@ -7,14 +9,16 @@
   <%= f.input :description, label: "Description" %>
 </div>
 <div class="input-field col s12">
-  <%= f.input :picture, label: "Picture" %>
+  <%= f.label "Picture" %>
+  <%= f.file_field :picture %>
+</div>
+<div class="input-field col s12 active">
+	<%= f.label "Category *", :class => "active", required: false %>
+	<%= f.select(:category, Item::CATEGORIES, prompt: "Select ...") %>
 </div>
 <div class="input-field col s12">
-  <%= f.input :category, :collection => Item::CATEGORIES, prompt: "Select ...", label: "Category *", required: false  %>
+  <%= f.input :units_per_item, as: :string, label: "Units Per Item *", required: false %>
 </div>
 <div class="input-field col s12">
-  <%= f.input :units_per_item, label: "Units Per Item *", required: false %>
-</div>
-<div class="input-field col s12">
-  <%= f.input :weight, label: "Weight *", required: false %>
+  <%= f.input :weight, as: :string, label: "Weight *", required: false %>
 </div>

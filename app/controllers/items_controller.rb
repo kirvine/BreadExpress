@@ -41,6 +41,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.item_prices.each do |item_price|
       item_price.item = @item
+      item_price.start_date = Date.today
+      item_price.end_date = nil
     end
     
     if @item.save
@@ -69,7 +71,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :picture, :category, :units_per_item, :weight, :active, item_prices_attributes: [:id, :price, :start_date, :_destroy])
+    params.require(:item).permit(:name, :description, :picture, :category, :units_per_item, :weight, :active, item_price_attributes: [:id, :price, :start_date, :end_date])
   end
 
 end

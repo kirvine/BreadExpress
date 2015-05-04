@@ -12,21 +12,25 @@
   </head>
 
 
-  <main id="background">
-    <!-- NAVIGATION BEGIN -->
-    <%= render partial: 'partials/nav' %>
-    
-    <!-- BACKGROUND CONTAINER BEGIN -->
-    <div class="container">
-      <!-- MAIN CONTENT GOES HERE -->
-      <div id="flash">
-        <%= render :partial => "partials/flash" %>
-          <%= yield %>
+  <body>
+    <main id="background">
+      <!-- NAVIGATION BEGIN -->
+      <%= render partial: 'partials/nav' %>
+      
+      <!-- BACKGROUND CONTAINER BEGIN -->
+      <div class="container">
+        <div id="main-content">
+          <!-- MAIN CONTENT GOES HERE -->
+          <div id="flash">
+            <%= render :partial => "partials/flash" %>
+            <%= yield %>
+          </div>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <footer class="page-footer">
-    <%= render partial: 'partials/footer' %>
-  </footer>
+    <footer class="page-footer">
+      <%= render partial: 'partials/footer' %>
+    </footer>
+  </body>
 </html>

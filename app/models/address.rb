@@ -33,7 +33,6 @@ class Address < ActiveRecord::Base
   after_rollback :make_inactive_if_trying_to_destroy
   
   # Other methods
-  private
   def is_destroyable?
     @destroyable = self.orders.empty?
   end

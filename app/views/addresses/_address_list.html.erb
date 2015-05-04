@@ -33,7 +33,7 @@
     <span class="paginate">
       <%= will_paginate addresses, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
     </span>
-    <br><a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
+    <br><%= link_to "New Address", new_address_path, class: "waves-effect waves-light btn white-text" %>
 
   <% end %>
   

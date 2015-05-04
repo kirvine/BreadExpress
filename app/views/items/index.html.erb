@@ -1,9 +1,16 @@
+<br>
 <div class="flat-card">
 	<div class="card-content">
 		<h1>Items</h1>
 
-		<% if @active_items.empty? %>
-			<p>No active items at this time.</p>
+		<% if logged_in? && current_user.role?(:admin) %>
+			<% if @active_items.empty? %>
+				<p>No active items at this time.</p>
+			<% else %>
+				<%= render partial: "item_bread" %>
+				<%= render partial: "item_muffins" %>
+				<%= render partial: "item_pastries" %>
+			<% end %>
 		<% else %>
 			<%= render partial: "item_bread" %>
 			<%= render partial: "item_muffins" %>
@@ -11,3 +18,4 @@
 		<% end %>
 	</div>
 </div>
+<br>

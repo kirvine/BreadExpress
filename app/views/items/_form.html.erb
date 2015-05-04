@@ -1,19 +1,29 @@
 <%= simple_nested_form_for @item, :html => { :class => 'form-horizontal', :multipart => true } do |item_form| %>
   
   <div class="row">
-    <%= render :partial => "fields_item", :locals => { :f => item_form } %>
-
-    <div id="item_item_prices">
-      <%= item_form.simple_fields_for :item_prices do |item_price_form| %>
-        <%= render :partial => "fields_item_price", :locals => { :f => item_price_form } %>
-      <% end %> 
+    <div class="col s8">
+      <%= render :partial => "fields_item", :locals => { :f => item_form } %>
+    </div>
+    <div class="col s8">
+      <div id="item_item_prices">
+        <%= item_form.simple_fields_for :item_price do |item_price_form| %>
+          <%= render :partial => "fields_item_price", :locals => { :f => item_price_form } %>
+        <% end %> 
+      </div>
     </div>
     
     <div class="form-actions">
       <div class="form-actions">
-    <%= item_form.submit nil, :class => 'button radius' %>
-    <%= link_to 'Cancel', items_path, :class => 'button secondary' %>
-  </div>
+        <div class="col s8">
+          <br>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+          <% if @item.created_at.blank? %>
+            &nbsp;&nbsp;<button class="waves-effect waves-light btn" href="/addresses">Cancel</button>
+          <% else %>
+            &nbsp;&nbsp;<button class="waves-effect waves-light btn" href="/addresses">Cancel</button>
+          <% end %>
+        </div>
+      </div>
     </div>
 
   </div>

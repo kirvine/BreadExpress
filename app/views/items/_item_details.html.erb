@@ -5,12 +5,8 @@
   <h3><%= render partial: "price_per_unit" %></h3>
 </p>
 
-<p>
-  	Total weight: <%= @item.weight %> lbs
-</p>
-
 <p><br>
-  <%= @item.description %>
+  <%= @item.description %> Total weight: <%= @item.weight %> lbs.
 </p>
 
 <br>
@@ -19,6 +15,6 @@
 <% if logged_in? && current_user.role?(:admin) %>
 	<%= link_to "Edit", edit_item_path(@item), class: "waves-effect waves-light btn white-text" %>
 	<% if @item.is_destroyable? %>
-	<%= link_to "Delete", item_path(@item), method: :delete, data: { confirm: 'Are you sure you wish to delete this item?' }, class: "waves-effect waves-light btn white-text" if @item.is_destroyable?%>
+	<%= link_to "Delete", item_path(@item), method: :delete, data: { confirm: 'Are you sure you wish to delete this item?' }, class: "waves-effect waves-light btn white-text" %>
 	<% end %>
 <% end %>

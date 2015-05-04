@@ -14,11 +14,11 @@
  *= require jquery-ui
  */
 
-
-.parallax-container .parallax {
-	z-index: 0;
+#flash-back {
+	background: #FA333B;
 }
 
+// all pages
 .page-footer a {
 	color: #B19D8B;
 }
@@ -39,6 +39,18 @@ hr {
 	background: #fff;
 }
 
+.error {
+	color: #FF7400;
+	font-size: 12px;
+}
+
+.error_notification {
+	color: #FF7400;
+	font-size: 12px;
+}
+
+// home page
+
 #welcome {
 	font-size: 18px;
 }
@@ -46,6 +58,12 @@ hr {
 #how_it_works {
 	color: #B19D8B;
 }
+
+.parallax-container .parallax {
+	z-index: 0;
+}
+
+// about page
 
 #testimonials {
 	font-size: 12px;
