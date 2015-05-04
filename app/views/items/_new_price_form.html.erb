@@ -1,0 +1,24 @@
+<%= simple_form_for @item_price, :html => { :class => 'form-horizontal'} do |f| %>
+
+<div class="row">
+	<div class="input-field col s12"> 
+		<%= f.input :item_id, as: :hidden, input_html: {value: @item.id} %>
+	</div>
+</div>
+
+<div class="row">
+  <div class="input-field col s6">
+    <%= f.input :price, as: :string, label: "Change Price" %>
+  </div>
+  <div class="input-field col s6">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Add</button>
+  </div>
+</div>
+
+<div class="row">
+	<div class="input-field col s12"> 
+		<%= f.input :start_date, as: :hidden, input_html: {value: Date.today} %>
+	</div>
+</div>
+
+<% end %>

@@ -9,7 +9,7 @@
 <p>
   <%= render partial: "order_item_list", locals: {order_items: @order_items, date: @order.date} %>
 </p>
-
+<br>
 <p class="brown-text">
   <em>Thanks for being a Bread Express customer since <%= @order.customer.created_at.year %>.</em>
 </p>

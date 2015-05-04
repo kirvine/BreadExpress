@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
 
   def show
     @related_items = Item.similar_items(@item.category, @item.id)
+    @item_price = ItemPrice.new
   end
 
   def new
@@ -34,7 +35,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    item_price = @item.item_prices.build
   end
 
   def create
