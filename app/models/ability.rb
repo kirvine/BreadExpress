@@ -34,7 +34,11 @@ class Ability
       can :show, Item
 
       # can add item to cart
+      can :add_item, Item
+
       can :cart, Order
+
+      can :checkout, Order
       
     else
       can :create, User

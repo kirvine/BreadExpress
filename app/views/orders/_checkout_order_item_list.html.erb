@@ -22,12 +22,11 @@
       <tr>
         <td colspan="3" align="left">
           Shipping Cost:
-          <br><h5>Total Weight: <%= @order.total_weight.round(2) %></h5>
           <h4><b>Grand Total:</b></h4>
         </td>
         <td align="right">
-          <%= number_to_currency @order.shipping_costs %>
-          <br><br><b><%= number_to_currency @order.grand_total %></b>
+          <%= number_to_currency @shipping_cost %>
+          <br><b><%= number_to_currency @grand_total %></b>
         </td>
       </tr>
   </tbody>

@@ -1,29 +1,12 @@
+<br>
 <div class="flat-card">
 	<div class="card-content">
 		<h1>Your Cart</h1>
-		<table class="striped">
-  <thead>
-    <tr>
-      <th width="300">Item</th>
-      <th width="100">Quantity</th>
-      <th width="100">Unit Price</th>
-      <th width="100">Subtotal</th>
-      <% if controller.controller_name == 'home' %>
-        <th>&nbsp;</th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items_in_cart.each do |oi| %>
-      <tr>
-        <td><%= link_to oi.item.name, item_path(oi.item) %></td>
-        <td align="center"><%= oi.quantity %></td>
-        <td align="center"><%= number_to_currency oi.item.price_on_date(Date.today) %></td>
-        <td align="right"><%= number_to_currency oi.subtotal(Date.today) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-	</dv>
+    <div class="col 8">
+		  <p><%= render partial: "checkout_order_item_list", locals: {order_items: @items_in_cart, date: Date.today} %></p>
+    </div>
+
+	</div>
 </div>
 
+<a class="waves-effect waves-light btn white-text" href="/checkout">Checkout</a>
