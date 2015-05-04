@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   include BreadExpressHelpers::Cart
+  include BreadExpressHelpers::Shipping
 
   before_action :check_login
   before_action :set_order, only: [:show, :update, :destroy]
@@ -28,14 +29,24 @@ class OrdersController < ApplicationController
     @items_in_cart = get_list_of_items_in_cart
   end
 
+  def checkout
+    @order = Order.new
+    @shipping_cost = calculate_cart_shipping
+    @total_cost = calculate_cart_items_cost
+    @grand_total = calculate_cart_shipping + calculate_cart_items_cost
+  end
+
   def new
   end
 
   def create
     @order = Order.new(order_params)
-
+    @order.grand_total = calculate_cart_items_cost + calculate_cart_shipping
     if @order.save
-
+      @order.pay
+      @order.save
+      save_each_item_in_cart(@order)
+      clear_cart
       redirect_to @order, notice: "Thank you for ordering from Bread Express."
     else
       render action: 'new'
@@ -53,7 +64,9 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:address_id)
+    params[:order][:customer_id] = current_user.customer.id
+    params[:order][:date] = Date.today
+    params.require(:order).permit(:address_id, :customer_id, :date, :credit_card_number, :expiration_year, :expiration_month)
   end
 
 end

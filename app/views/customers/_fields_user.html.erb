@@ -13,10 +13,15 @@
     <%= f.input :password_confirmation, label: "Password Confirmation", required: false %>
   </div>
 </div>
+
+<!-- only show active checkbox if admin -->
+<% if logged_in? && current_user.role?(:admin) %>
 <div class="field">
   <p><br>
     <%= f.check_box :active %>
     <%= f.label :active %>
   </p>
-  <br>
 </div>
+<% end %>
+
+<br>

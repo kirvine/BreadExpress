@@ -16,7 +16,7 @@
 
 <ul id="account" class="dropdown-content">
 	<% if logged_in? && current_user.role?(:customer) %>
-		<li><%= link_to "My Info", customers_path(@customer) %></li>
+		<li><%= link_to "My Info", customers_path(current_user.customer) %></li>
 	  <li><%= link_to "Logout", logout_path %></li>
   <% else %>
   	<li><%= link_to "My Info", home_path %></li>

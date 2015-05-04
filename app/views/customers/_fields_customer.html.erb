@@ -16,11 +16,15 @@
     <%= f.input :email, label: "Email", required: false %>
   </div>
 </div>
-<div class="field">
-  <p><br>
-    <%= f.check_box :active %>
-    <%= f.label :active %>
-  </p>
-</div>
+
+<!-- only show active checkbox if admin -->
+<% if logged_in? && current_user.role?(:admin) %>
+  <div class="field">
+    <p><br>
+      <%= f.check_box :active %>
+      <%= f.label :active %>
+    </p>
+  </div>
+<% end %>
 
 <br>

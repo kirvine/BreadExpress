@@ -12,10 +12,17 @@ class Ability
 
     elsif user.role? :customer
       # they can read their own profile
-      can :show, User do |u|  
+      can :show, Customer do |c|
+        c.id == customer.id
+      end
+      can :show, User do |u|
         u.id == user.id
       end
+
       # they can update their own profile
+      can :update, Customer do |c|  
+        c.id == customer.id
+      end
       can :update, User do |u|  
         u.id == user.id
       end
@@ -25,8 +32,12 @@ class Ability
 
       # can read about an item
       can :show, Item
+
+      # can add item to cart
+      can :cart, Order
       
     else
+      can :create, User
       can :create, Customer
       can :read, :all
     end

@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery_nested_form
-//= require foundation
 //= require_tree .
 
 $(document).ready(function() {
@@ -26,20 +25,20 @@ $(document).ready(function() {
     inDuration: 300,
     outDuration: 225,
     constrain_width: true, // Does not change width of dropdown to that of the activator
-    hover: true, // Activate on hover
+    hover: false, // Activate on hover
     gutter: 0, // Spacing from edge
     belowOrigin: true // Displays dropdown below the button
   	}
 	);
   // for items
-  $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
+  if ($('.tabs-wrapper').length !== 0) {
+    $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
+  }
   $('.materialboxed').materialbox(); // shadow box for image
-});
-
-// Flash fade
-$(function() {
-   $('.alert-box').fadeIn('normal', function() {
-      $(this).delay(3700).fadeOut();
+  $('.alert-box').fadeIn('normal', function() {
+      $(this).delay(3700).fadeOut(400);
    });
 });
+
+
 

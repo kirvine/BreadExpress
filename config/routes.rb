@@ -11,6 +11,7 @@ BreadExpress::Application.routes.draw do
 
   post 'add_item/:id' => 'items#add_item', :as => :add_item
   get 'cart' => 'orders#cart', :as => :cart
+  get 'checkout' => 'orders#checkout', :as => :checkout
   
   # Authentication routes
   get 'user/edit' => 'users#edit', as: :edit_current_user
