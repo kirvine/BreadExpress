@@ -6,7 +6,7 @@
     </div>
     <div class="col s8">
       <div id="item_item_prices">
-        <%= item_form.simple_fields_for :item_price do |item_price_form| %>
+        <%= item_form.simple_fields_for :item_prices do |item_price_form| %>
           <%= render :partial => "fields_item_price", :locals => { :f => item_price_form } %>
         <% end %> 
       </div>

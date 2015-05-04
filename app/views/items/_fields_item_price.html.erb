@@ -5,3 +5,7 @@
 <div class="input-field col s12">
 	<%= f.input :price, label: "Price *", required: false %>
 </div>
+
+<div class="input-field col s12"> 
+	<%= f.input :start_date, as: :hidden, input_html: {value: Date.today} %>
+</div>
