@@ -36,7 +36,7 @@ $(document).ready(function() {
   }
   $('.materialboxed').materialbox(); // shadow box for image
   $('.alert-box').fadeIn('normal', function() {
-      $(this).delay(3700).fadeOut(400);
+      $(this).delay(3700).fadeOut(600);
    });
 });
 

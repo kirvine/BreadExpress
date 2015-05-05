@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   authorize_resource
 
   def index
-    @users = User.alphabetical.paginate(:page => params[:page]).per_page(7)
+    @active_users = User.active.by_role.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @inactive_users = User.inactive.by_role.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to home_path, notice: "Thank you for signing up!"
+      redirect_to root_url, notice: "Thank you for signing up!"
     else
       flash[:error] = "This user could not be created."
       render "new"

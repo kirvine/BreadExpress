@@ -1,0 +1,30 @@
+<div class ="row">
+  <div id="active" class="col s12">
+  <% if @active_users.empty? %>
+    <br><p class="brown-text">There are no active users at this time.</p>
+    <br><a class="waves-effect waves-light btn" href="/user/new">New User</a>
+    
+  <% else %>
+  <br>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th width="100">Role</th>
+          <th width="200">Username</th>
+        </tr>
+      </thead>
+
+  <% @active_users.each do |user| %>
+    <tr>
+      <td><%= user.role %></td>
+      <td><%= link_to user.username, user_path(user) %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br><%= link_to "New User", new_user_path, class: "waves-effect waves-light btn white-text" %>
+
+  <% end %>
+  
+  </div>
+</div>
