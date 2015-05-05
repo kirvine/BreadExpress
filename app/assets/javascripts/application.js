@@ -35,9 +35,9 @@ $(document).ready(function() {
     $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
   }
   $('.materialboxed').materialbox(); // shadow box for image
-  // $('.alert-box').fadeIn('normal', function() {
-  //     $(this).delay(3700).fadeOut(400);
-  //  });
+  $('.alert-box').fadeIn('normal', function() {
+      $(this).delay(3700).fadeOut(400);
+   });
 });
 
 

@@ -18,7 +18,9 @@
       <%= render partial: 'partials/nav' %>
       <div id="main_content">
         <!-- MAIN CONTENT GOES HERE -->
+        <div id="welcome-flash">
         <%= render :partial => "partials/flash" %>
+        </div>
           <%= yield %>
       </div>
     </main>
