@@ -12,29 +12,37 @@
   <% end %>
 
   <div class="row">
-    <div class="input-field col s6">
-      <label for="order_customer_id" class="active">Customer</label>
-      <%= f.collection_select :customer_id, Customer.all.alphabetical, :id, :name, prompt: "Select ..." %>
-    </div>
-    <div class="input-field col s6">
-      <label for="order_address_id" class="active">Address</label>
+    <div class="input-field col s12">
+      <h3>Shipping Address:</h3>
       <%= f.select :address_id, get_address_options, prompt: "Select ..." %>
     </div>
   </div>
   <div class="row">
+    <br>
     <div class="input-field col s6">
-      <%= f.label :grand_total %>
-      <%= f.text_field :grand_total %>
+      <h3>Payment Info:</h3>
+      <br>
+      <%= f.label :credit_card_number %>
+      <%= f.text_field :credit_card_number %>
+    </div>
+    <div class="input-field col s3">
+      <h4>&nbsp;</h4>
+      <label for="expiration_month" class="active">Month</label>
+      <%= f.select :expiration_month, (1..12) %>
+    </div>
+    <div class="input-field col s3">
+      <h4>&nbsp;</h4>
+      <label for="expiration_year" class="active">Year</label>
+      <%= f.select :expiration_year, (Date.today.year..Date.today.year+5) %>
     </div>
   </div>
   <div class="form-actions">
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    <i class="mdi-content-send right"></i>
-  </button>
+    <br><br>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Place Order</button>
     <% if @order.created_at.blank? %>
-      &nbsp;&nbsp;<a class="waves-effect waves-light btn orange lighten-2" href="/addresses">Cancel</a>
+      &nbsp;&nbsp;<a class="waves-effect waves-light btn orange lighten-2" href="/cart">&nbsp;Cancel</a>
     <% else %>
-      &nbsp;&nbsp;<a class="waves-effect waves-light btn orange lighten-2" href="/addresses">Cancel</a>
+      &nbsp;&nbsp;<a class="waves-effect waves-light btn orange lighten-2" href="/cart">&nbsp;Cancel</a>
     <% end %>
   </div>
 <% end %>

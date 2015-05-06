@@ -1,0 +1,44 @@
+<div class ="row">
+  <div class="col s12">
+    <h1>Shipping List</h1>
+
+  <% if @orders_to_ship.empty? %>
+    <br><p class="brown-text">There are no orders to ship today!</p>
+    
+  <% else %>
+  <br>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th width="150">Date Placed</th>
+        <th width="200">Items</th>
+        <th width="200">Ship To</th>
+        <th width="150">Shipped?</th>
+      </tr>
+    </thead>
+
+    <% @orders_to_ship.each do |o| %>
+      <tr>
+        <td align="center"><%= o.date %></td>
+        <td>
+          <% o.order_items.each do |oi| %>
+            <p><%= oi.quantity %> <%= oi.item.name %></p>
+          <% end %>
+        </td>
+        <td><%= o.address.recipient %><br>
+            <%= o.address.street_1 %><br />
+            <% unless o.address.street_2.blank? %>
+              <%= o.address.street_2 %><br />
+            <% end %>
+            <%= o.address.city %>, <%= o.address.state %> <%= o.address.zip %>
+          </td>
+        <td align="center">Checkbox</td>
+      </tr>
+    <% end %>
+  </table>
+
+  <% end %>
+  
+  </div>
+</div>
+<br>

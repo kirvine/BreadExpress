@@ -21,6 +21,9 @@ BreadExpress::Application.routes.draw do
 
   # shipping route
   get 'shipping_list' => 'orders#shipping_list', :as => :shipping_list
+
+  # admin dashboard
+  get 'dashboard' => 'users#dashboard', as: :dashboard
   
   # Authentication routes
   get 'user/edit' => 'users#edit', as: :edit_current_user

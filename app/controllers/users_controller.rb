@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     @inactive_users = User.inactive.by_role.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
+  def dashboard
+  end
+
   def show
   end
 

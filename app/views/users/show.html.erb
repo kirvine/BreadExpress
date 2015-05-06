@@ -1,0 +1,27 @@
+<div class="flat-card">
+	<div class="card_content">
+		<div class="row">
+      <div class="col s12">
+			<% if logged_in? && current_user.role?(:admin) %>
+				<h1>User Account</h1>
+			<% else %>
+				<h1>My Account</h1>
+			<% end %>
+
+			<!-- user data  -->
+			<p><b>Username:&nbsp;</b><%= current_user.username %></p>
+
+			<p><b>Password:&nbsp;</b>••••••</p>
+
+			<p><h5 class="deep-orange-text"><%= link_to "Reset Password", edit_user_path(current_user) %></h5></p><br>
+
+			<!-- actions -->
+			<% if logged_in? && (current_user.role?(:admin) || current_user.role?(:customer)) %>
+			  <%= link_to "Edit Info", edit_customer_path(@customer), class: "waves-effect waves-light btn white-text" %>
+			<% end %>
+
+			</div>
+		</div>
+	</div>
+</div>
+<br>

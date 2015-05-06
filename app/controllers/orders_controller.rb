@@ -53,7 +53,7 @@ class OrdersController < ApplicationController
   end
 
   def shipping_list
-
+    @orders_to_ship = Order.not_shipped.chronological.paginate(:page => params[:page]).per_page(10)
   end
 
   def new

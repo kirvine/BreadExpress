@@ -13,8 +13,28 @@ class Ability
     elsif user.role? :baker
       can :baking_list, Order
 
+      # can see account info
+      can :show, User do |u|
+        u.id == user.id
+      end
+
+      # can change their user password
+      can :update, User do |u|
+        u.id == user.id
+      end
+
     elsif user.role? :shipper
-      can :shipping, Home
+      can :shipping_list, Order
+
+      # can see account info
+      can :read, User do |u|
+        u.id == user.id
+      end
+
+      # can change their user password
+      can :update, User do |u|
+        u.id == user.id
+      end
 
     elsif user.role? :customer
       # they can read their own profile

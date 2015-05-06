@@ -1,0 +1,9 @@
+<h3>Quick Links</h3>
+<hr>
+
+<% if current_user.role?(:admin) %>
+	<ul>
+		<li><%= link_to "Baking List", baking_list_path %></li>
+		<li><%= link_to "Orders", orders_path %></li>
+	</ul>
+<% end %>

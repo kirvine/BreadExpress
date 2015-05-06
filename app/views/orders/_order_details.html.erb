@@ -13,3 +13,10 @@
 <p class="brown-text">
   <em>Thanks for being a Bread Express customer since <%= @order.customer.created_at.year %>.</em>
 </p>
+
+<br>
+<% if logged_in? && current_user.role?(:admin) %>
+	<% if @order.is_destroyable? %>
+	<%= link_to "Delete", order_path(@order), method: :delete, data: { confirm: 'Are you sure you wish to delete this order?' }, class: "waves-effect waves-light btn white-text"%>
+	<% end %>
+<% end %>

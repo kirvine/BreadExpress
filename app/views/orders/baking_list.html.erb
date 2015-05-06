@@ -1,7 +1,19 @@
+<br>
 <div class="flat-card" >
   <div class="card-content">
-  	<p><%= render partial: "baking_item_list", locals: {items: @bread } %></p>
-  	<p><%= render partial: "baking_item_list", locals: {items: @muffins } %></p>
-  	<p><%= render partial: "baking_item_list", locals: {items: @pastries } %></p>
+    <h1>Baking List</h1>
+
+    <div class="row">
+      <div class="col s9">
+        <%= render partial: "baking_item_list" %>
+      </div>
+
+	     <div class="col s3">
+	      	<% if logged_in? && current_user.role?(:admin) %>
+	        <%= render partial: "baking_quick_links" %>
+	        <% end %>
+	     </div>
+    </div>
   </div>
 </div>
+<br>

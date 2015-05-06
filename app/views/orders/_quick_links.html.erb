@@ -3,7 +3,6 @@
 
 <% if current_user.role?(:admin) %>
 	<ul>
-		<li><%= link_to "New Order", new_order_path %></li>
 		<li><%= link_to "Customers", customers_path %></li>
 		<li><%= link_to "Addresses", addresses_path %></li>
 	</ul>
