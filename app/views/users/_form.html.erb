@@ -11,16 +11,24 @@
     </div>
   <% end %>
 
+<% if logged_in? && current_user.role?(:admin) %>
   <div class="row">
     <div class="input-field col s4">
     <%= f.label :username %>
     <%= f.text_field :username %>
     </div>
   </div>
+<% end %>
   <div class="row">
     <div class="input-field col s4">
     <%= f.label :password %>
     <%= f.text_field :password %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s4">
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation %>
     </div>
   </div>
   <div class="form-actions">

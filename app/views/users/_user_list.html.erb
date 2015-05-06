@@ -1,0 +1,32 @@
+<div class ="row">
+  <div id=<%= state %> class="col s12">
+  <% if users.empty? %>
+    <br><p class="brown-text"><%= message %></p>    
+  <% else %>
+  <br>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th width="400">Role</th>
+          <th width="400">Username</th>
+        </tr>
+      </thead>
+
+  <% users.each do |user| %>
+    <tr>
+      <td><%= user.role %></td>
+      <td><%= link_to user.username, user_path(user) %></td>
+    </tr>
+  <% end %>
+  </table>
+
+    <!-- Add the pagination  -->
+    <br>
+    <span class="paginate">
+      <%= will_paginate users, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+    </span>
+
+  <% end %>
+  
+  </div>
+</div>

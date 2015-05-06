@@ -16,7 +16,12 @@ class ItemPricesController < ApplicationController
     end
   end
 
-  def item_prices_params
+private
+  def set_item_price
+    @item_price = ItemPrice.find(params[:id])
+  end
+
+  def item_price_params
     params[:item_price][:start_date] = Date.today
     params[:item_price][:end_date] = nil
     params.require(:item_price).permit(:item_id, :price, :start_date, :end_date)

@@ -30,8 +30,16 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:notice] = "#{@user.username} is updated."
-      redirect_to @user
+      if current_user.role?(:admin)
+        flash[:notice] = "#{@user.username} is updated."
+        redirect_to @user
+      elsif ( current_user.role?(:baker) | current_user.role?(:shipper) )
+        flash[:notice] = "Your password was reset."
+        redirect_to @user
+      else
+        flash[:notice] = "Your password was reset."
+        redirect_to customer_path(current_user.customer)
+      end
     else
       render :action => 'edit'
     end

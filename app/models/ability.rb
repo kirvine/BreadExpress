@@ -21,6 +21,11 @@ class Ability
         c.id == user.customer.id
       end
 
+      # can change their user password
+      can :update, User do |u|
+        u.id == user.id
+      end
+
       # they can create new addresses for themselves
       can :create, Address
 

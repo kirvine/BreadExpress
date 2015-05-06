@@ -1,23 +1,24 @@
 <br>
-
-<div class="flat-card">
+<div class="flat-card" >
   <div class="card-content">
     <h1>Users</h1>
 
     <div class="row">
-      <div class="col s8">
+      <div class="col s9">
         <ul class="tabs">
-          <li class="tab col s6"><a class="active" href="#active">Active Users</a></li>
-          <li class="tab col s6"><a href="#inactive">Inactive Users</a></li>
+          <li class="tab col s4"><a class="active" href="#active">Active Users</a></li>
+          <li class="tab col s4"><a href="#inactive">Inactive Users</a></li>
         </ul>
+
+        <!-- Show active customers -->
+        <%= render partial: 'users_active' %>
+        <!-- Show inactive customers -->
+        <%= render partial: 'users_inactive' %>
+      </div>
+
+      <div class="col s3">
+        <%= render partial: "quick_links" %>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col s8">
-        <%= render partial: 'users_active' %>
-        <%= render partial: 'users_inactive' %>
-      </div>
-    </div>
-  </div>
-</div>
+    <br><br>
