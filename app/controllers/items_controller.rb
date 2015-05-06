@@ -11,6 +11,11 @@ class ItemsController < ApplicationController
     redirect_to item_path(@item), notice: "1 #{@item.name} was added to your cart"
   end
 
+  def remove_item
+    remove_item_from_cart(params[:id])
+    redirect_to cart_path, notice: "The item was removed from your cart"
+  end
+
   def index
     if logged_in? && current_user.role?(:admin)
       @active_items = Item.active.all
@@ -26,7 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @related_items = Item.similar_items(@item.category, @item.id)
+    @related_items = Item.active.similar_items(@item.category, @item.id)
     @item_price = ItemPrice.new
   end
 

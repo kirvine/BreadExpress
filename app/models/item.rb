@@ -17,7 +17,7 @@ class Item < ActiveRecord::Base
   scope :alphabetical, -> { order(:name) }
   scope :active,       -> { where(active: true) }
   scope :inactive,     -> { where(active: false) }
-  scope :for_category, ->(category) { where(category: category) }  
+  scope :for_category, -> (category) { where(category: category) }
   
   # Validations
   validates :name, presence: true, uniqueness: { case_sensitive: false }

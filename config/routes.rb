@@ -10,6 +10,7 @@ BreadExpress::Application.routes.draw do
   resources :sessions
 
   post 'add_item/:id' => 'items#add_item', :as => :add_item
+  get 'remove_item/:id' => 'items#remove_item', :as => :remove_item
   get 'cart' => 'orders#cart', :as => :cart
   get 'checkout' => 'orders#checkout', :as => :checkout
   

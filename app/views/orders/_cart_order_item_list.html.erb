@@ -10,7 +10,10 @@
   <tbody>
     <% order_items.each do |oi| %>
       <tr>
-        <td><%= link_to oi.item.name, item_path(oi.item) %></td>
+        <td>
+          <%= link_to oi.item.name, item_path(oi.item) %>
+          <br><h5><%= link_to "Remove", remove_item_path(oi.item) %></h5>
+        </td>
         <td align="center"><%= oi.quantity %></td>
         <td align="center"><%= number_to_currency oi.item.price_on_date(Date.today) %></td>
         <td align="right"><%= number_to_currency oi.subtotal(Date.today) %></td>
