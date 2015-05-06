@@ -1,0 +1,28 @@
+<div class ="row">
+  <div class="col s12">
+
+  <% if items.empty? %>
+    <br><p class="brown-text">There are no items to bake today!</p>
+    
+  <% else %>
+  <br>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th width="100">Quantity</th>
+        <th width="200">Item</th>
+      </tr>
+    </thead>
+
+    <% items.each do |item| %>
+      <tr>
+        <td><%= item[0] %></td>
+        <td><%= item.name %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <% end %>
+  
+  </div>
+</div>

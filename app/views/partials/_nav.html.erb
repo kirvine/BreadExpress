@@ -12,15 +12,23 @@
       <% if !logged_in? %>
       <li><a href="/items">Menu</a></li>
       <li><a href="/login">Log In<i class="mdi-action-lock-open left"></i></a></li>
-      <% end %>
 
-      <% if logged_in? && current_user.role?(:customer) %>
+      <% elsif logged_in? && current_user.role?(:baker) %>
+      <li><a href="/items">Menu</a></li>
+      <li><a href="/baking_list">Baking List</a></li>
+      <li><a class="dropdown-button" href="/user" data-activates="account">Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+
+      <% elsif logged_in? && current_user.role?(:shipper) %>
+      <li><a href="/items">Menu</a></li>
+      <li><a href="/shipping_list">Shipping List</a></li>
+      <li><a class="dropdown-button" href="/user" data-activates="account">Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+
+      <% elsif logged_in? && current_user.role?(:customer) %>
       <li><a href="/items">Menu</a></li>
       <li><a href="/cart"><i class="mdi-action-shopping-cart"></i></a></li>
       <li><a class="dropdown-button" href="/user" data-activates="account">Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-      <% end %>
 
-      <% if logged_in? && current_user.role?(:admin) %>
+      <% elsif logged_in? && current_user.role?(:admin) %>
       <li><a class="dropdown-button" href="/customers" data-activates="customer">Customers<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
       <li><a class="dropdown-button" href="/customers" data-activates="user">Users<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
       <li><a class="dropdown-button" href="/addresses" data-activates="address">Addresses<i class="mdi-navigation-arrow-drop-down right"></i></a></li>

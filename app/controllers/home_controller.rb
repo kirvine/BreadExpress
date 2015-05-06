@@ -5,12 +5,6 @@ class HomeController < ApplicationController
   	render layout: "home"
   end
 
-  def baking
-    @bread = create_baking_list_for("bread")
-    @muffins = create_baking_list_for("muffins")
-    @pastries = create_baking_list_for("pastries")
-  end
-
   def about
     render layout: "application"
   end

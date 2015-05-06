@@ -10,6 +10,12 @@ class Ability
       # they get to do it all
       can :manage, :all
 
+    elsif user.role? :baker
+      can :baking_list, Order
+
+    elsif user.role? :shipper
+      can :shipping, Home
+
     elsif user.role? :customer
       # they can read their own profile
       can :show, Customer do |c|

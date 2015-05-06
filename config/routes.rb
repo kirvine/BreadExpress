@@ -9,11 +9,18 @@ BreadExpress::Application.routes.draw do
   resources :item_prices
   resources :sessions
 
+  # routes related carts and checking out
   post 'add_item/:id' => 'items#add_item', :as => :add_item
   get 'remove_item/:id' => 'items#remove_item', :as => :remove_item
   get 'cart' => 'orders#cart', :as => :cart
   get 'empty_cart' => 'orders#empty_cart', :as => :empty_cart
   get 'checkout' => 'orders#checkout', :as => :checkout
+
+  # baking route
+  get 'baking_list' => 'orders#baking_list', :as => :baking_list
+
+  # shipping route
+  get 'shipping_list' => 'orders#shipping_list', :as => :shipping_list
   
   # Authentication routes
   get 'user/edit' => 'users#edit', as: :edit_current_user

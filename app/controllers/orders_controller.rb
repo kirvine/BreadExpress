@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   include BreadExpressHelpers::Cart
+  include BreadExpressHelpers::Baking
   include BreadExpressHelpers::Shipping
 
   before_action :check_login
@@ -43,6 +44,12 @@ class OrdersController < ApplicationController
     @shipping_cost = calculate_cart_shipping
     @total_cost = calculate_cart_items_cost
     @grand_total = calculate_cart_shipping + calculate_cart_items_cost
+  end
+
+  def baking_list
+    @bread = create_baking_list_for("bread")
+    @muffins = create_baking_list_for("muffins")
+    @pastries = create_baking_list_for("pastries")
   end
 
   def new
