@@ -1,6 +1,5 @@
 <div class ="row">
   <div class="col s12">
-    <h1>Shipping List</h1>
 
   <% if @orders_to_ship.empty? %>
     <br><p class="brown-text">There are no orders to ship today!</p>
@@ -10,29 +9,34 @@
   <table class="striped">
     <thead>
       <tr>
-        <th width="150">Date Placed</th>
-        <th width="200">Items</th>
+        <th width="100">Date Placed</th>
         <th width="200">Ship To</th>
-        <th width="150">Shipped?</th>
+        <th width="200">Items</th>
+        <th width="50">Shipped?</th>
       </tr>
     </thead>
 
     <% @orders_to_ship.each do |o| %>
       <tr>
-        <td align="center"><%= o.date %></td>
-        <td>
-          <% o.order_items.each do |oi| %>
-            <p><%= oi.quantity %> <%= oi.item.name %></p>
-          <% end %>
-        </td>
+        <td align="center"><%= o.date.strftime("%m/%d/%y") %></td>
         <td><%= o.address.recipient %><br>
             <%= o.address.street_1 %><br />
             <% unless o.address.street_2.blank? %>
               <%= o.address.street_2 %><br />
             <% end %>
             <%= o.address.city %>, <%= o.address.state %> <%= o.address.zip %>
-          </td>
-        <td align="center">Checkbox</td>
+        </td>
+        <td>
+          <% o.order_items.each do |oi| %>
+            <p><%= oi.quantity %> <%= oi.item.name %></p>
+          <% end %>
+        </td>
+        <td align="center">
+          <% o.order_items.each do |oi| %>
+            <%= link_to(edit_order_item_path(oi, status: 'shipped_asgn'), class: 'checkbox') do %><i class="mdi-navigation-check"></i><br>
+            <% end %>
+          <% end%>
+        </td>
       </tr>
     <% end %>
   </table>
