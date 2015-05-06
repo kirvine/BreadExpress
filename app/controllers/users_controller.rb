@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   authorize_resource
+  include BreadExpressHelpers::Cart
+  include BreadExpressHelpers::Baking
+  include BreadExpressHelpers::Shipping
+
 
   def index
     @active_users = User.active.by_role.alphabetical.paginate(:page => params[:page]).per_page(10)
@@ -8,6 +12,12 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @total_users = User.all.size
+    @today_orders = Order.where(date: Date.today).all.size
+    @today_sales = Order.where(date: Date.today).map(&:grand_total).sum
+    @today_bake = create_baking_list_for("bread").length + create_baking_list_for("muffins").length + create_baking_list_for("pastries").length
+    @today_ship = Order.not_shipped.all.size
+    @most_popular = OrderItem.
   end
 
   def show

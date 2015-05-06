@@ -1,6 +1,10 @@
 <br>
 <div class="flat-card" >
   <div class="card-content">
+  	<h2> Welcome, <%= current_user.username.capitalize %>.</h2>
+  	<br>
+
+  	<%= render partial: 'dashboard_panels' %><br>
   	<%= link_to "Shipping List", shipping_list_path %><br>
   	<%= link_to "Baking List", baking_list_path %>	
 

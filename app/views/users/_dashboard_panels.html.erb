@@ -1,0 +1,101 @@
+<div class="row">
+	<div class="col s4">
+		<div class="card-panel light-blue lighten-2">
+			<div class="card-content white-text">
+				<div class="row">
+					<p class="white-text">Total Users</p>
+					<div class="col s6">
+						<i class="medium mdi-action-account-child"></i>
+					</div>
+					<div class="col s6">
+						<br>
+						<h2 class="white-text"><%= @total_users %></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col s4">
+		<div class="card-panel lime">
+			<div class="card-content white-text">
+				<div class="row">
+					<p class="white-text">Orders Placed Today</p>
+					<div class="col s6">
+						<i class="medium mdi-av-playlist-add"></i>
+					</div>
+					<div class="col s6">
+						<br>
+						<h2 class="white-text"><%= @today_orders %></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col s4">
+		<div class="card-panel purple lighten-2">
+			<div class="card-content white-text">
+				<div class="row">
+					<p class="white-text">Today's Sales</p>
+					<div class="col s6">
+						<i class="medium mdi-editor-attach-money"></i>
+					</div>
+					<div class="col s6">
+						<br>
+						<h2 class="white-text"><%= number_to_currency @today_sales %></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s4">
+		<div class="card-panel orange lighten-1">
+			<div class="card-content white-text">
+				<div class="row">
+					<p class="white-text">Items to Bake</p>
+					<div class="col s6">
+						<i class="medium mdi-image-wb-cloudy"></i>
+					</div>
+					<div class="col s6">
+						<br>
+						<h2 class="white-text"><%= @today_bake %></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col s4">
+		<div class="card-panel pink">
+			<div class="card-content white-text">
+				<div class="row">
+					<p class="white-text">Orders to Be Shipped</p>
+					<div class="col s6">
+						<i class="medium mdi-maps-local-shipping"></i>
+					</div>
+					<div class="col s6">
+						<br>
+						<h2 class="white-text"><%= @today_ship %></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col s4">
+		<div class="card-panel  light-green accent-4">
+			<div class="card-content white-text">
+				<div class="row">
+					<p class="white-text">Most Popular Item</p>
+					<div class="col s6">
+						<i class="medium mdi-editor-attach-money"></i>
+					</div>
+					<div class="col s6">
+						<br>
+						<h2 class="white-text"><%= number_to_currency @today_sales %></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

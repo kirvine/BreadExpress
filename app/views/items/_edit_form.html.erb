@@ -11,9 +11,9 @@
         <br>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
         <% if @item.created_at.blank? %>
-          &nbsp;&nbsp;<button class="waves-effect waves-light btn" href="/addresses">Cancel</button>
+          &nbsp;&nbsp;<button class="waves-effect waves-light btn" href="/items">Cancel</button>
         <% else %>
-          &nbsp;&nbsp;<button class="waves-effect waves-light btn" href="/addresses">Cancel</button>
+          &nbsp;&nbsp;<%= link_to "Cancel", item_path(@item), class: "waves-effect waves-light btn white-text orange lighten-2" %>
         <% end %>
       </div>
     </div>
