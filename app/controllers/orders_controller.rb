@@ -52,6 +52,10 @@ class OrdersController < ApplicationController
     @pastries = create_baking_list_for("pastries")
   end
 
+  def shipping_list
+
+  end
+
   def new
   end
 
