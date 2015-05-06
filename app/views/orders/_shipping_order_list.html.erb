@@ -33,7 +33,12 @@
         </td>
         <td align="center">
           <% o.order_items.each do |oi| %>
-            <%= link_to(edit_order_item_path(oi, status: 'shipped_asgn'), class: 'checkbox') do %><i class="mdi-navigation-check"></i><br>
+            <%= link_to(edit_order_item_path(oi, status: 'shipped_asgn'), class: 'checkbox') do %>
+              <% if oi.shipped_on.nil? %>
+              <i class="mdi-content-clear"></i><br>
+              <% else %>
+                <i class="mdi-action-done"></i><br>
+              <% end %>
             <% end %>
           <% end%>
         </td>

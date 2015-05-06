@@ -5,15 +5,11 @@ class OrderItemsController < ApplicationController
 
   def edit
   	unless params[:status].nil?
-      if params[:status].match(/shipped/) # == 'deactivate_prj' || params[:status] == 'deactivate_asgn'
+      if params[:status].match(/shipped/)
         @order_item.update_attribute(:shipped_on, Date.today)
-        flash[:notice] = "The order item has been shipped on #{@order_item.shipped_on}"
-      elsif params[:status].match(/activate/) # == 'activate_prj' || params[:status] == 'activate_asgn'
-        @order_item.update_attribute(:active, true)
-        flash[:notice] = "#{@order_item.user.proper_name} was made active."
+        flash[:notice] = "The order item has been shipped on #{@order_item.shipped_on.strftime('%m/%d/%y')}"
       end
-      redirect_to project_path(@order_item.project) if params[:status].match(/_prj/)
-      redirect_to shipping_list_path if params[:status].match(/_asgn/)
+      redirect_to shipping_list_path
     end
   end
 
