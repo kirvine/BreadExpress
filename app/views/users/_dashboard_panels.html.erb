@@ -62,8 +62,8 @@
 						<br>
 						<h2 class="white-text"><%= @today_bake %></h2>
 					</div>
+					<%= link_to "Baking List >", baking_list_path, class: "white-text"%>
 				</div>
-				<%= link_to "Baking List", baking_list_path %>
 			</div>
 		</div>
 	</div>
@@ -79,7 +79,7 @@
 						<br>
 						<h2 class="white-text"><%= @today_ship %></h2>
 					</div>
-					<%= link_to "Shipping List", shipping_list_path %>
+					<%= link_to "Shipping List >", shipping_list_path, class: "white-text" %>
 				</div>
 			</div>
 		</div>
