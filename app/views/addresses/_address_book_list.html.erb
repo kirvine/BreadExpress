@@ -10,7 +10,6 @@
     <table class="striped">
       <thead>
         <tr>
-          <th width="200">Customer</th>
           <th width="200">Recipient</th>
           <th width="300">Address</th>
           <th width="100">Billing?</th>
@@ -19,8 +18,7 @@
 
   <% addresses.each do |address| %>
     <tr>
-      <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
-      <td><%= address.recipient %></td>
+      <td><%= link_to address.recipient, address_path(address) %></td>
       <td><%= render :partial => "partials/address_info", locals: {address: address} %>
       </td>
       <td><%= address.is_billing ? "Yes" : "No" %></td>

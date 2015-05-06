@@ -18,9 +18,30 @@ class Ability
 
       # they can update their own profile
       can :update, Customer do |c|  
-        c.id == customer.id
+        c.id == user.customer.id
       end
-    
+
+      # they can create new addresses for themselves
+      can :create, Address
+
+      # they can read their own address' data
+      can :read, Address do |this_address|  
+        my_addresses = user.customer.addresses.map(&:id)
+        my_addresses.include? this_address.id 
+      end
+
+      # they can update their own address' data
+      can :update, Address do |this_address|  
+        my_addresses = user.customer.addresses.map(&:id)
+        my_addresses.include? this_address.id 
+      end
+
+      # they can read their own orders' data
+      can :read, Order do |this_order|  
+        my_orders = user.customer.orders.map(&:id)
+        my_orders.include? this_orders.id 
+      end
+
       # can see a list of all items
       can :index, Item
 

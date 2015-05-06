@@ -1,8 +1,12 @@
 <%= simple_form_for(@address) do |f| %>
   <div class="row">
     <div class="input-field col s8">
-    <label for="address_customer_id" class="active">Customer</label>
-    <%= f.collection_select :customer_id, Customer.all.alphabetical, :id, :name, prompt: "Select ..." %>
+      <% if logged_in? && current_user.role?(:admin) %>
+        <label for="address_customer_id" class="active">Customer</label>
+        <%= f.collection_select :customer_id, Customer.all.alphabetical, :id, :name, prompt: "Select ..." %>
+      <% else %>
+        <%= f.input :customer_id, as: :hidden, input_html: {value: current_user.customer.id} %>
+      <% end %>
     </div>
   </div>
   <div class="row">

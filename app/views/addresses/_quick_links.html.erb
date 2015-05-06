@@ -1,0 +1,18 @@
+<div id="quick-links">
+<h3>Quick Links</h3>
+<hr>
+
+<% if current_user.role?(:admin) %>
+	<ul>
+		<li><%= link_to "New Address", new_address_path %></li>
+		<li><%= link_to "Customers", customers_path %></li>
+		<li><%= link_to "Orders", orders_path %></li>
+	</ul>
+<% else %>
+	<ul>
+		<li><%= link_to "New Address", new_address_path %></li>
+		<li><%= link_to "Orders", orders_path %></li>
+		<li><%= link_to "My Account", customer_path(current_user.customer) %></li>
+	</ul>
+<% end %>
+</div>

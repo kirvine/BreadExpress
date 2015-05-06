@@ -8,11 +8,11 @@ class OrdersController < ApplicationController
   
   def index
     if logged_in? && !current_user.role?(:customer)
-      @pending_orders = Order.not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
-      @all_orders = Order.chronological.paginate(:page => params[:page]).per_page(5)
+      @pending_orders = Order.not_shipped.chronological.paginate(:page => params[:page]).per_page(10)
+      @all_orders = Order.chronological.paginate(:page => params[:page]).per_page(10)
     else
-      @pending_orders = current_user.customer.orders.not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
-      @all_orders = current_user.customer.orders.chronological.paginate(:page => params[:page]).per_page(5)
+      @pending_orders = current_user.customer.orders.not_shipped.chronological.paginate(:page => params[:page]).per_page(10)
+      @all_orders = current_user.customer.orders.chronological.paginate(:page => params[:page]).per_page(10)
     end 
   end
 

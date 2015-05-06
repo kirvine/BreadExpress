@@ -3,9 +3,15 @@
 <div class="flat-card" >
   <div class="card-content">
 
-    <h5 class="deep-orange-text"><i class="mdi-navigation-chevron-left"></i><a href="/customers">Customers</a></h5>
+    <% if current_user.role?(:admin) %>
+      <h5 class="deep-orange-text"><i class="mdi-navigation-chevron-left"></i><a href="/customers">Customers</a></h5>
 
-    <h1>Customer Details</h1>
+      <h1>Customer Details</h1>
+
+    <% else %>
+      <h1>My Account</h1>
+    <% end %>
+
 
     <div class="row">
       <div class="col s12">
