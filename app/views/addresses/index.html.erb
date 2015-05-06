@@ -14,16 +14,14 @@
         <!-- admin view -->
         <% if logged_in? && current_user.role?(:admin) %>
           <!-- Show active addresses -->
-          <%= render partial: "addresses_active" %>
-
+          <%= render partial: "address_list", locals: {addresses: @active_addresses, state: 'active'} %>
           <!-- Show in inactive addresses -->
-          <%= render partial: "addresses_inactive" %>
+          <%= render partial: "address_list", locals: {addresses: @inactive_addresses, state: 'inactive'} %>
 
         <!-- customer view -->
         <% else %>
           <!-- Show active addresses -->
           <%= render partial: "address_book_list", locals: {addresses: @active_addresses, state: 'active'} %>
-
           <!-- Show in inactive addresses -->
           <%= render partial: "address_book_list", locals: {addresses: @inactive_addresses, state: 'inactive'} %>
         <% end %>

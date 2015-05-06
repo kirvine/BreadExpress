@@ -1,0 +1,5 @@
+<% if oi.item.picture_url.nil? %>
+	<%= image_tag("no_image_small.png", align: "center") %>
+<% else %>
+	<img class="materialboxed responsive-img", width="280" height="202" src=<%= oi.item.picture_url %>>
+<% end %>

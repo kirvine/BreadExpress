@@ -32,6 +32,11 @@ class OrdersController < ApplicationController
     @grand_total = calculate_cart_shipping + calculate_cart_items_cost
   end
 
+  def empty_cart
+    clear_cart
+    redirect_to cart_path, notice: "Your cart has been emptied"
+  end
+
   def checkout
     @items_in_cart = get_list_of_items_in_cart
     @order = Order.new

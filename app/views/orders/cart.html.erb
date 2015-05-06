@@ -8,8 +8,10 @@
     	<% else %>
 		  	<p><%= render partial: "cart_order_item_list", locals: {order_items: @items_in_cart, date: Date.today} %></p>
 		  	<br>
-		  	<a class="waves-effect waves-light btn white-text" href="/checkout">Checkout</a>
+		  	<p align="right"><a class="waves-effect waves-light btn white-text orange lighten-2" href="/empty_cart">Empty Cart</a>
+		  	&nbsp;&nbsp;<a class="waves-effect waves-light btn white-text" href="/checkout">Checkout<i class="mdi-navigation-chevron-right right"></i></a>
 		  <% end %>
     </div>
 	</div>
 </div>
+<br>

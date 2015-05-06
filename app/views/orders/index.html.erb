@@ -10,16 +10,26 @@
           <li class="tab col s3"><a href="#all">All Orders</a></li>
         </ul>
 
-      <!-- Show pending orders -->
-      <%= render partial: "orders_pending" %>
+        <!-- admin view -->
+        <% if current_user.role?(:admin) %>
+          <!-- Show pending orders -->
+          <%= render partial: "order_list", locals: {orders: @pending_orders, state: 'pending'} %>
+          <!-- Show all orders -->
+          <%= render partial: "order_list", locals: {orders: @all_orders, state: 'all'} %>
 
-      <!-- Show all orders -->
-      <%= render partial: "orders_all" %>
+        <!-- customer view -->
+        <% else %>
+          <!-- Show pending orders -->
+          <%= render partial: "customer_order_list", locals: {orders: @pending_orders, state: 'pending'} %>
+          <!-- Show all orders -->
+          <%= render partial: "customer_order_list", locals: {orders: @all_orders, state: 'all'} %>
+        <% end %>
 
-    </div>
-    <div class="col s3">
-      <%= render partial: "quick_links" %>
+      </div>
+      <div class="col s3">
+        <%= render partial: "quick_links" %>
+      </div>
     </div>
   </div>
-  <br>
 </div>
+<br>

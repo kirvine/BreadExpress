@@ -51,8 +51,14 @@ class Ability
       # can add item to cart
       can :add_item, Item
 
+      # can remove item from cart
+      can :remove_item, Item
+
       # can view cart
       can :cart, Order
+
+      # can empty cart
+      can :empty_cart, Order
 
       # can view checkout page
       can :checkout, Order

@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @previous_orders = @customer.orders.chronological
+    @pending_orders = @customer.orders.not_shipped.chronological
     @related_addresses = @customer.addresses.active.by_recipient
   end
 

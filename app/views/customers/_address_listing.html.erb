@@ -1,11 +1,11 @@
 <br>
 
 <% if @related_addresses.empty? %>
-    <br><p class="brown-text">There are no saved addresses for this account.</p>
-    <br><a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
-    
-  <% else %>
-  <h2>Saved Addresses</h2>
+  <br><p class="brown-text">There are no saved addresses for this account.</p>
+  <br>    
+
+<% else %>
+  <h2>Active Addresses</h2>
   <br>
     <table class="striped">
       <thead>
@@ -23,5 +23,5 @@
     </tr>
   <% end %>
   </table>
-  <br><a class="waves-effect waves-light btn" href="/addresses/new">New Address</a>
+  <br>
 <% end %>

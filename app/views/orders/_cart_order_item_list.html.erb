@@ -1,15 +1,23 @@
 <table class="striped">
   <thead>
     <tr>
-      <th width="300">Item</th>
-      <th width="100">Quantity</th>
-      <th width="100">Unit Price</th>
-      <th width="100">Subtotal</th>
+      <th width="200">&nbsp;</th>
+      <th width="200">Item</th>
+      <th width="150">Quantity</th>
+      <th width="150">Unit Price</th>
+      <th width="150">Subtotal</th>
     </tr>
   </thead>
   <tbody>
     <% order_items.each do |oi| %>
       <tr>
+        <td align="center">
+          <% if oi.item.picture_url.nil? %>
+            <%= image_tag("no_image_small.png", align: "center") %>
+          <% else %>
+            <img class="responsive-img", width="280" height="202" src=<%= oi.item.picture_url %>>
+          <% end %>
+        </td>
         <td>
           <%= link_to oi.item.name, item_path(oi.item) %>
           <br><h5><%= link_to "Remove", remove_item_path(oi.item) %></h5>
@@ -20,6 +28,7 @@
       </tr>
     <% end %>
       <tr>
+        <td>&nbsp;</td>
         <td colspan="3" align="left">
           Shipping Cost:
           <h4><b>Grand Total:</b></h4>

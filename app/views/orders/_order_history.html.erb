@@ -8,8 +8,12 @@
     <thead>
       <tr>
         <th width="100">Date</th>
-        <th width="300">Customer</th>
-        <th width="300">Recipient</th>
+        <% if current_user.role?(:admin) %>
+          <th width="300">Customer</th>
+          <th width="300">Recipient</th>
+        <% else %>
+          <th width="100">Recipient</th>
+        <% end %>
         <th width="100">Cost</th>
       </tr>
     </thead>
@@ -17,8 +21,10 @@
     <% @previous_orders.each do |order| %>
     <tr>
       <td align="center" ><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
-      <td align="center"><%= link_to order.customer.name, customer_path(order.customer) %></td>
-      <td align="center"><%= order.address.recipient %></td>
+      <% if current_user.role?(:admin) %>
+        <td align="center"><%= link_to order.customer.name, customer_path(order.customer) %></td>
+      <% end %>
+      <td><%= order.address.recipient %></td>
       <td align="right"><%= number_to_currency order.grand_total %></td>
     </tr>
     <% end %>
@@ -27,6 +33,6 @@
 <% else %>
 
   <!-- No orders -->
-  <p>This customer has not placed any orders yet.</p>
+  <p>No orders have been placed yet.</p>
 
 <% end %>

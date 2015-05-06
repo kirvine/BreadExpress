@@ -13,11 +13,11 @@
 		<br>
 
 		<% if logged_in? && (current_user.role?(:admin) | current_user.role?(:customer)) %>
-			<%= link_to "Edit", edit_address_path(@address), class: "waves-effect waves-light btn white-text" %>
+			<%= link_to "Edit", edit_address_path(@address), class: "waves-effect waves-light btn white-text orange lighten-2" %>
 		<% end %>
 		<% if logged_in? && current_user.role?(:admin) %>
 			<% if @address.is_destroyable? %>
-			<%= link_to "Delete", address_path(@address), method: :delete, data: { confirm: 'Are you sure you wish to delete this item?' }, class: "waves-effect waves-light btn white-text"%>
+			<%= link_to "Delete", address_path(@address), method: :delete, data: { confirm: 'Are you sure you wish to delete this item?' }, class: "waves-effect waves-light btn white-text orange lighten-2"%>
 			<% end %>
 		<% end %>
 	</div>

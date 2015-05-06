@@ -1,9 +1,9 @@
 <br>
 <div class="flat-card">
 	<div class="card-content">
-		<h1>Your Cart</h1>
+		<h1>Checkout</h1>
 		<div class="row">
-	    <div class="col 8">
+	    <div class="col s8">
 			  <p><%= render partial: "checkout_order_item_list", locals: {order_items: @items_in_cart, date: Date.today} %></p>
 			  <br>
 			  <p><%= render partial: "checkout_form" %></p>
