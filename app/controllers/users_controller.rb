@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     @today_sales = Order.where(date: Date.today).map(&:grand_total).sum
     @today_bake = create_baking_list_for("bread").length + create_baking_list_for("muffins").length + create_baking_list_for("pastries").length
     @today_ship = Order.not_shipped.all.size
-    @most_popular = OrderItem.
   end
 
   def show

@@ -63,6 +63,7 @@
 						<h2 class="white-text"><%= @today_bake %></h2>
 					</div>
 				</div>
+				<%= link_to "Baking List", baking_list_path %>
 			</div>
 		</div>
 	</div>
@@ -78,6 +79,7 @@
 						<br>
 						<h2 class="white-text"><%= @today_ship %></h2>
 					</div>
+					<%= link_to "Shipping List", shipping_list_path %>
 				</div>
 			</div>
 		</div>
@@ -88,11 +90,11 @@
 				<div class="row">
 					<p class="white-text">Most Popular Item</p>
 					<div class="col s6">
-						<i class="medium mdi-editor-attach-money"></i>
+						<i class="medium mdi-action-stars"></i>
 					</div>
 					<div class="col s6">
 						<br>
-						<h2 class="white-text"><%= number_to_currency @today_sales %></h2>
+						<h2 class="white-text"><%= @today_ship %></h2>
 					</div>
 				</div>
 			</div>
