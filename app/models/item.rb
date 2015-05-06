@@ -24,7 +24,7 @@ class Item < ActiveRecord::Base
   validates_numericality_of :units_per_item, only_integer: true, greater_than: 0
   validates_numericality_of :weight, greater_than: 0
   validates_inclusion_of :category, in: CATEGORIES.map{|key, value| value}, message: "is not an option"
-  # validates_inclusion_of :category, in: CATEGORIES.to_h.values, message: "is not an option"
+  validates_inclusion_of :category, in: CATEGORIES.to_h.values, message: "is not an option"
 
   # Callbacks
   before_destroy :is_destroyable?

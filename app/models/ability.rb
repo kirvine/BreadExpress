@@ -10,6 +10,8 @@ class Ability
       # they get to do it all
       can :manage, :all
 
+
+
     elsif user.role? :baker
       can :baking_list, Order
 
@@ -23,6 +25,14 @@ class Ability
         u.id == user.id
       end
 
+      # can see a list of all items
+      can :index, Item
+
+      # can read about an item
+      can :show, Item
+
+
+
     elsif user.role? :shipper
       can :shipping_list, Order
 
@@ -35,6 +45,15 @@ class Ability
       can :update, User do |u|
         u.id == user.id
       end
+
+      # can see a list of all items
+      can :index, Item
+
+      # can read about an item
+      can :show, Item
+
+
+
 
     elsif user.role? :customer
       # they can read their own profile
@@ -102,6 +121,9 @@ class Ability
       can :show, Order do |o|
         o.customer.id == user.customer.id
       end
+      
+
+
       
     else
       can :create, User

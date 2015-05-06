@@ -50,10 +50,15 @@ class OrdersController < ApplicationController
     @bread = create_baking_list_for("bread")
     @muffins = create_baking_list_for("muffins")
     @pastries = create_baking_list_for("pastries")
+    @qty_bread = @bread.size
+    @qty_muffins = @muffins.size
+    @qty_pastries = @pastries.size
+    @qty_total = @qty_bread + @qty_muffins + @qty_pastries
   end
 
   def shipping_list
-    @orders_to_ship = Order.not_shipped.chronological.paginate(:page => params[:page]).per_page(10)
+    @orders_to_ship = Order.not_shipped.order('date ASC').paginate(:page => params[:page]).per_page(10)
+    @qty_orders = @orders_to_ship.size
   end
 
   def new
@@ -67,7 +72,7 @@ class OrdersController < ApplicationController
       @order.save
       save_each_item_in_cart(@order)
       clear_cart
-      redirect_to @order, notice: "Thank you for ordering from Bread Express."
+      redirect_to @order, notice: "Thank you for ordering from Bread Express!"
     else
       render action: 'new'
     end

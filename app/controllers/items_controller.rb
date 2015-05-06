@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   def add_item
     add_item_to_cart(params[:id])
     @item = Item.find(params[:id])
-    redirect_to item_path(@item), notice: "1 #{@item.name} was added to your cart"
+    redirect_to item_path(@item), notice: "1 order of #{@item.name} was added to your cart"
   end
 
   def remove_item

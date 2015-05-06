@@ -9,9 +9,7 @@
       </div>
 
 	     <div class="col s3">
-	      	<% if logged_in? && current_user.role?(:admin) %>
-	        <%= render partial: "shipping_quick_links" %>
-	        <% end %>
+        <%= render partial: "shipping_quick_links" %>
 	     </div>
     </div>
   </div>

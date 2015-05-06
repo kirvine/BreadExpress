@@ -10,7 +10,15 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       create_cart
-      redirect_to root_url, notice: "Logged in!"
+      if current_user.role?(:admin)
+        redirect_to dashboard_path, notice: "Logged in!"
+      elsif current_user.role?(:customer)
+        redirect_to customer_path(current_user.customer), notice: "Logged in!"
+      elsif current_user.role?(:baker)
+        redirect_to baking_list_path, notice: "Logged in!"
+      else
+        redirect_to shipping_list_path, notice: "Logged in!"
+      end
     else
       flash.now.alert = "Username or password is invalid"
       render "new"

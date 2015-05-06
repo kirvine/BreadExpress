@@ -34,6 +34,10 @@ class ItemTest < ActiveSupport::TestCase
       destroy_muffins
     end
 
+    should "return similar items of same category, excluding the item itself" do
+      assert_equal [@chocolate_zuke, @apple_carrot], Item.similar_items("muffins", @blueberry.id)
+    end
+
     should "show that there are three items in in alphabetical order" do
       assert_equal ["Apple Carrot Muffins", "Blueberry Muffins", "Chocolate Zucchini Muffins"], Item.alphabetical.all.map(&:name)
     end

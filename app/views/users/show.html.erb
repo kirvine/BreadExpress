@@ -1,3 +1,4 @@
+<br>
 <div class="flat-card">
 	<div class="card_content">
 		<div class="row">
@@ -9,9 +10,9 @@
 			<% end %>
 
 			<!-- user data  -->
-			<p><b>Username:&nbsp;</b><%= current_user.username %></p>
+			<p class="brown-text"><b>Username:&nbsp;</b><%= current_user.username %></p>
 
-			<p><b>Password:&nbsp;</b>••••••</p>
+			<p class="brown-text"><b>Password:&nbsp;</b>••••••</p>
 
 			<p><h5 class="deep-orange-text"><%= link_to "Reset Password", edit_user_path(current_user) %></h5></p><br>
 

@@ -1,5 +1,12 @@
 ## Notes to Grader ##
 
+Unit Tests:
+	FAIL Within context should verify that the item is active in the system.
+	# I had to uncomment item_is_active_in_system in the ItemPrice model to create a new item price in a nested form with item. Did this with Prof. H.
+
+	LOW TEST COVERAGE
+	Due to the scenario described above, the test coverage for the ItemPrice model is under 100%.
+
 Cucumber Tests:
 	features/level_5.feature:67 
 	# Scenario: View item details as customer

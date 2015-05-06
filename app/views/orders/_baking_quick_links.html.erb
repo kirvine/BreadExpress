@@ -1,10 +1,17 @@
 <br>
-<h3>Quick Links</h3>
-<hr>
 
 <% if current_user.role?(:admin) %>
+	<h3>Quick Links</h3><hr>
+
 	<ul>
 		<li><%= link_to "Shipping List", shipping_list_path %></li>
 		<li><%= link_to "Orders", orders_path %></li>
 	</ul>
+
+<% else %>
+	<h3>Breakdown</h3><hr>
+	<p>Bread: <%= @qty_bread %> </p>
+	<p>Muffins: <%= @qty_muffins %> </p>
+	<p>Pastries: <%= @qty_pastries %> </p>
+	<p>Total: <%= @qty_total %> </p>
 <% end %>
