@@ -1,33 +1,33 @@
-<% if @item.units_per_item = 1 %>
-	<% if @item.category = "bread" %>
+<% if @item.units_per_item == 1 %>
+	<% if @item.category == "bread" %>
 		<p><%= number_to_currency @item.current_price %> per loaf</p>
-	<% elsif @item.category = "muffin" %>
+	<% elsif @item.category == "muffins" %>
 		<p><%= number_to_currency @item.current_price %> per muffin</p>
 	<% else %>
 		<p><%= number_to_currency @item.current_price %> per pastry</p>
 	<% end %>
-<% elsif @item.units_per_item = 6 %>
-	<% if @item.category = "bread" %>
+<% elsif @item.units_per_item == 6 %>
+	<% if @item.category == "bread" %>
 		<p><%= number_to_currency @item.current_price %> per halfdozen loaves</p>
-	<% elsif @item.category = "muffin" %>
+	<% elsif @item.category == "muffin" %>
 		<p><%= number_to_currency @item.current_price %> per halfdozen muffins</p>
 	<% else %>
 		<p><%= number_to_currency @item.current_price %> per halfdozen pastries</p>
 	<% end %>
-<% elsif @item.units_per_item = 12 %>
-	<% if @item.category = "bread" %>
-		<p><%= number_to_currency @item.current_price %> per @item.units_per_item loaves</p>
-	<% elsif @item.category = "muffin" %>
-		<p><%= number_to_currency @item.current_price %> per @item.units_per_item muffins</p>
+<% elsif @item.units_per_item == 12 %>
+	<% if @item.category == "bread" %>
+		<p><%= number_to_currency @item.current_price %> per dozen loaves</p>
+	<% elsif @item.category == "muffins" %>
+		<p><%= number_to_currency @item.current_price %> per dozen muffins </p>
 	<% else %>
-		<p><%= number_to_currency @item.current_price %> per @item.units_per_item pastries</p>
+		<p><%= number_to_currency @item.current_price %> per dozen pastries</p>
 	<% end %>
 <% else %>
-	<% if @item.category = "bread" %>
-		<p><%= number_to_currency @item.current_price %> per @item.units_per_item loaves</p>
-	<% elsif @item.category = "muffin" %>
-		<p><%= number_to_currency @item.current_price %> per @item.units_per_item muffins</p>
+	<% if @item.category == "bread" %>
+		<p><%= number_to_currency @item.current_price %> per <%= @item.units_per_item %> loaves</p>
+	<% elsif @item.category == "muffin" %>
+		<p><%= number_to_currency @item.current_price %> per <%= @item.units_per_item %> muffins</p>
 	<% else %>
-		<p><%= number_to_currency @item.current_price %> per @item.units_per_item pastries</p>
+		<p><%= number_to_currency @item.current_price %> per <%= @item.units_per_item %> pastries</p>
 	<% end %>
 <% end %>

@@ -7,7 +7,7 @@ class ItemPricesController < ApplicationController
   end
 
   def create
-    @item_price = ItemPrice.new(item_prices_params)
+    @item_price = ItemPrice.new(item_price_params)
     
     if @item_price.save
       redirect_to item_path(@item_price.item), notice: "A new price was added."
